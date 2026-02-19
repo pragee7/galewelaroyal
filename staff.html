@@ -6,53 +6,127 @@
     <title>ආචාර්ය මණ්ඩලය | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --royal-blue: #002147; --gold: #D4AF37; --white: #ffffff; }
+        /* මචං මෙතනින් තමයි අලුත් පාටවල් සහ Design එක පාලනය වෙන්නේ */
+        :root { 
+            --royal-blue: #002349; 
+            --deep-blue: #00152e;
+            --gold: #c5a028; 
+            --soft-gold: #f4e8c1;
+            --white: #ffffff; 
+            --light-bg: #f0f2f5;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f8f9fa; color: #333; }
+        
+        body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
 
         /* Header & Nav */
-        header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
-        .logo { height: 60px; margin-right: 20px; }
-        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.5rem; }
-        nav { background: var(--royal-blue); padding: 10px 50px; }
-        nav a { color: white; text-decoration: none; font-size: 0.9rem; }
+        header { 
+            background: var(--white); 
+            padding: 15px 50px; 
+            display: flex; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+        .logo { height: 70px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; font-weight: 700; }
 
-        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; text-align: center; }
-        .section-title { margin-bottom: 40px; }
-        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
-        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
+        nav { background: var(--royal-blue); padding: 12px 50px; text-align: left; }
+        nav a { 
+            color: var(--soft-gold); 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--white); }
 
-        /* Principal Card */
-        .principal-section { display: flex; justify-content: center; margin-bottom: 50px; }
+        /* Main Container */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center; }
         
+        .section-title { margin-bottom: 50px; }
+        .section-title h2 { 
+            font-family: 'Abhaya Libre', serif; 
+            font-size: 2.8rem; 
+            color: var(--royal-blue); 
+            margin-bottom: 5px;
+        }
+        .section-title hr { width: 100px; height: 5px; background: var(--gold); border: none; margin: 10px auto; border-radius: 5px; }
+
+        /* Principal Card - Special Styling */
+        .principal-section { display: flex; justify-content: center; margin-bottom: 60px; }
+        .principal-card { 
+            border-top: 5px solid var(--gold) !important; 
+            transform: scale(1.05); /* විදුහල්පති කාඩ් එක පොඩ්ඩක් ලොකුවට */
+        }
+
         /* General Staff Card Styling */
         .staff-card { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-            border-bottom: 4px solid var(--gold); 
-            transition: 0.3s; 
-            width: 100%; 
-            max-width: 280px;
+            background: var(--white); 
+            padding: 15px; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.4s ease; 
+            width: 100%;
+            overflow: hidden;
         }
-        .staff-card:hover { transform: translateY(-10px); }
-        .staff-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; background: #ddd; }
-        .staff-card h3 { color: var(--royal-blue); font-size: 1.1rem; margin-bottom: 5px; }
-        .staff-card p { color: #666; font-size: 0.85rem; font-weight: 500; }
+        
+        .staff-card:hover { 
+            transform: translateY(-15px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-bottom: 4px solid var(--royal-blue);
+        }
+
+        .staff-card img { 
+            width: 100%; 
+            height: 280px; 
+            object-fit: cover; 
+            border-radius: 15px; 
+            margin-bottom: 15px; 
+            background: #e0e0e0;
+            transition: 0.4s;
+        }
+        
+        .staff-card:hover img { transform: scale(1.02); }
+
+        .staff-card h3 { color: var(--royal-blue); font-size: 1.2rem; margin-bottom: 8px; font-weight: 600; }
+        .staff-card p { 
+            color: var(--gold); 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         /* Teachers Grid */
         .teachers-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 30px; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 40px; 
             justify-items: center; 
+            padding: 20px 0;
         }
 
-        .back-btn { display: inline-block; margin-top: 40px; padding: 12px 30px; background: var(--royal-blue); color: white; text-decoration: none; border-radius: 5px; transition: 0.3s; }
-        .back-btn:hover { background: #003366; }
+        /* Buttons */
+        .back-btn { 
+            display: inline-block; 
+            margin-top: 50px; 
+            padding: 15px 40px; 
+            background: linear-gradient(135deg, var(--royal-blue), var(--deep-blue));
+            color: var(--white); 
+            text-decoration: none; 
+            border-radius: 30px; 
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,35,73,0.3);
+            transition: 0.3s; 
+        }
+        .back-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,35,73,0.4); }
         
-        footer { background: #00152e; color: #ccc; padding: 20px; text-align: center; margin-top: 50px; }
+        footer { background: var(--deep-blue); color: #cbd5e0; padding: 30px; text-align: center; margin-top: 60px; font-size: 0.9rem; }
+        footer p { opacity: 0.8; }
     </style>
 </head>
 <body>
@@ -62,7 +136,7 @@
     <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
 </header>
 
-<nav><a href="index.html">🏠 මුල් පිටුවට</a></nav>
+<nav><a href="index.html">🏠 මුල් පිටුවට පිවිසෙන්න</a></nav>
 
 <div class="container">
     <div class="section-title">
@@ -71,7 +145,7 @@
     </div>
 
     <div class="principal-section">
-        <div class="staff-card">
+        <div class="staff-card principal-card">
             <img src="principal.jpg" alt="Principal">
             <h3>A.M.I.P. Abeykoon</h3>
             <p>Principal</p>
@@ -115,7 +189,9 @@
     <a href="index.html" class="back-btn">නැවත මුල් පිටුවට</a>
 </div>
 
-<footer><p>&copy; 2026 Galewela Royal College</p></footer>
+<footer>
+    <p>&copy; 2026 Galewela Royal College. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
