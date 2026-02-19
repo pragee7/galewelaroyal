@@ -17,144 +17,33 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--light-bg); color: #333; }
 
-        /* Header Area */
-        header {
-            background: white;
-            padding: 20px 50px;
-            display: flex;
-            align-items: center;
-            border-bottom: 4px solid var(--royal-blue);
-        }
+        /* Header & Nav Styles */
+        header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
         .logo { height: 70px; margin-right: 20px; }
         .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
 
-        /* Navigation Bar */
-        nav {
-            background: var(--royal-blue);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            padding: 0 50px;
-            display: flex;
-            justify-content: center;
-        }
+        nav { background: var(--royal-blue); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 0 50px; display: flex; justify-content: center; }
         nav ul { list-style: none; display: flex; }
-        nav ul li { position: relative; }
-        nav ul li a {
-            display: block;
-            padding: 18px 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: 0.3s;
-        }
+        nav ul li a { display: block; padding: 18px 20px; color: white; text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
         nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
 
-        /* Dropdown Support */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--white);
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 100;
-            border-radius: 0 0 10px 10px;
-            border-top: 3px solid var(--gold);
-        }
-        .dropdown-content a {
-            color: var(--royal-blue) !important;
-            padding: 12px 16px !important;
-            border-bottom: 1px solid #eee;
-            display: block;
-        }
-        nav ul li:hover .dropdown-content { display: block; }
-
-        /* LMS Styles */
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; min-height: 60vh; }
+        /* LMS Container Styles */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; min-height: 60vh; }
         .lms-header { text-align: center; margin-bottom: 40px; }
         .lms-header h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
-        .lms-header p { color: #666; font-size: 1.1rem; }
 
-        .grade-selector {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-        .grade-btn {
-            padding: 12px 25px;
-            background: white;
-            border: 2px solid var(--royal-blue);
-            color: var(--royal-blue);
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .grade-btn.active, .grade-btn:hover {
-            background: var(--royal-blue);
-            color: white;
-        }
+        .grade-selector { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .grade-btn { padding: 12px 25px; background: white; border: 2px solid var(--royal-blue); color: var(--royal-blue); border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+        .grade-btn.active, .grade-btn:hover { background: var(--royal-blue); color: white; }
 
-        .subject-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
+        .subject-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); display: none; animation: fadeIn 0.5s ease; }
         .subject-card.active { display: block; }
+        .subject-title { color: var(--royal-blue); border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        iframe { width: 100%; height: 700px; border: none; border-radius: 10px; }
 
-        .subject-title {
-            color: var(--royal-blue);
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .lesson-list { list-style: none; }
-        .lesson-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .lesson-item:last-child { border-bottom: none; }
-
-        .btn-group { display: flex; gap: 10px; }
-        .btn-sm {
-            padding: 6px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        .btn-pdf { background: #e74c3c; color: white; }
-        .btn-video { background: #2ecc71; color: white; }
-
-        footer {
-            background: var(--deep-blue);
-            color: #ccc;
-            padding: 40px;
-            text-align: center;
-            margin-top: 60px;
-            border-top: 4px solid var(--gold);
-        }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column; padding: 20px; text-align: center; }
-            .lesson-item { flex-direction: column; align-items: flex-start; gap: 10px; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        footer { background: var(--deep-blue); color: #ccc; padding: 40px; text-align: center; margin-top: 60px; border-top: 4px solid var(--gold); }
     </style>
 </head>
 <body>
@@ -167,23 +56,6 @@
 <nav>
     <ul>
         <li><a href="index.html">මුල් පිටුව</a></li>
-        <li>
-            <a href="#">අප ගැන ▾</a>
-            <div class="dropdown-content">
-                <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
-                <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
-                <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
-                 <a href="staff.html">ශිෂ්‍ය තොරතුරු</a>
-            </div>
-        </li>
-        <li>
-            <a href="#">අධ්‍යයන අංශ ▾</a>
-            <div class="dropdown-content">
-                <a href="primary.html">ප්‍රාථමික අංශය</a>
-                <a href="lib.html">පුස්තකාල අංශය</a>
-                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
-            </div>
-        </li>
         <li><a href="lms.html">LMS</a></li>
         <li><a href="gallery.html">ඡායාරූප</a></li>
         <li><a href="contact.html">සම්බන්ධතා</a></li>
@@ -205,33 +77,28 @@
     </div>
 
     <div id="g1" class="subject-card active">
-        <h3 class="subject-title">1 ශ්‍රේණිය - පරිසරය</h3>
-        <ul class="lesson-list">
-            <li class="lesson-item">
-                <span>1. ජීවී ලෝකය</span>
-                <div class="btn-group">
-                    <a href="#" class="btn-sm btn-pdf">PDF සටහන</a>
-                    <a href="#" class="btn-sm btn-video">වීඩියෝව</a>
-                </div>
-            </li>
-        </ul>
+        <h3 class="subject-title">1 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
+        <iframe src="මෙතනට_GOOGLE_SITE_GRADE_1_LINK"></iframe>
     </div>
 
     <div id="g2" class="subject-card">
-        <h3 class="subject-title">2 ශ්‍රේණිය - ගණිතය</h3>
-        <ul class="lesson-list">
-            <li class="lesson-item">
-                <span>1. මූල්‍ය ගණිතය</span>
-                <div class="btn-group">
-                    <a href="#" class="btn-sm btn-pdf">PDF සටහන</a>
-                    <a href="#" class="btn-sm btn-video">වීඩියෝව</a>
-                </div>
-            </li>
-        </ul>
+        <h3 class="subject-title">2 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
+        <iframe src="මෙතනට_GOOGLE_SITE_GRADE_2_LINK"></iframe>
     </div>
 
-    <div style="text-align: center; margin-top: 40px; color: #999;">
-        <p>අනෙක් පාඩම් ඉදිරියේදී ඇතුළත් කරනු ලැබේ...</p>
+    <div id="g3" class="subject-card">
+        <h3 class="subject-title">3 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
+        <iframe src="මෙතනට_GOOGLE_SITE_GRADE_3_LINK"></iframe>
+    </div>
+
+    <div id="g4" class="subject-card">
+        <h3 class="subject-title">4 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
+        <iframe src="මෙතනට_GOOGLE_SITE_GRADE_4_LINK"></iframe>
+    </div>
+
+    <div id="g5" class="subject-card">
+        <h3 class="subject-title">5 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
+        <iframe src="මෙතනට_GOOGLE_SITE_GRADE_5_LINK"></iframe>
     </div>
 </div>
 
@@ -242,19 +109,12 @@
 <script>
     function showGrade(gradeId, event) {
         var cards = document.getElementsByClassName('subject-card');
-        for (var i = 0; i < cards.length; i++) {
-            cards[i].classList.remove('active');
-        }
+        for (var i = 0; i < cards.length; i++) { cards[i].classList.remove('active'); }
 
         var btns = document.getElementsByClassName('grade-btn');
-        for (var i = 0; i < btns.length; i++) {
-            btns[i].classList.remove('active');
-        }
+        for (var i = 0; i < btns.length; i++) { btns[i].classList.remove('active'); }
 
-        var targetCard = document.getElementById(gradeId);
-        if(targetCard) {
-            targetCard.classList.add('active');
-        }
+        document.getElementById(gradeId).classList.add('active');
         event.currentTarget.classList.add('active');
     }
 </script>
