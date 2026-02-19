@@ -6,44 +6,36 @@
     <title>Galewela Royal College | නිල වෙබ් අඩවිය</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --royal-blue: #002147; --gold: #FFD700; --white: #ffffff; --bg-light: #f8f9fa; }
+        :root { --royal-blue: #002147; --gold: #FFD700; --white: #ffffff; --bg-light: #f4f7f6; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--bg-light); scroll-behavior: smooth; }
+        body { background-color: var(--bg-light); scroll-behavior: smooth; color: #333; }
 
-        /* Header & Navigation */
-        header { background: var(--white); padding: 25px; text-align: center; border-bottom: 5px solid var(--royal-blue); }
-        .logo { height: 120px; transition: 0.3s; }
-        .logo:hover { transform: scale(1.05); }
+        header { background: var(--white); padding: 30px; text-align: center; border-bottom: 5px solid var(--royal-blue); }
+        .logo { height: 120px; margin-bottom: 10px; }
         
-        nav { background: var(--royal-blue); position: sticky; top: 0; z-index: 1000; text-align: center; padding: 5px 0; }
-        nav a { color: white; text-decoration: none; padding: 12px 18px; display: inline-block; font-weight: 500; font-size: 0.9rem; }
-        nav a:hover { background: var(--gold); color: var(--royal-blue); border-radius: 5px; }
+        nav { background: var(--royal-blue); position: sticky; top: 0; z-index: 1000; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        nav a { color: white; text-decoration: none; padding: 15px 20px; display: inline-block; font-weight: 500; }
+        nav a:hover { background: var(--gold); color: var(--royal-blue); }
 
-        .container { max-width: 1200px; margin: auto; padding: 30px 20px; }
-        section { background: var(--white); padding: 35px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        h2 { color: var(--royal-blue); border-left: 5px solid var(--gold); padding-left: 15px; margin-bottom: 25px; font-family: 'Abhaya Libre', serif; }
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        section { background: var(--white); padding: 40px; border-radius: 15px; margin-bottom: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); overflow: hidden; }
+        
+        h2 { color: var(--royal-blue); border-left: 6px solid var(--gold); padding-left: 15px; margin-bottom: 25px; font-family: 'Abhaya Libre', serif; }
 
-        /* News Section */
-        .news-ticker { background: #e00000; color: white; padding: 10px; font-size: 0.9rem; margin-bottom: 20px; border-radius: 5px; }
+        .image-box { width: 100%; height: 300px; background: #eee; border-radius: 10px; margin-bottom: 20px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc; }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Subjects/Grades Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { padding: 20px; border-radius: 10px; border: 1px solid #eee; text-align: center; background: #fff; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-        .card h3 { color: var(--royal-blue); margin-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #eee; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; display: block; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-color: var(--gold); }
+        .card img { width: 100%; height: 150px; border-radius: 8px; object-fit: cover; margin-bottom: 15px; }
 
-        /* Gallery Grid */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .gallery-grid img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: 0.3s; }
-        .gallery-grid img:hover { opacity: 0.8; transform: translateY(-3px); }
+        .detail-section { display: none; margin-top: 20px; padding: 30px; border-radius: 12px; background: #fff; border: 2px solid var(--royal-blue); animation: fadeIn 0.5s; }
+        .detail-section:target { display: block; }
 
-        /* Anthem */
-        .anthem-box { background: var(--royal-blue); color: white; text-align: center; padding: 40px; border-radius: 15px; }
-        .anthem-text { font-family: 'Abhaya Libre', serif; font-size: 1.1rem; line-height: 2.2; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .footer { background: var(--royal-blue); color: white; text-align: center; padding: 30px; margin-top: 50px; }
-
-        @media (max-width: 768px) { nav a { padding: 10px; font-size: 0.8rem; } }
+        .footer { background: var(--royal-blue); color: white; text-align: center; padding: 40px; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -51,74 +43,103 @@
 <header>
     <img src="logo.png" alt="School Logo" class="logo">
     <h1>ගලේවෙල රාජකීය විද්‍යාලය</h1>
-    <p style="color: #666; letter-spacing: 2px;">KNOWLEDGE IS POWER</p>
+    <p>KNOWLEDGE IS POWER</p>
 </header>
 
 <nav>
-    <a href="#about">විස්තර</a>
-    <a href="#news">පුවත්</a>
-    <a href="#subjects">අංශ</a>
-    <a href="#gallery">ඡායාරූප</a>
-    <a href="#anthem">ගීතය</a>
+    <a href="#about">දැක්ම/මෙහෙවර</a>
+    <a href="#sections">අධ්‍යාපන අංශ</a>
     <a href="#contact">සම්බන්ධතා</a>
 </nav>
 
 <div class="container">
-    
-    <div class="news-ticker" id="news">
-        <marquee>📢 2026 නව වසර සඳහා සිසුන් ඇතුළත් කර ගැනීම දැන් සිදු කෙරේ! | 🏆 නිවාසාන්තර ක්‍රීඩා උත්සවය ලබන මස පැවැත්වේ.</marquee>
-    </div>
 
     <section id="about">
-        <h2>දැක්ම සහ මෙහෙවර</h2>
+        <h2>අපේ දැක්ම සහ මෙහෙවර</h2>
         <div class="grid">
-            <div class="card"><h3>දැක්ම</h3><p>"පිරිපුන් දරු පරපුරක් දැයට දායාද කිරීම."</p></div>
-            <div class="card"><h3>මෙහෙවර</h3><p>"ගුණාත්මක අධ්‍යාපනයක් මගින් කුසලතා පූර්ණ සිසුන් බිහිකිරීම."</p></div>
-        </div>
-    </section>
-
-    <section id="subjects">
-        <h2>අධ්‍යාපනික අංශ</h2>
-        <div class="grid">
-            <div class="card"><h3>ප්‍රාථමික අංශය</h3><p>1 වසර සිට 5 වසර දක්වා</p></div>
-            <div class="card"><h3>ද්විතීයික අංශය</h3><p>6 වසර සිට 11 වසර දක්වා</p></div>
-            <div class="card"><h3>උසස් පෙළ (A/L)</h3><p>කලා, වාණිජ සහ විද්‍යා අංශ</p></div>
-        </div>
-    </section>
-
-    <section id="gallery">
-        <h2>ඡායාරූප ගැලරිය</h2>
-        <div class="gallery-grid">
-            <img src="principal.jpg" alt="School Image">
-            <img src="logo.png" alt="School Image">
+            <div class="card">
+                <div class="image-box">
+                    <img src="vision.jpg" alt="Vision Image">
+                </div>
+                <h3>දැක්ම</h3>
+                <p>"පිරිපුන් දරු පරපුරක් දැයට දායාද කිරීම."</p>
             </div>
+            <div class="card">
+                <div class="image-box">
+                    <img src="mission.jpg" alt="Mission Image">
+                </div>
+                <h3>මෙහෙවර</h3>
+                <p>"ගුණාත්මක අධ්‍යාපනයක් මගින් කුසලතා පූර්ණ සිසුන් බිහිකිරීම."</p>
+            </div>
+        </div>
     </section>
 
-    <section id="anthem" class="anthem-box">
-        <h2 style="color: var(--gold); border: none; text-align: center;">විද්‍යාලයීය ගීතය</h2>
-        <div class="anthem-text">
-            රාජකීය විද්‍යාලයීය මෑණියනි...<br>
-            ඔබේ සෙවණේ නැණ ලැබ පෝෂිත වෙමු...<br>
-            ගලේවෙල පුරවර දිදුලන තරුවක් සේ...<br>
-            අප සැම ඔබ නාමය පතුරවමු...
+    <section id="sections">
+        <h2>විද්‍යාලයීය අධ්‍යාපන අංශ</h2>
+        <div class="grid">
+            <a href="#primary" class="card">
+                <img src="primary_main.jpg" alt="Primary">
+                <h3>ප්‍රාථමික අංශය</h3>
+                <p>1 වසර සිට 5 වසර දක්වා</p>
+                <small style="color: blue;">විස්තර බලන්න ක්ලික් කරන්න</small>
+            </a>
+            <a href="#secondary" class="card">
+                <img src="secondary_main.jpg" alt="Secondary">
+                <h3>ද්විතීයික අංශය</h3>
+                <p>6 වසර සිට 11 වසර දක්වා</p>
+                <small style="color: blue;">විස්තර බලන්න ක්ලික් කරන්න</small>
+            </a>
+            <a href="#advanced" class="card">
+                <img src="al_main.jpg" alt="AL">
+                <h3>උසස් පෙළ අංශය</h3>
+                <p>කලා, වාණිජ, විද්‍යා අංශ</p>
+                <small style="color: blue;">විස්තර බලන්න ක්ලික් කරන්න</small>
+            </a>
+        </div>
+
+        <div id="primary" class="detail-section">
+            <img src="primary_detail.jpg" style="width:100%; border-radius:10px; margin-bottom:15px;">
+            <h3>ප්‍රාථමික අංශය (1-5 ශ්‍රේණි)</h3>
+            <p>දරුවන්ගේ මූලික අධ්‍යාපනය සහ කුසලතා සංවර්ධනය සඳහා කැපවූ අංශයයි.</p>
+            <br>
+            <a href="#sections" style="color:red;">Back to Top ↑</a>
+        </div>
+
+        <div id="secondary" class="detail-section">
+            <img src="secondary_detail.jpg" style="width:100%; border-radius:10px; margin-bottom:15px;">
+            <h3>ද්විතීයික අංශය (6-11 ශ්‍රේණි)</h3>
+            <p>සාමාන්‍ය පෙළ විභාගය ඉලක්ක කර ගනිමින් විෂය බාහිර ක්‍රියාකාරකම් ද සහිතව අධ්‍යාපනය ලබාදේ.</p>
+            <br>
+            <a href="#sections" style="color:red;">Back to Top ↑</a>
+        </div>
+
+        <div id="advanced" class="detail-section">
+            <img src="al_detail.jpg" style="width:100%; border-radius:10px; margin-bottom:15px;">
+            <h3>උසස් පෙළ අංශය</h3>
+            <p>විද්‍යා, වාණිජ සහ කලා යන සියලුම අංශ යටතේ සිසුන් විශ්වවිද්‍යාල සඳහා මෙහෙයවනු ලබයි.</p>
+            <br>
+            <a href="#sections" style="color:red;">Back to Top ↑</a>
         </div>
     </section>
 
     <section id="contact">
         <h2>සම්බන්ධ කර ගැනීමට</h2>
-        <div class="grid" style="text-align: left;">
-            <div>
-                <p>📍 ලිපිනය: රාජකීය විද්‍යාලය, ගලේවෙල.</p>
+        <div class="grid">
+            <div style="text-align: left;">
+                <p>📍 ලිපිනය: ගලේවෙල රාජකීය විද්‍යාලය, ගලේවෙල.</p>
                 <p>📞 දුරකථන: 066 - 2289233</p>
-                <p>📧 Email: info@galewelaroayl.sch.lk</p>
+                <p>📧 විද්‍යුත් තැපෑල: info@galewelaroyal.sch.lk</p>
             </div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.588828551478!2d80.5796!3d7.7592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDUnMzMuMSJOIDgwwrAzNCc0Ni42IkU!5e0!3m2!1sen!2slk!4v1620000000000" width="100%" height="200" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="image-box">
+                <img src="school_front.jpg" alt="School Front">
+            </div>
         </div>
     </section>
+
 </div>
 
 <div class="footer">
-    <p>© 2026 Galewela Royal College | IT Unit</p>
+    <p>© 2026 Galewela Royal College | Design by Gemini</p>
 </div>
 
 </body>
