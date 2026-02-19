@@ -84,9 +84,10 @@
         .dropdown-content a:hover { background-color: #f1f1f1; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Hero Section - FIXED PATH */
+        /* Hero Section */
         .hero {
             height: 450px;
+            /* Banner පින්තූරය මෙතනින් නිවැරදි කළා */
             background: linear-gradient(rgba(0,33,71,0.5), rgba(0,33,71,0.5)), url('./images/school_front.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -153,13 +154,14 @@
             display: flex; align-items: center; gap: 10px; font-weight: 600;
         }
 
-        /* Mobile */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .top-bar { display: none; }
             header { flex-direction: column; padding: 15px; }
             nav ul { flex-wrap: wrap; }
             nav ul li a { padding: 10px; font-size: 0.8rem; }
             .hero-text h2 { font-size: 2rem; }
+            .hero { height: 300px; }
         }
     </style>
 </head>
@@ -285,8 +287,15 @@
     var icon = document.getElementById("musicIcon");
     var text = document.getElementById("musicText");
     function toggleMusic() {
-        if (audio.paused) { audio.play(); icon.innerHTML = "⏸️"; text.innerHTML = "නවත්වන්න"; }
-        else { audio.pause(); icon.innerHTML = "🎵"; text.innerHTML = "පාසල් ගීතය"; }
+        if (audio.paused) { 
+            audio.play(); 
+            icon.innerHTML = "⏸️"; 
+            text.innerHTML = "නවත්වන්න"; 
+        } else { 
+            audio.pause(); 
+            icon.innerHTML = "🎵"; 
+            text.innerHTML = "පාසල් ගීතය"; 
+        }
     }
 </script>
 </body>
