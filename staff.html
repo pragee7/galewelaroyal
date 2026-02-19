@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ආචාර්ය මණ්ඩලය | Galewela Royal College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --royal-blue: #002147; --gold: #D4AF37; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f8f9fa; color: #333; }
 
+        /* Header & Nav */
+        header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
+        .logo { height: 60px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.5rem; }
+        nav { background: var(--royal-blue); padding: 10px 50px; }
+        nav a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; text-align: center; }
+        .section-title { margin-bottom: 40px; }
+        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
+        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
+
+        /* Principal Card */
+        .principal-section { display: flex; justify-content: center; margin-bottom: 50px; }
+        .staff-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-bottom: 4px solid var(--gold); transition: 0.3s; width: 280px; }
+        .staff-card:hover { transform: translateY(-10px); }
+        .staff-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; background: #ddd; }
+        .staff-card h3 { color: var(--royal-blue); font-size: 1.2rem; }
+        .staff-card p { color: #666; font-size: 0.9rem; margin-top: 5px; }
+
+        /* Teachers Grid */
+        .teachers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; justify-items: center; }
+
+        .back-btn { display: inline-block; margin-top: 40px; padding: 10px 30px; background: var(--royal-blue); color: white; text-decoration: none; border-radius: 5px; }
+        footer { background: #00152e; color: #ccc; padding: 20px; text-align: center; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
+</header>
+
+<nav><a href="index.html">🏠 මුල් පිටුවට</a></nav>
+
+<div class="container">
+    <div class="section-title">
+        <h2>ආචාර්ය මණ්ඩලය</h2>
+        <hr>
+    </div>
+
+    <div class="principal-section">
+        <div class="staff-card">
+            <img src="principal.jpg" alt="Principal">
+            <h3>විදුහල්පතිතුමා</h3>
+            <p>ගරු විදුහල්පතිතුමා</p>
+        </div>
+    </div>
+
+    <div class="teachers-grid">
+        <div class="staff-card">
+            <img src="teacher1.jpg" alt="Teacher 1">
+            <h3>ගුරු මහතා/මහත්මිය</h3>
+            <p>සහකාර විදුහල්පති</p>
+        </div>
+
+        <div class="staff-card">
+            <img src="teacher2.jpg" alt="Teacher 2">
+            <h3>ගුරු මහතා/මහත්මිය</h3>
+            <p>අංශ භාර ගුරුතුමා</p>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">නැවත මුල් පිටුවට</a>
+</div>
+
+<footer><p>&copy; 2026 Galewela Royal College</p></footer>
+
+</body>
+</html>
