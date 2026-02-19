@@ -3,47 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMS - ඉගෙනුම් කළමනාකරණ පද්ධතිය | Galewela Royal College</title>
+    <title>LMS - Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --royal-blue: #002147;
-            --deep-blue: #00152e;
-            --gold: #D4AF37;
-            --white: #ffffff;
-            --light-bg: #f4f7f9;
-        }
-
+        :root { --royal-blue: #002147; --gold: #D4AF37; --white: #ffffff; --light-bg: #f4f7f9; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--light-bg); color: #333; }
+        body { background-color: var(--light-bg); }
 
-        /* Header & Nav Styles */
         header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
         .logo { height: 70px; margin-right: 20px; }
-        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; }
 
-        nav { background: var(--royal-blue); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); padding: 0 50px; display: flex; justify-content: center; }
-        nav ul { list-style: none; display: flex; }
-        nav ul li a { display: block; padding: 18px 20px; color: white; text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
-        nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .lms-header h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); margin-bottom: 10px; }
+        
+        /* Grade Card Styles */
+        .grade-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .grade-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-top: 5px solid var(--gold); transition: 0.3s; }
+        .grade-card:hover { transform: translateY(-5px); }
+        .grade-card h3 { color: var(--royal-blue); margin-bottom: 15px; font-size: 1.5rem; }
+        
+        .visit-btn { 
+            display: inline-block; padding: 10px 25px; background: var(--royal-blue); color: white; 
+            text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s;
+        }
+        .visit-btn:hover { background: var(--gold); color: var(--royal-blue); }
 
-        /* LMS Container Styles */
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; min-height: 60vh; }
-        .lms-header { text-align: center; margin-bottom: 40px; }
-        .lms-header h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
-
-        .grade-selector { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
-        .grade-btn { padding: 12px 25px; background: white; border: 2px solid var(--royal-blue); color: var(--royal-blue); border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s; }
-        .grade-btn.active, .grade-btn:hover { background: var(--royal-blue); color: white; }
-
-        .subject-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); display: none; animation: fadeIn 0.5s ease; }
-        .subject-card.active { display: block; }
-        .subject-title { color: var(--royal-blue); border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; }
-
-        iframe { width: 100%; height: 700px; border: none; border-radius: 10px; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        footer { background: var(--deep-blue); color: #ccc; padding: 40px; text-align: center; margin-top: 60px; border-top: 4px solid var(--gold); }
+        footer { background: var(--royal-blue); color: white; padding: 30px; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -53,71 +39,48 @@
     <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="index.html">මුල් පිටුව</a></li>
-        <li><a href="lms.html">LMS</a></li>
-        <li><a href="gallery.html">ඡායාරූප</a></li>
-        <li><a href="contact.html">සම්බන්ධතා</a></li>
-    </ul>
-</nav>
-
 <div class="container">
     <div class="lms-header">
-        <h2>ඉගෙනුම් මධ්‍යස්ථානය (LMS)</h2>
-        <p>ඔබේ ශ්‍රේණිය තෝරා ඉගෙනුම් ද්‍රව්‍ය ලබාගන්න</p>
+        <h2>ප්‍රාථමික අංශය LMS</h2>
+        <p>අදාළ ශ්‍රේණිය තෝරා ඉගෙනුම් ද්‍රව්‍ය ලබාගන්න</p>
     </div>
 
-    <div class="grade-selector">
-        <div class="grade-btn active" onclick="showGrade('g1', event)">1 ශ්‍රේණිය</div>
-        <div class="grade-btn" onclick="showGrade('g2', event)">2 ශ්‍රේණිය</div>
-        <div class="grade-btn" onclick="showGrade('g3', event)">3 ශ්‍රේණිය</div>
-        <div class="grade-btn" onclick="showGrade('g4', event)">4 ශ්‍රේණිය</div>
-        <div class="grade-btn" onclick="showGrade('g5', event)">5 ශ්‍රේණිය</div>
-    </div>
+    <div class="grade-grid">
+        <div class="grade-card">
+            <h3>1 ශ්‍රේණිය</h3>
+            <p style="margin-bottom: 15px;">පෙළපොත් සහ වීඩියෝ පාඩම්</p>
+            <a href="මෙතනට_GRADE_1_GOOGLE_SITE_LINK" class="visit-btn" target="_blank">පිවිසෙන්න</a>
+        </div>
 
-    <div id="g1" class="subject-card active">
-        <h3 class="subject-title">1 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
-        <iframe src="https://sites.google.com/view/royal-college-01/1-%E0%B7%81%E0%B6%BB%E0%B6%AB%E0%B6%BA"></iframe>
-    </div>
+        <div class="grade-card">
+            <h3>2 ශ්‍රේණිය</h3>
+            <p style="margin-bottom: 15px;">පෙළපොත් සහ වීඩියෝ පාඩම්</p>
+            <a href="මෙතනට_GRADE_2_GOOGLE_SITE_LINK" class="visit-btn" target="_blank">පිවිසෙන්න</a>
+        </div>
 
-    <div id="g2" class="subject-card">
-        <h3 class="subject-title">2 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
-        <iframe src="මෙතනට_GOOGLE_SITE_GRADE_2_LINK"></iframe>
-    </div>
+        <div class="grade-card">
+            <h3>3 ශ්‍රේණිය</h3>
+            <p style="margin-bottom: 15px;">පෙළපොත් සහ වීඩියෝ පාඩම්</p>
+            <a href="මෙතනට_GRADE_3_GOOGLE_SITE_LINK" class="visit-btn" target="_blank">පිවිසෙන්න</a>
+        </div>
 
-    <div id="g3" class="subject-card">
-        <h3 class="subject-title">3 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
-        <iframe src="මෙතනට_GOOGLE_SITE_GRADE_3_LINK"></iframe>
-    </div>
+        <div class="grade-card">
+            <h3>4 ශ්‍රේණිය</h3>
+            <p style="margin-bottom: 15px;">පෙළපොත් සහ වීඩියෝ පාඩම්</p>
+            <a href="මෙතනට_GRADE_4_GOOGLE_SITE_LINK" class="visit-btn" target="_blank">පිවිසෙන්න</a>
+        </div>
 
-    <div id="g4" class="subject-card">
-        <h3 class="subject-title">4 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
-        <iframe src="මෙතනට_GOOGLE_SITE_GRADE_4_LINK"></iframe>
-    </div>
-
-    <div id="g5" class="subject-card">
-        <h3 class="subject-title">5 ශ්‍රේණිය - පෙළපොත් සහ පාඩම්</h3>
-        <iframe src="මෙතනට_GOOGLE_SITE_GRADE_5_LINK"></iframe>
+        <div class="grade-card">
+            <h3>5 ශ්‍රේණිය</h3>
+            <p style="margin-bottom: 15px;">පෙළපොත් සහ වීඩියෝ පාඩම්</p>
+            <a href="මෙතනට_GRADE_5_GOOGLE_SITE_LINK" class="visit-btn" target="_blank">පිවිසෙන්න</a>
+        </div>
     </div>
 </div>
 
 <footer>
     <p>&copy; 2026 Galewela Royal College | IT Unit</p>
 </footer>
-
-<script>
-    function showGrade(gradeId, event) {
-        var cards = document.getElementsByClassName('subject-card');
-        for (var i = 0; i < cards.length; i++) { cards[i].classList.remove('active'); }
-
-        var btns = document.getElementsByClassName('grade-btn');
-        for (var i = 0; i < btns.length; i++) { btns[i].classList.remove('active'); }
-
-        document.getElementById(gradeId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-</script>
 
 </body>
 </html>
