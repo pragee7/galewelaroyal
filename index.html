@@ -17,6 +17,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--light-bg); color: #333; }
 
+        /* News Ticker */
+        .news-ticker {
+            background: var(--gold);
+            color: var(--royal-blue);
+            padding: 8px 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
         /* Top Bar */
         .top-bar {
             background: var(--deep-blue);
@@ -84,7 +93,7 @@
         .dropdown-content a:hover { background-color: #f1f1f1; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Hero Section - fixed alignment */
+        /* Hero Section */
         .hero {
             height: 500px;
             background: linear-gradient(rgba(0,33,71,0.5), rgba(0,33,71,0.5)), url('school_front.jpg') center/cover no-repeat;
@@ -108,6 +117,22 @@
             font-size: 1.2rem;
             text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
+
+        /* Principal Section Layout */
+        .principal-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .principal-img { width: 280px; border-radius: 10px; border: 4px solid var(--gold); }
+        .p-text h2 { font-family: 'Abhaya Libre', serif; color: var(--royal-blue); margin-bottom: 10px; }
+        .p-text hr { width: 50px; height: 3px; background: var(--gold); border: none; margin-bottom: 15px; }
 
         /* Sections Styling */
         .section-title { text-align: center; margin: 50px 0 30px; }
@@ -169,17 +194,21 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .top-bar { display: none; }
+            .top-bar, .news-ticker { display: none; }
             header { flex-direction: column; padding: 15px; text-align: center; }
             .logo { margin-right: 0; margin-bottom: 10px; }
             nav ul { flex-wrap: wrap; }
             nav ul li a { padding: 10px; font-size: 0.8rem; }
-            .hero-text h2 { font-size: 2rem; }
-            .hero { height: 350px; }
+            .principal-section { flex-direction: column; text-align: center; padding: 20px; }
+            .principal-img { width: 200px; }
         }
     </style>
 </head>
 <body>
+
+<div class="news-ticker">
+    <marquee behavior="scroll" direction="left">📢 2026 අධ්‍යයන වර්ෂයේ නවක සිසුන් ඇතුළත් කරගැනීම දැන් ආරම්භ වී ඇත. | පළමු වාර විභාගය මාර්තු මස ආරම්භ වේ. | විද්‍යාලයීය ක්‍රීඩා උත්සවය සඳහා සූදානම් වන්න!</marquee>
+</div>
 
 <div class="top-bar">
     <span>📍 Galewela, Sri Lanka</span>
@@ -219,7 +248,7 @@
         <li><a href="facilities.html">පහසුකම්</a></li>
         <li><a href="gallery.html">ඡායාරූප</a></li>
         <li><a href="contact.html">සම්බන්ධතා</a></li>
-        <li><a href="lms.html">LMS ලොගින්</a></li>
+        <li><a href="lms.html" style="background: var(--gold); color: var(--royal-blue); border-radius: 5px; margin-left: 10px; font-weight: bold;">LMS ලොගින්</a></li>
     </ul>
 </nav>
 
@@ -227,6 +256,16 @@
     <div class="hero-text">
         <h2>නැණ ගුණ සපිරි දරු පරපුරක්...</h2>
         <p>දැනුමෙන් සන්නද්ධ පිරිපුන් පුරවැසියන් බිහිකරන මහගෙදර</p>
+    </div>
+</div>
+
+<div class="principal-section">
+    <img src="principal.jpg" alt="Principal" class="principal-img">
+    <div class="p-text">
+        <h2>විදුහල්පති පණිවිඩය</h2>
+        <hr>
+        <p>ගලේවෙල රාජකීය විද්‍යාලය දශක ගණනාවක් පුරා ශික්ෂිත, බුද්ධිමත් දරු පරපුරක් රටට දායාද කිරීමට කැපවී සිටී. තාක්ෂණය හා සාරධර්ම මුසු වූ ගුණාත්මක අධ්‍යාපනයක් අපගේ දරුවන්ට ලබාදීම අපගේ පරම අභිලාෂයයි.</p>
+        <p style="margin-top: 10px; font-weight: bold; color: var(--royal-blue);">- විදුහල්පතිතුමා</p>
     </div>
 </div>
 
