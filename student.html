@@ -6,72 +6,142 @@
     <title>ශිෂ්‍ය තොරතුරු | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-       /* Navigation Bar Styling */
-nav {
-    background: var(--royal-blue);
-    padding: 0 50px;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+        :root {
+            --royal-blue: #002147;
+            --deep-blue: #00152e;
+            --gold: #D4AF37;
+            --white: #ffffff;
+            --light-bg: #f4f7f9;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
 
-nav ul li {
-    position: relative;
-}
+        /* Header Area */
+        header {
+            background: white;
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            border-bottom: 4px solid var(--royal-blue);
+        }
+        .logo { height: 70px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
 
-nav ul li a {
-    display: block;
-    padding: 15px 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: 0.3s;
-}
+        /* Navigation Bar */
+        nav {
+            background: var(--royal-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 0 50px;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul { list-style: none; display: flex; }
+        nav ul li { position: relative; }
+        nav ul li a {
+            display: block;
+            padding: 18px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
 
-nav ul li a:hover {
-    background: rgba(255,255,255,0.1);
-    color: var(--gold);
-}
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 0 0 10px 10px;
+            border-top: 3px solid var(--gold);
+        }
+        .dropdown-content a {
+            color: var(--royal-blue) !important;
+            padding: 12px 16px !important;
+            border-bottom: 1px solid #eee;
+            display: block;
+        }
+        nav ul li:hover .dropdown-content { display: block; }
 
-/* Footer Styling */
-footer {
-    background: #00152e;
-    color: #ccc;
-    padding: 40px 20px;
-    text-align: center;
-    margin-top: 60px;
-    border-top: 4px solid var(--gold);
-}
+        /* Container & Grid Styles */
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.2rem; color: var(--royal-blue); }
+        .section-title hr { width: 60px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    text-align: left;
-}
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
 
-.footer-section h3 { color: var(--gold); margin-bottom: 15px; }
-.footer-section p { font-size: 0.9rem; line-height: 1.6; }
+        .class-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--royal-blue);
+            text-align: center;
+        }
+        .class-card h3 { color: var(--royal-blue); margin-bottom: 15px; font-size: 1.5rem; }
 
-/* Mobile Menu - ෆෝන් එකට ගැලපෙන්න */
-@media (max-width: 768px) {
-    nav { padding: 0 10px; }
-    nav ul { flex-wrap: wrap; justify-content: center; }
-    nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
-    header { flex-direction: column; text-align: center; padding: 20px; }
-    .logo { margin-bottom: 10px; margin-right: 0; }
-}
+        .stats-box {
+            display: flex;
+            justify-content: space-around;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .stat-label { font-size: 0.8rem; color: #777; }
+        .stat-value { font-weight: 600; font-size: 1.2rem; color: var(--royal-blue); }
+        .boys { color: #2196F3; }
+        .girls { color: #E91E63; }
+
+        .teacher-info { font-size: 0.9rem; color: #555; border-top: 1px solid #eee; padding-top: 10px; }
+
+        /* Banner */
+        .prefects-banner {
+            background: linear-gradient(rgba(0,33,71,0.9), rgba(0,33,71,0.9)), url('prefects_bg.jpg') center/cover;
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .btn-gold {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: var(--gold);
+            color: var(--deep-blue);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        footer {
+            background: var(--deep-blue);
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 4px solid var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; padding: 20px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav ul li a { padding: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -81,7 +151,31 @@ footer {
     <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
 </header>
 
-<nav><a href="index.html">🏠 මුල් පිටුවට</a></nav>
+<nav>
+    <ul>
+        <li><a href="index.html">මුල් පිටුව</a></li>
+        <li>
+            <a href="#">අප ගැන ▾</a>
+            <div class="dropdown-content">
+                <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
+                <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
+                <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
+                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
+            </div>
+        </li>
+        <li>
+            <a href="#">අධ්‍යයන අංශ ▾</a>
+            <div class="dropdown-content">
+                <a href="primary.html">ප්‍රාථමික අංශය</a>
+                <a href="lib.html">පුස්තකාල අංශය</a>
+                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
+            </div>
+        </li>
+        <li><a href="facilities.html">පහසුකම්</a></li>
+        <li><a href="gallery.html">ඡායාරූප</a></li>
+        <li><a href="contact.html">සම්බන්ධතා</a></li>
+    </ul>
+</nav>
 
 <div class="container">
     <div class="section-title">
@@ -90,22 +184,12 @@ footer {
     </div>
 
     <div class="classes-grid">
-        
         <div class="class-card">
             <h3>6 ශ්‍රේණිය</h3>
             <div class="stats-box">
-                <div class="stat-item">
-                    <p class="stat-label">පිරිමි</p>
-                    <p class="stat-value boys">95</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">ගැහැණු</p>
-                    <p class="stat-value girls">85</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">එකතුව</p>
-                    <p class="stat-value">180</p>
-                </div>
+                <div class="stat-item"><p class="stat-label">පිරිමි</p><p class="stat-value boys">95</p></div>
+                <div class="stat-item"><p class="stat-label">ගැහැණු</p><p class="stat-value girls">85</p></div>
+                <div class="stat-item"><p class="stat-label">එකතුව</p><p class="stat-value">180</p></div>
             </div>
             <p class="teacher-info">අංශ භාර ගුරු: ඒ. පෙරේරා මිය</p>
         </div>
@@ -113,18 +197,9 @@ footer {
         <div class="class-card">
             <h3>7 ශ්‍රේණිය</h3>
             <div class="stats-box">
-                <div class="stat-item">
-                    <p class="stat-label">පිරිමි</p>
-                    <p class="stat-value boys">88</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">ගැහැණු</p>
-                    <p class="stat-value girls">87</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">එකතුව</p>
-                    <p class="stat-value">175</p>
-                </div>
+                <div class="stat-item"><p class="stat-label">පිරිමි</p><p class="stat-value boys">88</p></div>
+                <div class="stat-item"><p class="stat-label">ගැහැණු</p><p class="stat-value girls">87</p></div>
+                <div class="stat-item"><p class="stat-label">එකතුව</p><p class="stat-value">175</p></div>
             </div>
             <p class="teacher-info">අංශ භාර ගුරු: බී. සිල්වා මහතා</p>
         </div>
@@ -132,18 +207,9 @@ footer {
         <div class="class-card">
             <h3>8 ශ්‍රේණිය</h3>
             <div class="stats-box">
-                <div class="stat-item">
-                    <p class="stat-label">පිරිමි</p>
-                    <p class="stat-value boys">100</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">ගැහැණු</p>
-                    <p class="stat-value girls">90</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">එකතුව</p>
-                    <p class="stat-value">190</p>
-                </div>
+                <div class="stat-item"><p class="stat-label">පිරිමි</p><p class="stat-value boys">100</p></div>
+                <div class="stat-item"><p class="stat-label">ගැහැණු</p><p class="stat-value girls">90</p></div>
+                <div class="stat-item"><p class="stat-label">එකතුව</p><p class="stat-value">190</p></div>
             </div>
             <p class="teacher-info">අංශ භාර ගුරු: සී. කුමාරි මිය</p>
         </div>
@@ -151,18 +217,9 @@ footer {
         <div class="class-card">
             <h3>9 ශ්‍රේණිය</h3>
             <div class="stats-box">
-                <div class="stat-item">
-                    <p class="stat-label">පිරිමි</p>
-                    <p class="stat-value boys">80</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">ගැහැණු</p>
-                    <p class="stat-value girls">85</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">එකතුව</p>
-                    <p class="stat-value">165</p>
-                </div>
+                <div class="stat-item"><p class="stat-label">පිරිමි</p><p class="stat-value boys">80</p></div>
+                <div class="stat-item"><p class="stat-label">ගැහැණු</p><p class="stat-value girls">85</p></div>
+                <div class="stat-item"><p class="stat-label">එකතුව</p><p class="stat-value">165</p></div>
             </div>
             <p class="teacher-info">අංශ භාර ගුරු: ඩී. ගමගේ මහතා</p>
         </div>
@@ -170,22 +227,12 @@ footer {
         <div class="class-card">
             <h3>10 ශ්‍රේණිය</h3>
             <div class="stats-box">
-                <div class="stat-item">
-                    <p class="stat-label">පිරිමි</p>
-                    <p class="stat-value boys">105</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">ගැහැණු</p>
-                    <p class="stat-value girls">95</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-label">එකතුව</p>
-                    <p class="stat-value">200</p>
-                </div>
+                <div class="stat-item"><p class="stat-label">පිරිමි</p><p class="stat-value boys">105</p></div>
+                <div class="stat-item"><p class="stat-label">ගැහැණු</p><p class="stat-value girls">95</p></div>
+                <div class="stat-item"><p class="stat-label">එකතුව</p><p class="stat-value">200</p></div>
             </div>
             <p class="teacher-info">අංශ භාර ගුරු: ඊ. ප්‍රනාන්දු මිය</p>
         </div>
-
     </div>
 
     <div class="prefects-banner">
@@ -193,7 +240,6 @@ footer {
         <p>නායකත්ව ගුණාංගවලින් හෙබි අපේ ශිෂ්‍ය නායක මණ්ඩලයේ තොරතුරු මෙතැනින් බලන්න.</p>
         <a href="prefects.html" class="btn-gold">නායකත්ව විස්තර බලන්න</a>
     </div>
-
 </div>
 
 <footer>
@@ -202,4 +248,3 @@ footer {
 
 </body>
 </html>
-
