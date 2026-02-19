@@ -6,97 +6,72 @@
     <title>ආචාර්ය මණ්ඩලය | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --royal-blue: #002349; 
-            --deep-blue: #00152e;
-            --gold: #c5a028; 
-            --soft-gold: #f4e8c1;
-            --white: #ffffff; 
-            --light-bg: #f0f2f5;
-        }
+     /* Navigation Bar Styling */
+nav {
+    background: var(--royal-blue);
+    padding: 0 50px;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        
-        body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
+nav ul {
+    list-style: none;
+    display: flex;
+}
 
-        /* Header & Nav */
-        header { 
-            background: var(--white); 
-            padding: 15px 50px; 
-            display: flex; 
-            align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .logo { height: 70px; margin-right: 20px; }
-        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; font-weight: 700; }
+nav ul li {
+    position: relative;
+}
 
-        nav { background: var(--royal-blue); padding: 12px 50px; }
-        nav a { color: var(--soft-gold); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
-        nav a:hover { color: var(--white); }
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
 
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center; }
-        
-        .section-title { margin-bottom: 50px; }
-        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.8rem; color: var(--royal-blue); }
-        .section-title hr { width: 100px; height: 5px; background: var(--gold); border: none; margin: 10px auto; border-radius: 5px; }
+nav ul li a:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--gold);
+}
 
-        /* Principal Section - ෆොටෝ එකේ සයිස් එක හරි ගස්සා ඇත */
-        .principal-section { display: flex; justify-content: center; margin-bottom: 60px; }
+/* Footer Styling */
+footer {
+    background: #00152e;
+    color: #ccc;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px;
+    border-top: 4px solid var(--gold);
+}
 
-        /* Staff Card Styling */
-        .staff-card { 
-            background: var(--white); 
-            padding: 15px; 
-            border-radius: 15px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
-            border-bottom: 4px solid var(--gold);
-            transition: all 0.3s ease; 
-            width: 280px; /* හැම කාඩ් එකක්ම එකම පළල */
-        }
-        
-        .staff-card:hover { transform: translateY(-10px); }
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
 
-        /* Image Styling - ඇද නොවී පේන්න හදලා තියෙන්නේ */
-        .staff-img-container {
-            width: 100%;
-            height: 280px; /* උස මෙතනින් පාලනය වේ */
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            background: #eee;
-        }
+.footer-section h3 { color: var(--gold); margin-bottom: 15px; }
+.footer-section p { font-size: 0.9rem; line-height: 1.6; }
 
-        .staff-card img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; /* ෆොටෝ එකේ ratio එක ආරක්ෂා කරයි */
-            display: block;
-        }
-
-        .staff-card h3 { color: var(--royal-blue); font-size: 1.2rem; margin-bottom: 5px; }
-        .staff-card p { color: #666; font-size: 0.9rem; font-weight: 600; }
-
-        /* Teachers Grid */
-        .teachers-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
-            justify-items: center; 
-        }
-
-        .back-btn { 
-            display: inline-block; 
-            margin-top: 50px; 
-            padding: 12px 35px; 
-            background: var(--royal-blue);
-            color: var(--white); 
-            text-decoration: none; 
-            border-radius: 30px; 
-            transition: 0.3s; 
-        }
-        .back-btn:hover { background: var(--deep-blue); }
-        
-        footer { background: var(--deep-blue); color: #ccc; padding: 25px; text-align: center; margin-top: 60px; }
+/* Mobile Menu - ෆෝන් එකට ගැලපෙන්න */
+@media (max-width: 768px) {
+    nav { padding: 0 10px; }
+    nav ul { flex-wrap: wrap; justify-content: center; }
+    nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
+    header { flex-direction: column; text-align: center; padding: 20px; }
+    .logo { margin-bottom: 10px; margin-right: 0; }
+}
     </style>
 </head>
 <body>
@@ -177,3 +152,4 @@
 
 </body>
 </html>
+
