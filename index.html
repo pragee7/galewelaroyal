@@ -63,7 +63,8 @@
             font-weight: 500;
             transition: 0.3s;
         }
-       background: linear-gradient(rgba(0,33,71,0.5), rgba(0,33,71,0.5)), url('./images/school_front.jpg') center/cover no-repeat;
+        nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
+
         /* Dropdown Menu */
         .dropdown-content {
             display: none;
@@ -83,10 +84,10 @@
         .dropdown-content a:hover { background-color: #f1f1f1; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Hero Section */
+        /* Hero Section - FIXED PATH */
         .hero {
             height: 450px;
-            background: linear-gradient(rgba(0,33,71,0.5), rgba(0,33,71,0.5)), url('images/hero.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,33,71,0.5), rgba(0,33,71,0.5)), url('./images/school_front.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -101,7 +102,7 @@
         .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.2rem; color: var(--royal-blue); }
         .section-title hr { width: 60px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
 
-        /* Facilities Grid (Original Look) */
+        /* Facilities Grid */
         .facilities-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -171,7 +172,7 @@
 
 <header>
     <div class="school-brand">
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="./images/logo.png" alt="Logo" class="logo">
         <div class="school-name">
             <h1>ගලේවෙල රාජකීය විද්‍යාලය</h1>
             <p>GALEWELA ROYAL COLLEGE</p>
@@ -220,15 +221,15 @@
 
 <div class="facilities-grid">
     <div class="f-card">
-        <img src="lab.jpg" alt="Science Lab">
+        <img src="./images/lab.jpg" alt="Science Lab">
         <div class="f-overlay"><h3>නිදහස් පරිසරය</h3></div>
     </div>
     <div class="f-card">
-        <img src="it.jpg" alt="IT Lab">
+        <img src="./images/it.jpg" alt="IT Lab">
         <div class="f-overlay"><h3>බහුමාධ්‍ය ඉගෙනුම් ක්‍රම</h3></div>
     </div>
     <div class="f-card">
-        <img src="library.jpg" alt="Library">
+        <img src="./images/library.jpg" alt="Library">
         <div class="f-overlay"><h3>එළිමහන් පුස්තකාලය</h3></div>
     </div>
 </div>
