@@ -10,7 +10,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: #f0f2f5; color: #333; }
 
-        /* Header & Nav */
         header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
         .logo { height: 60px; margin-right: 20px; }
         .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.5rem; }
@@ -22,7 +21,6 @@
         .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
         .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
 
-        /* Gallery Grid */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -45,16 +43,11 @@
             transition: transform 0.5s ease;
         }
 
-        /* Hover Effect */
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
+        .gallery-item:hover img { transform: scale(1.1); }
 
         .overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 0; left: 0; right: 0;
             background: linear-gradient(transparent, rgba(0,33,71,0.8));
             color: white;
             padding: 20px;
@@ -63,11 +56,9 @@
             text-align: center;
         }
 
-        .gallery-item:hover .overlay {
-            opacity: 1;
-        }
+        .gallery-item:hover .overlay { opacity: 1; }
 
-        .back-btn { display: inline-block; margin-top: 40px; padding: 12px 35px; background: var(--royal-blue); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; }
+        .back-btn { display: inline-block; margin: 40px auto; padding: 12px 35px; background: var(--royal-blue); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; }
         .back-btn:hover { background: var(--gold); }
 
         footer { background: #00152e; color: #ccc; padding: 25px; text-align: center; margin-top: 60px; }
@@ -80,9 +71,9 @@
     <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
 </header>
 
-<nav><a href="index.html">🏠 මුල් පිටුවට</a></nav>
+<nav><a href="index.html" style="color: white; text-decoration: none;">🏠 මුල් පිටුවට</a></nav>
 
-<div class="container">
+<div class="container" style="text-align: center;">
     <div class="section-title">
         <h2>ඡායාරූප එකතුව</h2>
         <hr>
@@ -93,20 +84,32 @@
             <img src="g1.jpg" alt="Gallery 1">
             <div class="overlay">විද්‍යාලයීය ගොඩනැගිල්ල</div>
         </div>
-
         <div class="gallery-item">
             <img src="g2.jpg" alt="Gallery 2">
             <div class="overlay">පරිගණක විද්‍යාගාරය</div>
         </div>
-
         <div class="gallery-item">
             <img src="g3.jpg" alt="Gallery 3">
             <div class="overlay">ක්‍රීඩා උත්සවය</div>
         </div>
-
         <div class="gallery-item">
             <img src="g4.jpg" alt="Gallery 4">
             <div class="overlay">ත්‍යාග ප්‍රදානෝත්සවය</div>
         </div>
-
         <div class="gallery-item">
+            <img src="g5.jpg" alt="Gallery 5">
+            <div class="overlay">විද්‍යාගාරය</div>
+        </div>
+        <div class="gallery-item">
+            <img src="g6.jpg" alt="Gallery 6">
+            <div class="overlay">පුස්තකාලය</div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">නැවත මුල් පිටුවට</a>
+</div>
+
+<footer><p>&copy; 2026 Galewela Royal College</p></footer>
+
+</body>
+</html>
