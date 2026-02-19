@@ -6,7 +6,6 @@
     <title>ආචාර්ය මණ්ඩලය | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* මචං මෙතනින් තමයි අලුත් පාටවල් සහ Design එක පාලනය වෙන්නේ */
         :root { 
             --royal-blue: #002349; 
             --deep-blue: #00152e;
@@ -27,106 +26,77 @@
             display: flex; 
             align-items: center; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 10;
         }
         .logo { height: 70px; margin-right: 20px; }
         .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; font-weight: 700; }
 
-        nav { background: var(--royal-blue); padding: 12px 50px; text-align: left; }
-        nav a { 
-            color: var(--soft-gold); 
-            text-decoration: none; 
-            font-size: 0.95rem; 
-            font-weight: 500;
-            transition: 0.3s;
-        }
+        nav { background: var(--royal-blue); padding: 12px 50px; }
+        nav a { color: var(--soft-gold); text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
         nav a:hover { color: var(--white); }
 
-        /* Main Container */
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; text-align: center; }
         
         .section-title { margin-bottom: 50px; }
-        .section-title h2 { 
-            font-family: 'Abhaya Libre', serif; 
-            font-size: 2.8rem; 
-            color: var(--royal-blue); 
-            margin-bottom: 5px;
-        }
+        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.8rem; color: var(--royal-blue); }
         .section-title hr { width: 100px; height: 5px; background: var(--gold); border: none; margin: 10px auto; border-radius: 5px; }
 
-        /* Principal Card - Special Styling */
+        /* Principal Section - ෆොටෝ එකේ සයිස් එක හරි ගස්සා ඇත */
         .principal-section { display: flex; justify-content: center; margin-bottom: 60px; }
-        .principal-card { 
-            border-top: 5px solid var(--gold) !important; 
-            transform: scale(1.05); /* විදුහල්පති කාඩ් එක පොඩ්ඩක් ලොකුවට */
-        }
 
-        /* General Staff Card Styling */
+        /* Staff Card Styling */
         .staff-card { 
             background: var(--white); 
             padding: 15px; 
-            border-radius: 20px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08); 
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.4s ease; 
-            width: 100%;
-            overflow: hidden;
+            border-radius: 15px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            border-bottom: 4px solid var(--gold);
+            transition: all 0.3s ease; 
+            width: 280px; /* හැම කාඩ් එකක්ම එකම පළල */
         }
         
-        .staff-card:hover { 
-            transform: translateY(-15px); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-bottom: 4px solid var(--royal-blue);
+        .staff-card:hover { transform: translateY(-10px); }
+
+        /* Image Styling - ඇද නොවී පේන්න හදලා තියෙන්නේ */
+        .staff-img-container {
+            width: 100%;
+            height: 280px; /* උස මෙතනින් පාලනය වේ */
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background: #eee;
         }
 
         .staff-card img { 
             width: 100%; 
-            height: 280px; 
-            object-fit: cover; 
-            border-radius: 15px; 
-            margin-bottom: 15px; 
-            background: #e0e0e0;
-            transition: 0.4s;
+            height: 100%; 
+            object-fit: cover; /* ෆොටෝ එකේ ratio එක ආරක්ෂා කරයි */
+            display: block;
         }
-        
-        .staff-card:hover img { transform: scale(1.02); }
 
-        .staff-card h3 { color: var(--royal-blue); font-size: 1.2rem; margin-bottom: 8px; font-weight: 600; }
-        .staff-card p { 
-            color: var(--gold); 
-            font-size: 0.9rem; 
-            font-weight: 600; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .staff-card h3 { color: var(--royal-blue); font-size: 1.2rem; margin-bottom: 5px; }
+        .staff-card p { color: #666; font-size: 0.9rem; font-weight: 600; }
 
         /* Teachers Grid */
         .teachers-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 40px; 
+            gap: 30px; 
             justify-items: center; 
-            padding: 20px 0;
         }
 
-        /* Buttons */
         .back-btn { 
             display: inline-block; 
             margin-top: 50px; 
-            padding: 15px 40px; 
-            background: linear-gradient(135deg, var(--royal-blue), var(--deep-blue));
+            padding: 12px 35px; 
+            background: var(--royal-blue);
             color: var(--white); 
             text-decoration: none; 
             border-radius: 30px; 
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0,35,73,0.3);
             transition: 0.3s; 
         }
-        .back-btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0,35,73,0.4); }
+        .back-btn:hover { background: var(--deep-blue); }
         
-        footer { background: var(--deep-blue); color: #cbd5e0; padding: 30px; text-align: center; margin-top: 60px; font-size: 0.9rem; }
-        footer p { opacity: 0.8; }
+        footer { background: var(--deep-blue); color: #ccc; padding: 25px; text-align: center; margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -145,8 +115,10 @@
     </div>
 
     <div class="principal-section">
-        <div class="staff-card principal-card">
-            <img src="principal.jpg" alt="Principal">
+        <div class="staff-card">
+            <div class="staff-img-container">
+                <img src="principal.jpg" alt="Principal">
+            </div>
             <h3>A.M.I.P. Abeykoon</h3>
             <p>Principal</p>
         </div>
@@ -155,31 +127,41 @@
     <div class="teachers-grid">
         
         <div class="staff-card">
-            <img src="teacher1.jpg" alt="W.M.R. Kumari">
+            <div class="staff-img-container">
+                <img src="teacher1.jpg" alt="W.M.R. Kumari">
+            </div>
             <h3>W.M.R. Kumari</h3>
             <p>Deputy Principal</p>
         </div>
 
         <div class="staff-card">
-            <img src="teacher2.jpg" alt="M.G.C. Chandima">
+            <div class="staff-img-container">
+                <img src="teacher2.jpg" alt="M.G.C. Chandima">
+            </div>
             <h3>M.G.C. Chandima</h3>
             <p>Primary Section Teacher</p>
         </div>
 
         <div class="staff-card">
-            <img src="teacher3.jpg" alt="Wijewardhana">
+            <div class="staff-img-container">
+                <img src="teacher3.jpg" alt="Wijewardhana">
+            </div>
             <h3>Wijewardhana</h3>
             <p>Teacher</p>
         </div>
 
         <div class="staff-card">
-            <img src="teacher4.jpg" alt="Nimesha">
+            <div class="staff-img-container">
+                <img src="teacher4.jpg" alt="Nimesha">
+            </div>
             <h3>Nimesha</h3>
             <p>Teacher</p>
         </div>
 
         <div class="staff-card">
-            <img src="teacher5.jpg" alt="Dinithi">
+            <div class="staff-img-container">
+                <img src="teacher5.jpg" alt="Dinithi">
+            </div>
             <h3>Dinithi</h3>
             <p>Teacher</p>
         </div>
