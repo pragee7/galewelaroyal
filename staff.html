@@ -6,150 +6,123 @@
     <title>ආචාර්ය මණ්ඩලය | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-     /* Navigation Bar Styling */
-nav {
-    background: var(--royal-blue);
-    padding: 0 50px;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+        :root {
+            --royal-blue: #002147;
+            --deep-blue: #00152e;
+            --gold: #D4AF37;
+            --white: #ffffff;
+            --light-bg: #f4f7f9;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
 
-nav ul li {
-    position: relative;
-}
+        /* Header Area */
+        header {
+            background: white;
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            border-bottom: 4px solid var(--royal-blue);
+        }
+        .logo { height: 70px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
 
-nav ul li a {
-    display: block;
-    padding: 15px 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: 0.3s;
-}
+        /* Navigation Bar */
+        nav {
+            background: var(--royal-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 0 50px;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul { list-style: none; display: flex; }
+        nav ul li { position: relative; }
+        nav ul li a {
+            display: block;
+            padding: 18px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
 
-nav ul li a:hover {
-    background: rgba(255,255,255,0.1);
-    color: var(--gold);
-}
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 0 0 10px 10px;
+            border-top: 3px solid var(--gold);
+        }
+        .dropdown-content a {
+            color: var(--royal-blue) !important;
+            padding: 12px 16px !important;
+            border-bottom: 1px solid #eee;
+            display: block;
+        }
+        nav ul li:hover .dropdown-content { display: block; }
 
-/* Footer Styling */
-footer {
-    background: #00152e;
-    color: #ccc;
-    padding: 40px 20px;
-    text-align: center;
-    margin-top: 60px;
-    border-top: 4px solid var(--gold);
-}
+        /* Staff Content Styles */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; text-align: center; }
+        .section-title { margin-bottom: 50px; }
+        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
+        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    text-align: left;
-}
+        /* Principal Section */
+        .principal-section { display: flex; justify-content: center; margin-bottom: 50px; }
 
-.footer-section h3 { color: var(--gold); margin-bottom: 15px; }
-.footer-section p { font-size: 0.9rem; line-height: 1.6; }
+        /* Staff Grid */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
 
-/* Mobile Menu - ෆෝන් එකට ගැලපෙන්න */
-@media (max-width: 768px) {
-    nav { padding: 0 10px; }
-    nav ul { flex-wrap: wrap; justify-content: center; }
-    nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
-    header { flex-direction: column; text-align: center; padding: 20px; }
-    .logo { margin-bottom: 10px; margin-right: 0; }
-}
-    </style>
-</head>
-<body>
+        /* Card Styling */
+        .staff-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+        .staff-card:hover { transform: translateY(-10px); border-bottom: 3px solid var(--gold); }
 
-<header>
-    <img src="logo.png" alt="Logo" class="logo">
-    <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
-</header>
+        .staff-img-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #f0f0f0;
+        }
+        .staff-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-<nav><a href="index.html">🏠 මුල් පිටුවට පිවිසෙන්න</a></nav>
+        .staff-card h3 { color: var(--royal-blue); font-size: 1.2rem; margin-bottom: 5px; }
+        .staff-card p { color: var(--gold); font-weight: 600; font-size: 0.9rem; }
 
-<div class="container">
-    <div class="section-title">
-        <h2>ආචාර්ය මණ්ඩලය</h2>
-        <hr>
-    </div>
-
-    <div class="principal-section">
-        <div class="staff-card">
-            <div class="staff-img-container">
-                <img src="principal.jpg" alt="Principal">
-            </div>
-            <h3>A.M.I.P. Abeykoon</h3>
-            <p>Principal</p>
-        </div>
-    </div>
-
-    <div class="teachers-grid">
-        
-        <div class="staff-card">
-            <div class="staff-img-container">
-                <img src="teacher1.jpg" alt="W.M.R. Kumari">
-            </div>
-            <h3>W.M.R. Kumari</h3>
-            <p>Deputy Principal</p>
-        </div>
-
-        <div class="staff-card">
-            <div class="staff-img-container">
-                <img src="teacher2.jpg" alt="M.G.C. Chandima">
-            </div>
-            <h3>M.G.C. Chandima</h3>
-            <p>Primary Section Teacher</p>
-        </div>
-
-        <div class="staff-card">
-            <div class="staff-img-container">
-                <img src="teacher3.jpg" alt="Wijewardhana">
-            </div>
-            <h3>Wijewardhana</h3>
-            <p>Teacher</p>
-        </div>
-
-        <div class="staff-card">
-            <div class="staff-img-container">
-                <img src="teacher4.jpg" alt="Nimesha">
-            </div>
-            <h3>Nimesha</h3>
-            <p>Teacher</p>
-        </div>
-
-        <div class="staff-card">
-            <div class="staff-img-container">
-                <img src="teacher5.jpg" alt="Dinithi">
-            </div>
-            <h3>Dinithi</h3>
-            <p>Teacher</p>
-        </div>
-
-    </div>
-
-    <a href="index.html" class="back-btn">නැවත මුල් පිටුවට</a>
-</div>
-
-<footer>
-    <p>&copy; 2026 Galewela Royal College. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
-
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: var(--royal-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        .back-btn
