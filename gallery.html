@@ -6,62 +6,72 @@
     <title>ඡායාරූප එකතුව | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --royal-blue: #002147; --gold: #D4AF37; --white: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f0f2f5; color: #333; }
+       /* Navigation Bar Styling */
+nav {
+    background: var(--royal-blue);
+    padding: 0 50px;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
-        header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
-        .logo { height: 60px; margin-right: 20px; }
-        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.5rem; }
-        nav { background: var(--royal-blue); padding: 10px 50px; }
-        nav a { color: white; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+nav ul {
+    list-style: none;
+    display: flex;
+}
 
-        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
-        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
+nav ul li {
+    position: relative;
+}
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
 
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            height: 250px;
-            background-color: #ddd;
-        }
+nav ul li a:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--gold);
+}
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+/* Footer Styling */
+footer {
+    background: #00152e;
+    color: #ccc;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px;
+    border-top: 4px solid var(--gold);
+}
 
-        .gallery-item:hover img { transform: scale(1.1); }
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
 
-        .overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(0,33,71,0.8));
-            color: white;
-            padding: 20px;
-            opacity: 0;
-            transition: 0.3s;
-            text-align: center;
-        }
+.footer-section h3 { color: var(--gold); margin-bottom: 15px; }
+.footer-section p { font-size: 0.9rem; line-height: 1.6; }
 
-        .gallery-item:hover .overlay { opacity: 1; }
-
-        .back-btn { display: inline-block; margin: 40px auto; padding: 12px 35px; background: var(--royal-blue); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; }
-        .back-btn:hover { background: var(--gold); }
-
-        footer { background: #00152e; color: #ccc; padding: 25px; text-align: center; margin-top: 60px; }
+/* Mobile Menu - ෆෝන් එකට ගැලපෙන්න */
+@media (max-width: 768px) {
+    nav { padding: 0 10px; }
+    nav ul { flex-wrap: wrap; justify-content: center; }
+    nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
+    header { flex-direction: column; text-align: center; padding: 20px; }
+    .logo { margin-bottom: 10px; margin-right: 0; }
+}
     </style>
 </head>
 <body>
