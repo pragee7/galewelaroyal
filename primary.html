@@ -8,33 +8,30 @@
     <style>
         :root {
             --royal-blue: #002147;
-            --deep-blue: #00152e;
             --gold: #D4AF37;
             --white: #ffffff;
             --light-bg: #f4f7f9;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
+        body { background-color: var(--light-bg); color: #333; }
 
-        /* Header Area */
         header {
             background: white;
-            padding: 20px 50px;
+            padding: 15px 50px;
             display: flex;
             align-items: center;
             border-bottom: 4px solid var(--royal-blue);
         }
-        .logo { height: 70px; margin-right: 20px; }
-        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
+        .logo { height: 60px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.6rem; }
 
-        /* Navigation Bar */
+        /* Updated Navigation */
         nav {
             background: var(--royal-blue);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             padding: 0 50px;
             display: flex;
             justify-content: center;
@@ -43,85 +40,57 @@
         nav ul li { position: relative; }
         nav ul li a {
             display: block;
-            padding: 18px 20px;
+            padding: 15px 20px;
             color: white;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: 0.3s;
         }
         nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
 
-        /* Dropdown Styles */
+        /* Dropdown Setup */
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: var(--white);
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 100;
-            border-radius: 0 0 10px 10px;
+            background: white;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             border-top: 3px solid var(--gold);
         }
-        .dropdown-content a {
-            color: var(--royal-blue) !important;
-            padding: 12px 16px !important;
-            border-bottom: 1px solid #eee;
-            display: block;
-        }
+        .dropdown-content a { color: var(--royal-blue) !important; border-bottom: 1px solid #eee; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Content Area */
-        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
-        
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
-        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 30px; }
+        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.2rem; color: var(--royal-blue); }
+        .section-title hr { width: 60px; height: 3px; background: var(--gold); border: none; margin: 10px auto; }
 
         .intro-box {
             background: white;
             padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-        .intro-img { width: 40%; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .intro-text { width: 60%; font-size: 1.1rem; text-align: justify; }
-
-        /* Feature Cards */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .feature-card {
-            background: white;
-            padding: 25px;
             border-radius: 15px;
-            text-align: center;
-            border-top: 4px solid var(--gold);
-            transition: 0.3s;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .feature-card h3 { color: var(--royal-blue); margin-bottom: 10px; }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
+        .intro-img { width: 40%; border-radius: 10px; background: #ddd; min-height: 200px; }
+        .intro-text { width: 60%; font-size: 1.05rem; line-height: 1.8; }
 
         footer {
-            background: var(--deep-blue);
+            background: #00152e;
             color: #ccc;
-            padding: 40px 20px;
+            padding: 30px;
             text-align: center;
-            margin-top: 60px;
+            margin-top: 50px;
             border-top: 4px solid var(--gold);
         }
 
         @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; padding: 20px; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
-            .intro-box { flex-direction: column; text-align: center; }
+            header { flex-direction: column; text-align: center; }
+            .intro-box { flex-direction: column; }
             .intro-img, .intro-text { width: 100%; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
@@ -129,9 +98,7 @@
 
 <header>
     <img src="logo.png" alt="Logo" class="logo">
-    <div class="school-name">
-        <h1>ගලේවෙල රාජකීය විද්‍යාලය</h1>
-    </div>
+    <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
 </header>
 
 <nav>
@@ -140,21 +107,19 @@
         <li>
             <a href="#">අප ගැන ▾</a>
             <div class="dropdown-content">
-                <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
-                <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
-                <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
-                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
+                <a href="school_history.html">ඉතිහාසය</a>
+                <a href="vision.html">දැක්ම & මෙහෙවර</a>
             </div>
         </li>
         <li>
             <a href="#">අධ්‍යයන අංශ ▾</a>
             <div class="dropdown-content">
                 <a href="primary.html">ප්‍රාථමික අංශය</a>
-                <a href="lib.html">පුස්තකාල අංශය</a>
-                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
+                <a href="lib.html">පුස්තකාලය</a>
+                <a href="mul.html">බහුමාධ්‍ය ඒකකය</a>
             </div>
         </li>
-        <li><a href="facilities.html">පහසුකම්</a></li>
+        <li><a href="lms.html">LMS</a></li>
         <li><a href="gallery.html">ඡායාරූප</a></li>
         <li><a href="contact.html">සම්බන්ධතා</a></li>
     </ul>
@@ -167,27 +132,11 @@
     </div>
 
     <div class="intro-box">
-        <img src="primary_section.jpg" alt="ප්‍රාථමික අංශය" class="intro-img">
+        <div class="intro-img">
+            <img src="primary_section.jpg" alt="Primary Section" style="width:100%; height:100%; border-radius:10px; object-fit:cover;">
+        </div>
         <div class="intro-text">
             <p>අප විද්‍යාලයේ ප්‍රාථමික අංශය 1 ශ්‍රේණියේ සිට 5 ශ්‍රේණිය දක්වා දරු දැරියන්ගේ මූලික අධ්‍යාපන පදනම ශක්තිමත් කිරීමට කැපවී සිටී. ක්‍රියාකාරකම් මත පදනම් වූ ඉගෙනුම් ක්‍රමවේදයන් හරහා දරුවන්ගේ නිර්මාණශීලීත්වය සහ පෞරුෂය වර්ධනය කිරීම අපගේ අරමුණයි.</p>
-        </div>
-    </div>
-
-    <div class="features-grid">
-        <div class="feature-card">
-            <span class="feature-icon">📚</span>
-            <h3>ගුණාත්මක අධ්‍යාපනය</h3>
-            <p>පළපුරුදු ගුරු මණ්ඩලයක් යටතේ දරුවන්ට මූලික විෂය දැනුම ලබා දීම.</p>
-        </div>
-        <div class="feature-card">
-            <span class="feature-icon">🎨</span>
-            <h3>නිර්මාණශීලීත්වය</h3>
-            <p>චිත්‍ර, සංගීත සහ නර්තන අංශ හරහා දරුවන්ගේ කලා හැකියාවන් ඔප් නැංවීම.</p>
-        </div>
-        <div class="feature-card">
-            <span class="feature-icon">🏆</span>
-            <h3>ශිෂ්‍යත්ව ජයග්‍රහණ</h3>
-            <p>5 ශ්‍රේණිය ශිෂ්‍යත්ව විභාගයෙන් වසරක් පාසා විශිෂ්ට ජයග්‍රහණ අත්කර ගැනීම.</p>
         </div>
     </div>
 </div>
