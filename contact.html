@@ -17,7 +17,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--light-bg); color: #333; }
 
-        /* Header & Nav */
+        /* Header Area */
         header {
             background: white;
             padding: 20px 50px;
@@ -28,6 +28,7 @@
         .logo { height: 70px; margin-right: 20px; }
         .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
 
+        /* Navigation Bar - Fixed & Dropdown Support */
         nav {
             background: var(--royal-blue);
             position: sticky;
@@ -39,12 +40,39 @@
             justify-content: center;
         }
         nav ul { list-style: none; display: flex; }
-        nav ul li a { display: block; padding: 18px 20px; color: white; text-decoration: none; font-size: 0.95rem; }
+        nav ul li { position: relative; }
+        nav ul li a {
+            display: block;
+            padding: 18px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
         nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
 
-        /* Main Content */
+        /* Dropdown CSS - මේ කොටස තමයි අඩුවෙලා තිබුණේ */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 0 0 10px 10px;
+            border-top: 3px solid var(--gold);
+        }
+        .dropdown-content a {
+            color: var(--royal-blue) !important;
+            padding: 12px 16px !important;
+            border-bottom: 1px solid #eee;
+            display: block;
+        }
+        .dropdown-content a:last-child { border-bottom: none; }
+        nav ul li:hover .dropdown-content { display: block; }
+
+        /* Main Content Styles */
         .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
-        
         .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
         .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
@@ -56,7 +84,6 @@
             margin-bottom: 50px;
         }
 
-        /* Contact Info Cards */
         .contact-info {
             background: var(--royal-blue);
             color: white;
@@ -79,7 +106,6 @@
         .info-item h4 { color: var(--gold); margin-bottom: 5px; }
         .info-item p { font-size: 0.95rem; opacity: 0.9; }
 
-        /* Contact Form */
         .contact-form {
             background: white;
             padding: 40px;
@@ -113,7 +139,6 @@
         }
         .submit-btn:hover { background: var(--royal-blue); color: white; transform: translateY(-3px); }
 
-        /* Map */
         .map-container {
             border-radius: 20px;
             overflow: hidden;
@@ -133,6 +158,7 @@
             header { flex-direction: column; text-align: center; padding: 20px; }
             .contact-wrapper { grid-template-columns: 1fr; }
             nav ul { flex-wrap: wrap; justify-content: center; }
+            nav ul li a { padding: 12px 15px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -219,12 +245,12 @@
     </div>
 
     <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15814.77351609355!2d80.57500000000002!3d7.7583333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae34f6f4d89a777%3A0x6a0c5c4c9e47f7d!2sGalewela!5e0!3m2!1sen!2slk!4v1710000000000!5m2!1sen!2slk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15814.364426578058!2d80.573966!3d7.729124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDMnNDQuOSJOIDgwwrAzNCc0Ni4zIkU!5e0!3m2!1sen!2slk!4v1645000000000!5m2!1sen!2slk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Galewela Royal College. All Rights Reserved.</p>
+    <p>© 2026 Galewela Royal College. All Rights Reserved.</p>
 </footer>
 
 </body>
