@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ශිෂ්‍ය තොරතුරු | Galewela Royal College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --royal-blue: #002147; --gold: #D4AF37; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f4f7f9; color: #333; }
+
+        header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
+        .logo { height: 60px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.5rem; }
+        nav { background: var(--royal-blue); padding: 10px 50px; }
+        nav a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
+        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
+
+        /* Student Stats & Houses */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .info-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-left: 5px solid var(--royal-blue); }
+        .info-card h3 { color: var(--gold); margin-bottom: 15px; font-size: 1.5rem; }
+        .info-card ul { list-style: none; padding: 0; }
+        .info-card ul li { padding: 10px 0; border-bottom: 1px solid #eee; }
+
+        /* House Colors Styles */
+        .house-list li { font-weight: 600; }
+        .gemunu { color: #d32f2f; } /* Red */
+        .tissa { color: #1976d2; }   /* Blue */
+        .parakum { color: #fbc02d; } /* Yellow */
+        .vijaya { color: #388e3c; }  /* Green */
+
+        .back-btn { display: block; width: 200px; margin: 40px auto; text-align: center; padding: 12px; background: var(--royal-blue); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; }
+        .back-btn:hover { background: var(--gold); }
+
+        footer { background: #00152e; color: #ccc; padding: 20px; text-align: center; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
+</header>
+
+<nav><a href="index.html">🏠 මුල් පිටුවට</a></nav>
+
+<div class="container">
+    <div class="section-title">
+        <h2>ශිෂ්‍ය තොරතුරු</h2>
+        <hr>
+    </div>
+
+    <div class="grid">
+        <div class="info-card">
+            <h3>ශිෂ්‍ය සංඛ්‍යාලේඛන</h3>
+            <ul>
+                <li>මුළු ශිෂ්‍ය සංඛ්‍යාව: 1500+</li>
+                <li>ප්‍රාථමික අංශය: 600+</li>
+                <li>ද්විතීයික අංශය: 900+</li>
+                <li>ශිෂ්‍ය නායක මණ්ඩලය: 40</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>නිවාස ක්‍රමය</h3>
+            <ul class="house-list">
+                <li class="gemunu">ගැමුණු නිවාසය (රතු)</li>
+                <li class="tissa">තිස්ස නිවාසය (නිල්)</li>
+                <li class="parakum">පරාක්‍රම නිවාසය (කහ)</li>
+                <li class="vijaya">විජය නිවාසය (කොළ)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="info-card" style="margin-top: 30px; border-left: 5px solid var(--gold);">
+        <h3>ශිෂ්‍ය නායක මණ්ඩලය</h3>
+        <p>විද්‍යාලයේ විනය හා ගුණාංග ආරක්ෂා කරමින් ශිෂ්‍ය ප්‍රජාව මෙහෙයවීම සඳහා තෝරාගත් විශිෂ්ට ශිෂ්‍ය නායක මණ්ඩලයක් අප සතුය.</p>
+    </div>
+
+    <a href="index.html" class="back-btn">නැවත මුල් පිටුවට</a>
+</div>
+
+<footer><p>&copy; 2026 Galewela Royal College</p></footer>
+
+</body>
+</html>
