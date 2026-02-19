@@ -6,88 +6,155 @@
     <title>විද්‍යාලයීය ඉතිහාසය | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-       /* Navigation Bar Styling */
-nav {
-    background: var(--royal-blue);
-    padding: 0 50px;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+        :root {
+            --royal-blue: #002147;
+            --deep-blue: #00152e;
+            --gold: #D4AF37;
+            --white: #ffffff;
+            --light-bg: #f4f7f9;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--light-bg); color: #333; line-height: 1.8; }
 
-nav ul li {
-    position: relative;
-}
+        /* Header Area */
+        header {
+            background: white;
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            border-bottom: 4px solid var(--royal-blue);
+        }
+        .logo { height: 70px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
 
-nav ul li a {
-    display: block;
-    padding: 15px 20px;
-    color: white;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: 0.3s;
-}
+        /* Navigation Bar */
+        nav {
+            background: var(--royal-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 0 50px;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul { list-style: none; display: flex; }
+        nav ul li { position: relative; }
+        nav ul li a {
+            display: block;
+            padding: 18px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
 
-nav ul li a:hover {
-    background: rgba(255,255,255,0.1);
-    color: var(--gold);
-}
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 0 0 10px 10px;
+            border-top: 3px solid var(--gold);
+        }
+        .dropdown-content a {
+            color: var(--royal-blue) !important;
+            padding: 12px 16px !important;
+            border-bottom: 1px solid #eee;
+            display: block;
+        }
+        nav ul li:hover .dropdown-content { display: block; }
 
-/* Footer Styling */
-footer {
-    background: #00152e;
-    color: #ccc;
-    padding: 40px 20px;
-    text-align: center;
-    margin-top: 60px;
-    border-top: 4px solid var(--gold);
-}
+        /* History Content Area */
+        .container { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        
+        .content-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--royal-blue);
+        }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    text-align: left;
-}
+        .history-title { text-align: center; margin-bottom: 40px; }
+        .history-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
+        .history-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
 
-.footer-section h3 { color: var(--gold); margin-bottom: 15px; }
-.footer-section p { font-size: 0.9rem; line-height: 1.6; }
+        .content-box p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: justify;
+            color: #444;
+        }
 
-/* Mobile Menu - ෆෝන් එකට ගැලපෙන්න */
-@media (max-width: 768px) {
-    nav { padding: 0 10px; }
-    nav ul { flex-wrap: wrap; justify-content: center; }
-    nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
-    header { flex-direction: column; text-align: center; padding: 20px; }
-    .logo { margin-bottom: 10px; margin-right: 0; }
-}
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: var(--royal-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: var(--gold); transform: translateY(-3px); }
+
+        footer {
+            background: var(--deep-blue);
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 4px solid var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; padding: 20px; }
+            nav { padding: 0 10px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav ul li a { padding: 10px; }
+            .content-box { padding: 25px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="school-brand">
-        <img src="logo.png" alt="Logo" class="logo">
-        <div class="school-name">
-            <h1>ගලේවෙල රාජකීය විද්‍යාලය</h1>
-        </div>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="school-name">
+        <h1>ගලේවෙල රාජකීය විද්‍යාලය</h1>
     </div>
 </header>
 
 <nav>
-    <ul class="nav-links">
-        <li><a href="index.html">🏠 මුල් පිටුවට යන්න</a></li>
+    <ul>
+        <li><a href="index.html">මුල් පිටුව</a></li>
+        <li>
+            <a href="#">අප ගැන ▾</a>
+            <div class="dropdown-content">
+                <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
+                <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
+                <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
+                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
+            </div>
+        </li>
+        <li>
+            <a href="#">අධ්‍යයන අංශ ▾</a>
+            <div class="dropdown-content">
+                <a href="primary.html">ප්‍රාථමික අංශය</a>
+                <a href="lib.html">පුස්තකාල අංශය</a>
+                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
+            </div>
+        </li>
+        <li><a href="facilities.html">පහසුකම්</a></li>
+        <li><a href="gallery.html">ඡායාරූප</a></li>
+        <li><a href="contact.html">සම්බන්ධතා</a></li>
     </ul>
 </nav>
 
@@ -102,12 +169,12 @@ footer {
             ගලේවෙල රාජකීය විද්‍යාලය යනු දශක ගණනාවක අභිමානවත් ඉතිහාසයකට උරුමකම් කියන මාතලේ දිස්ත්‍රික්කයේ ප්‍රමුඛතම පාසලකි. ප්‍රදේශයේ දරු දැරියන්ගේ නැණැස පාදනු වස් ආරම්භ කරන ලද මෙම විද්‍යාලය අද වන විට දහස් සංඛ්‍යාත සිසු පිරිසකට සෙවණ සලසන මහා විද්‍යාලයක් බවට පත්ව ඇත.
         </p>
         
-        <p>
-            [මෙතනට ඔයාට පාසල ආරම්භ කරපු අවුරුද්ද, මුල්ම විදුහල්පතිතුමාගේ නම සහ තවත් වැදගත් තොරතුරු ඇතුළත් කරන්න පුළුවන්.]
+        <p style="background: #fdf9e7; padding: 15px; border-radius: 10px; border: 1px dashed var(--gold);">
+            <strong>සටහන:</strong> මෙතනට ඔයාට පාසල ආරම්භ කරපු අවුරුද්ද, මුල්ම විදුහල්පතිතුමාගේ නම සහ තවත් වැදගත් තොරතුරු ඇතුළත් කරන්න පුළුවන්.
         </p>
 
         <p>
-            අධ්‍යාපන මෙන්ම ක්‍රීඩා හා බාහිර ක්‍රියාකාරකම් වලින්ද ජාතික මට්ටමේ ජයග්‍රහණ රැසක් අත්කර ගැනීමට අප විද්‍යාලය සමත්ව තිබේ.
+            අධ්‍යාපන මෙන්ම ක්‍රීඩා හා බාහිර ක්‍රියාකාරකම් වලින්ද ජාතික මට්ටමේ ජයග්‍රහණ රැසක් අත්කර ගැනීමට අප විද්‍යාලය සමත්ව තිබේ. විනයගරුක සහ ගුණගරුක දරු පරපුරක් දැයට දායාද කිරීමේ මෙහෙවරෙහි අප පාසල නොසැලී ඉදිරියටම ගමන් කරයි.
         </p>
 
         <center>
@@ -117,7 +184,7 @@ footer {
 </div>
 
 <footer>
-    <p>&copy; 2024 Galewela Royal College. All Rights Reserved.</p>
+    <p>&copy; 2026 Galewela Royal College. All Rights Reserved.</p>
 </footer>
 
 </body>
