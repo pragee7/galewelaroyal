@@ -6,16 +6,72 @@
     <title>ප්‍රාථමික අංශය | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --royal-blue: #002147; --gold: #D4AF37; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f4f7f9; }
-        header { background: white; padding: 20px 50px; border-bottom: 4px solid var(--royal-blue); text-align: center; }
-        nav { background: var(--royal-blue); padding: 10px 50px; }
-        nav a { color: white; text-decoration: none; font-size: 0.9rem; }
-        .container { max-width: 900px; margin: 50px auto; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        h2 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; margin-bottom: 20px; border-bottom: 2px solid var(--gold); display: inline-block; }
-        p { margin-bottom: 15px; line-height: 1.8; color: #444; }
-        footer { background: #00152e; color: #ccc; padding: 20px; text-align: center; margin-top: 50px; }
+       /* Navigation Bar Styling */
+nav {
+    background: var(--royal-blue);
+    padding: 0 50px;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--gold);
+}
+
+/* Footer Styling */
+footer {
+    background: #00152e;
+    color: #ccc;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px;
+    border-top: 4px solid var(--gold);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.footer-section h3 { color: var(--gold); margin-bottom: 15px; }
+.footer-section p { font-size: 0.9rem; line-height: 1.6; }
+
+/* Mobile Menu - ෆෝන් එකට ගැලපෙන්න */
+@media (max-width: 768px) {
+    nav { padding: 0 10px; }
+    nav ul { flex-wrap: wrap; justify-content: center; }
+    nav ul li a { padding: 10px 12px; font-size: 0.85rem; }
+    header { flex-direction: column; text-align: center; padding: 20px; }
+    .logo { margin-bottom: 10px; margin-right: 0; }
+}
     </style>
 </head>
 <body>
