@@ -17,23 +17,41 @@
         nav { background: var(--royal-blue); padding: 10px 50px; }
         nav a { color: white; text-decoration: none; font-size: 0.9rem; }
 
-        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; text-align: center; }
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; text-align: center; }
         .section-title { margin-bottom: 40px; }
         .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
         .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
 
         /* Principal Card */
         .principal-section { display: flex; justify-content: center; margin-bottom: 50px; }
-        .staff-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-bottom: 4px solid var(--gold); transition: 0.3s; width: 280px; }
+        
+        /* General Staff Card Styling */
+        .staff-card { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+            border-bottom: 4px solid var(--gold); 
+            transition: 0.3s; 
+            width: 100%; 
+            max-width: 280px;
+        }
         .staff-card:hover { transform: translateY(-10px); }
         .staff-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; background: #ddd; }
-        .staff-card h3 { color: var(--royal-blue); font-size: 1.2rem; }
-        .staff-card p { color: #666; font-size: 0.9rem; margin-top: 5px; }
+        .staff-card h3 { color: var(--royal-blue); font-size: 1.1rem; margin-bottom: 5px; }
+        .staff-card p { color: #666; font-size: 0.85rem; font-weight: 500; }
 
         /* Teachers Grid */
-        .teachers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; justify-items: center; }
+        .teachers-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 30px; 
+            justify-items: center; 
+        }
 
-        .back-btn { display: inline-block; margin-top: 40px; padding: 10px 30px; background: var(--royal-blue); color: white; text-decoration: none; border-radius: 5px; }
+        .back-btn { display: inline-block; margin-top: 40px; padding: 12px 30px; background: var(--royal-blue); color: white; text-decoration: none; border-radius: 5px; transition: 0.3s; }
+        .back-btn:hover { background: #003366; }
+        
         footer { background: #00152e; color: #ccc; padding: 20px; text-align: center; margin-top: 50px; }
     </style>
 </head>
@@ -61,38 +79,37 @@
     </div>
 
     <div class="teachers-grid">
+        
         <div class="staff-card">
-            <img src="teacher1.jpg" alt="Teacher 1">
+            <img src="teacher1.jpg" alt="W.M.R. Kumari">
             <h3>W.M.R. Kumari</h3>
             <p>Deputy Principal</p>
         </div>
+
         <div class="staff-card">
-            <img src="teacher2.jpg" alt="Teacher 2">
+            <img src="teacher2.jpg" alt="M.G.C. Chandima">
             <h3>M.G.C. Chandima</h3>
             <p>Primary Section Teacher</p>
         </div>
-          </div>
-        <div class="teachers-grid">
+
         <div class="staff-card">
-            <img src="teacher3.jpg" alt="Teacher 1">
+            <img src="teacher3.jpg" alt="Wijewardhana">
             <h3>Wijewardhana</h3>
-            <p>teacher</p>
-        </div>
-             
-            <div class="teachers-grid">
-        <div class="staff-card">
-            <img src="teacher4.jpg" alt="Teacher 1">
-            <h3>Nimesha</h3>
-            <p>teacher</p>
-        </div>
-                <div class="teachers-grid">
-        <div class="staff-card">
-            <img src="teacher5.jpg" alt="Teacher 1">
-            <h3>Dinithi</h3>
-            <p>teacher</p>
+            <p>Teacher</p>
         </div>
 
-       
+        <div class="staff-card">
+            <img src="teacher4.jpg" alt="Nimesha">
+            <h3>Nimesha</h3>
+            <p>Teacher</p>
+        </div>
+
+        <div class="staff-card">
+            <img src="teacher5.jpg" alt="Dinithi">
+            <h3>Dinithi</h3>
+            <p>Teacher</p>
+        </div>
+
     </div>
 
     <a href="index.html" class="back-btn">නැවත මුල් පිටුවට</a>
@@ -102,7 +119,3 @@
 
 </body>
 </html>
-
-
-
-
