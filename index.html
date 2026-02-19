@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galewela Royal College | නිල වෙබ් අඩවිය</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --royal-blue: #002147; --gold: #FFD700; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f4f4f4; scroll-behavior: smooth; }
+
+        header { background: var(--white); padding: 30px; text-align: center; border-bottom: 5px solid var(--royal-blue); }
+        .logo { height: 130px; margin-bottom: 10px; }
+        
+        nav { background: var(--royal-blue); position: sticky; top: 0; z-index: 1000; text-align: center; }
+        nav a { color: white; text-decoration: none; padding: 15px 20px; display: inline-block; font-weight: 500; }
+        nav a:hover { background: var(--gold); color: var(--royal-blue); }
+
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        section { background: var(--white); padding: 40px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        h2 { color: var(--royal-blue); border-left: 5px solid var(--gold); padding-left: 15px; margin-bottom: 25px; font-family: 'Abhaya Libre', serif; }
+
+        .vmv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { padding: 25px; border-radius: 10px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .staff-card img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--gold); object-fit: cover; }
+
+        .anthem-section { background: var(--royal-blue); color: white; text-align: center; padding: 50px; border-radius: 15px; }
+        .anthem-text { font-family: 'Abhaya Libre', serif; font-size: 1.2rem; line-height: 2; white-space: pre-line; }
+
+        .footer { background: var(--royal-blue); color: white; text-align: center; padding: 30px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="School Logo" class="logo">
+    <h1>ගලේවෙල රාජකීය විද්‍යාලය</h1>
+    <p style="color: #666;">KNOWLEDGE IS POWER</p>
+</header>
+
+<nav>
+    <a href="#about">අප ගැන</a>
+    <a href="#staff">ගුරු මණ්ඩලය</a>
+    <a href="#anthem">පාසල් ගීතය</a>
+    <a href="#contact">සම්බන්ධතා</a>
+</nav>
+
+<div class="container">
+    <section id="about">
+        <h2>දැක්ම, මෙහෙවර සහ අගයන්</h2>
+        <div class="vmv-grid">
+            <div class="card"><h3>දැක්ම</h3><p>"පිරිපුන් දරු පරපුරක් දැයට දායාද කිරීම."</p></div>
+            <div class="card"><h3>මෙහෙවර</h3><p>"ගුණාත්මක අධ්‍යාපනයක් මගින් කුසලතා පූර්ණ සිසුන් බිහිකිරීම."</p></div>
+            <div class="card"><h3>අගයන්</h3><p>විනය | ගරුත්වය | කැපවීම</p></div>
+        </div>
+    </section>
+
+    <section id="staff">
+        <h2>ආචාර්ය මණ්ඩලය</h2>
+        <div class="staff-grid">
+            <div class="card staff-card"><img src="principal.jpg" alt="Principal"><h4>විදුහල්පතිතුමා</h4></div>
+            <div class="card staff-card"><img src="teacher1.jpg" alt="Teacher"><h4>නියෝජ්‍ය විදුහල්පති</h4></div>
+            <div class="card staff-card"><img src="teacher2.jpg" alt="Teacher"><h4>සහකාර විදුහල්පති</h4></div>
+        </div>
+    </section>
+
+    <section id="anthem" class="anthem-section">
+        <h2 style="color: var(--gold); border: none; text-align: center;">විද්‍යාලයීය ගීතය</h2>
+        <div class="anthem-text">
+            රාජකීය විද්‍යාලයීය මෑණියනි...
+            ඔබේ සෙවණේ නැණ ලැබ පෝෂිත වෙමු...
+            ගලේවෙල පුරවර දිදුලන තරුවක් සේ...
+            අප සැම ඔබ නාමය පතුරවමු...
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>අපව සොයා එන්න</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <p>📍 ලිපිනය: ගලේවෙල රාජකීය විද්‍යාලය, ගලේවෙල.</p>
+                <p>📞 දුරකථන: 066 - 2289233</p>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.2407559197945!2d80.57790881477727!3d7.7642649944046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae345152504b77f%3A0xc6b6781282245946!2sGalewela%20Royal%20College!5e0!3m2!1sen!2slk!4v1645000000000" width="100%" height="250" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+</div>
+
+<div class="footer">
+    <p>© 2026 Galewela Royal College | Created by Gemini</p>
+</div>
+
+</body>
+</html>
