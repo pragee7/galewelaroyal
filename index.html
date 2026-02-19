@@ -86,8 +86,8 @@
 
         /* Hero Section */
         .hero {
-            height: 450px;
-            /* Banner පින්තූරය මෙතනින් නිවැරදි කළා */
+            height: 500px;
+            /* පින්තූරය පේන්නේ නැත්නම් ./images/ කොටස ඉවත් කර බලන්න */
             background: linear-gradient(rgba(0,33,71,0.5), rgba(0,33,71,0.5)), url('./images/school_front.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -95,8 +95,16 @@
             color: white;
             text-align: center;
         }
-        .hero-text h2 { font-family: 'Abhaya Libre', serif; font-size: 3rem; margin-bottom: 10px; }
-        .hero-text p { font-size: 1.1rem; }
+        .hero-text h2 { 
+            font-family: 'Abhaya Libre', serif; 
+            font-size: 3.2rem; 
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* අකුරු කැපී පෙනෙන්න */
+        }
+        .hero-text p { 
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+        }
 
         /* Sections Styling */
         .section-title { text-align: center; margin: 50px 0 30px; }
@@ -118,6 +126,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: #ddd; /* පින්තූරය නැති විට පෙනෙන වර්ණය */
         }
         .f-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .f-card:hover img { transform: scale(1.1); }
@@ -152,16 +161,18 @@
             padding: 10px 20px; border-radius: 30px;
             cursor: pointer; z-index: 1000;
             display: flex; align-items: center; gap: 10px; font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .top-bar { display: none; }
-            header { flex-direction: column; padding: 15px; }
+            header { flex-direction: column; padding: 15px; text-align: center; }
+            .logo { margin-right: 0; margin-bottom: 10px; }
             nav ul { flex-wrap: wrap; }
             nav ul li a { padding: 10px; font-size: 0.8rem; }
             .hero-text h2 { font-size: 2rem; }
-            .hero { height: 300px; }
+            .hero { height: 350px; }
         }
     </style>
 </head>
@@ -224,15 +235,15 @@
 <div class="facilities-grid">
     <div class="f-card">
         <img src="./images/lab.jpg" alt="Science Lab">
-        <div class="f-overlay"><h3>නිදහස් පරිසරය</h3></div>
+        <div class="f-overlay"><h3>විද්‍යාගාර පහසුකම්</h3></div>
     </div>
     <div class="f-card">
         <img src="./images/it.jpg" alt="IT Lab">
-        <div class="f-overlay"><h3>බහුමාධ්‍ය ඉගෙනුම් ක්‍රම</h3></div>
+        <div class="f-overlay"><h3>තොරතුරු තාක්ෂණ ඒකකය</h3></div>
     </div>
     <div class="f-card">
         <img src="./images/library.jpg" alt="Library">
-        <div class="f-overlay"><h3>එළිමහන් පුස්තකාලය</h3></div>
+        <div class="f-overlay"><h3>පුස්තකාලය</h3></div>
     </div>
 </div>
 
@@ -243,13 +254,13 @@
 
 <div class="facilities-grid" style="margin-bottom: 60px;">
     <a href="https://www.doenets.lk/examresults" target="_blank" style="text-decoration: none; color: inherit;">
-        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd;">🔍 විභාග ප්‍රතිඵල</div>
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd; cursor: pointer;">🔍 විභාග ප්‍රතිඵල</div>
     </a>
     <a href="http://www.e-thaksalawa.moe.gov.lk/" target="_blank" style="text-decoration: none; color: inherit;">
-        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd;">📚 පැරණි ප්‍රශ්න පත්‍ර</div>
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd; cursor: pointer;">📚 ඊ-තක්සලාව</div>
     </a>
     <a href="lms.html" style="text-decoration: none; color: inherit;">
-        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd;">💻 LMS ලොගින්</div>
+        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd; cursor: pointer;">💻 LMS ලොගින්</div>
     </a>
 </div>
 
@@ -268,7 +279,7 @@
         <div>
             <h3>සම්බන්ධතා</h3>
             <p>📍 පුවක්පිටිය, ගලේවෙල</p>
-            <p>📞 070 784 3077</p>
+            <p>📞 +94 70 784 3077</p>
             <p>✉️ galewelaroyal@gmail.com</p>
         </div>
     </div>
