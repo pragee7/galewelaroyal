@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>සම්බන්ධතා | Galewela Royal College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --royal-blue: #002147; --gold: #D4AF37; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f4f7f9; color: #333; }
 
+        /* Header & Nav */
+        header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
+        .logo { height: 60px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.5rem; }
+        nav { background: var(--royal-blue); padding: 10px 50px; }
+        nav a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
+        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
+
+        .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* Contact Info Cards */
+        .contact-info { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .info-item { margin-bottom: 25px; display: flex; align-items: flex-start; gap: 15px; }
+        .info-item span { font-size: 1.5rem; }
+        .info-item h4 { color: var(--royal-blue); margin-bottom: 5px; }
+
+        /* Form Styles */
+        .contact-form { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--royal-blue); }
+        
+        .submit-btn { background: var(--royal-blue); color: white; border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s; width: 100%; }
+        .submit-btn:hover { background: var(--gold); }
+
+        /* Map */
+        .map-container { margin-top: 40px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+        footer { background: #00152e; color: #ccc; padding: 20px; text-align: center; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
+</header>
+
+<nav><a href="index.html">🏠 මුල් පිටුවට</a></nav>
+
+<div class="container">
+    <div class="section-title">
+        <h2>අප හා සම්බන්ධ වන්න</h2>
+        <hr>
+    </div>
+
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <div class="info-item">
+                <span>📍</span>
+                <div>
+                    <h4>ලිපිනය</h4>
+                    <p>ගලේවෙල රාජකීය විද්‍යාලය,<br>පුවක්ගපිටිය, ලේවෙල.</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <span>📞</span>
+                <div>
+                    <h4>දුරකථන</h4>
+                    <p>070 784 3077</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <span>✉️</span>
+                <div>
+                    <h4>ඊමේල්</h4>
+                    <p>galewelaroyal@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <form action="#">
+                <div class="form-group">
+                    <label>ඔබේ නම</label>
+                    <input type="text" placeholder="මෙහි ටයිප් කරන්න...">
+                </div>
+                <div class="form-group">
+                    <label>ඊමේල් ලිපිනය</label>
+                    <input type="email" placeholder="example@mail.com">
+                </div>
+                <div class="form-group">
+                    <label>පණිවිඩය</label>
+                    <textarea rows="4" placeholder="ඔබට දැන ගැනීමට අවශ්‍ය දේ මෙහි ලියන්න..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">පණිවිඩය යොමු කරන්න</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15814.757304192534!2d80.5750033!3d7.7591666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae346006f658057%3A0xc39f997b5757975d!2sGalewela!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</div>
+
+<footer><p>&copy; 2026 Galewela Royal College</p></footer>
+
+</body>
+</html>
