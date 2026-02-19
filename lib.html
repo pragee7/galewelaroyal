@@ -1,4 +1,212 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>පුස්තකාල අංශය | Galewela Royal College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #002147;
+            --deep-blue: #00152e;
+            --gold: #D4AF37;
+            --white: #ffffff;
+            --light-bg: #f4f7f9;
+            --book-brown: #5d4037;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--light-bg); color: #333; line-height: 1.6; }
+
+        /* Header Area */
+        header {
+            background: white;
+            padding: 20px 50px;
+            display: flex;
+            align-items: center;
+            border-bottom: 4px solid var(--royal-blue);
+        }
+        .logo { height: 70px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
+
+        /* Navigation Bar */
+        nav {
+            background: var(--royal-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 0 50px;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul { list-style: none; display: flex; }
+        nav ul li { position: relative; }
+        nav ul li a {
+            display: block;
+            padding: 18px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
+
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 0 0 10px 10px;
+            border-top: 3px solid var(--gold);
+        }
+        .dropdown-content a {
+            color: var(--royal-blue) !important;
+            padding: 12px 16px !important;
+            border-bottom: 1px solid #eee;
+            display: block;
+        }
+        nav ul li:hover .dropdown-content { display: block; }
+
+        /* Content Area */
+        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
+        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
+
+        .lib-banner {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('library_bg.jpg'); /* ෆොටෝ එකක් තියෙනවා නම් ඒ නම දාන්න */
+            background-color: var(--book-brown);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .lib-banner h3 { font-family: 'Abhaya Libre', serif; font-size: 2rem; margin-bottom: 15px; color: var(--gold); }
+
+        .lib-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border-right: 5px solid var(--gold);
+        }
+        .lib-info p { font-size: 1.1rem; text-align: justify; margin-bottom: 15px; }
+
+        /* Features Grid */
+        .lib-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .lib-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .lib-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .lib-card .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .lib-card h4 { color: var(--royal-blue); margin-bottom: 10px; }
+        .lib-card p { font-size: 0.95rem; color: #666; }
+
+        footer {
+            background: var(--deep-blue);
+            color: #ccc;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+            border-top: 4px solid var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; padding: 20px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="school-name">
+        <h1>ගලේවෙල රාජකීය විද්‍යාලය</h1>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">මුල් පිටුව</a></li>
+        <li>
+            <a href="#">අප ගැන ▾</a>
+            <div class="dropdown-content">
+                <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
+                <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
+                <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
+                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
+            </div>
+        </li>
+        <li>
+            <a href="#">අධ්‍යයන අංශ ▾</a>
+            <div class="dropdown-content">
+                <a href="primary.html">ප්‍රාථමික අංශය</a>
+                <a href="lib.html">පුස්තකාල අංශය</a>
+                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
+            </div>
+        </li>
+        <li><a href="facilities.html">පහසුකම්</a></li>
+        <li><a href="gallery.html">ඡායාරූප</a></li>
+        <li><a href="contact.html">සම්බන්ධතා</a></li>
+    </ul>
+</nav>
+
 <div class="container">
-    <h2>පුස්තකාල අංශය</h2>
-    <p>සිසුන්ගේ කියවීමේ රුචිය වර්ධනය කිරීම සඳහා අවශ්‍ය නවීන හා සම්භාව්‍ය පොත්පත් රැසකින් අප පුස්තකාලය සමන්විත වේ.</p>
+    <div class="section-title">
+        <h2>පුස්තකාල අංශය</h2>
+        <hr>
+    </div>
+
+    <div class="lib-banner">
+        <h3>දැනුම සොයා යන මාවත</h3>
+        <p>"පොත පත කියවීමෙන් මිනිසා සම්පූර්ණ වේ"</p>
+    </div>
+
+    <div class="lib-info">
+        <p>සිසුන්ගේ කියවීමේ රුචිය වර්ධනය කිරීම සඳහා අවශ්‍ය නවීන හා සම්භාව්‍ය පොත්පත් රැසකින් අප පුස්තකාලය සමන්විත වේ. අධ්‍යාපනික ග්‍රන්ථ, නවකතා, කෙටිකතා මෙන්ම දෙස් විදෙස් සඟරා සහ පුවත්පත් ද පරිශීලනය කිරීමේ අවස්ථාව මෙහිදී සිසුන්ට හිමිවේ.</p>
+    </div>
+
+    <div class="lib-grid">
+        <div class="lib-card">
+            <span class="icon">📖</span>
+            <h4>පුළුල් ග්‍රන්ථ එකතුව</h4>
+            <p>විෂය නිර්දේශයට අදාළ පොත්පත් මෙන්ම බාහිර කියවීම් පොත් දහස් ගණනක්.</p>
+        </div>
+        <div class="lib-card">
+            <span class="icon">🧘</span>
+            <h4>නිශ්ශබ්ද පරිසරය</h4>
+            <p>අධ්‍යයන කටයුතු සඳහා ඉතා සාමකාමී සහ නිදහස් වටපිටාවක් නිර්මාණය කර ඇත.</p>
+        </div>
+        <div class="lib-card">
+            <span class="icon">🔖</span>
+            <h4>පොත් බැහැර දීම</h4>
+            <p>විද්‍යාලයේ සියලුම සිසුන්ට සහ ගුරුවරුන්ට පොත් නිවසට ගෙන ගොස් කියවීමේ පහසුකම්.</p>
+        </div>
+    </div>
 </div>
+
+<footer>
+    <p>&copy; 2026 Galewela Royal College. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
