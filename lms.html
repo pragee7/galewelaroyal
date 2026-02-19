@@ -39,21 +39,43 @@
             display: flex;
             justify-content: center;
         }
-        nav a {
+        nav ul { list-style: none; display: flex; }
+        nav ul li { position: relative; }
+        nav ul li a {
             display: block;
             padding: 18px 20px;
             color: white;
             text-decoration: none;
             font-size: 0.95rem;
+            transition: 0.3s;
         }
+        nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
 
+        /* Dropdown Support */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 100;
+            border-radius: 0 0 10px 10px;
+            border-top: 3px solid var(--gold);
+        }
+        .dropdown-content a {
+            color: var(--royal-blue) !important;
+            padding: 12px 16px !important;
+            border-bottom: 1px solid #eee;
+            display: block;
+        }
+        nav ul li:hover .dropdown-content { display: block; }
+
+        /* LMS Styles */
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; min-height: 60vh; }
-        
         .lms-header { text-align: center; margin-bottom: 40px; }
         .lms-header h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
         .lms-header p { color: #666; font-size: 1.1rem; }
 
-        /* Grade Selector */
         .grade-selector {
             display: flex;
             flex-wrap: wrap;
@@ -76,13 +98,12 @@
             color: white;
         }
 
-        /* Subject Card */
         .subject-card {
             background: white;
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            display: none; /* පටන් ගන්නකොට හංගන්න */
+            display: none;
             animation: fadeIn 0.5s ease;
         }
         .subject-card.active { display: block; }
@@ -123,7 +144,7 @@
         footer {
             background: var(--deep-blue);
             color: #ccc;
-            padding: 30px;
+            padding: 40px;
             text-align: center;
             margin-top: 60px;
             border-top: 4px solid var(--gold);
@@ -132,6 +153,7 @@
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 20px; text-align: center; }
             .lesson-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
@@ -142,7 +164,7 @@
     <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
 </header>
 
-<nav><nav>
+<nav>
     <ul>
         <li><a href="index.html">මුල් පිටුව</a></li>
         <li>
@@ -151,7 +173,6 @@
                 <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
                 <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
                 <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
-                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
             </div>
         </li>
         <li>
@@ -162,11 +183,11 @@
                 <a href="mul.html">බහුමාධ්‍ය අංශය</a>
             </div>
         </li>
-        <li><a href="facilities.html">පහසුකම්</a></li>
+        <li><a href="lms.html">LMS</a></li>
         <li><a href="gallery.html">ඡායාරූප</a></li>
         <li><a href="contact.html">සම්බන්ධතා</a></li>
     </ul>
-</nav>/a></nav>
+</nav>
 
 <div class="container">
     <div class="lms-header">
@@ -175,33 +196,27 @@
     </div>
 
     <div class="grade-selector">
-        <div class="grade-btn active" onclick="showGrade('g6', event)">1 ශ්‍රේණිය</div>
-        <div class="grade-btn" onclick="showGrade('g7', event)">2 ශ්‍රේණිය</div>
-        <div class="grade-btn" onclick="showGrade('g8', event)">3 ශ්‍රේණිය</div>
-        <div class="grade-btn" onclick="showGrade('g9', event)">4 ශ්‍රේණිය</div>
-        <div class="grade-btn" onclick="showGrade('g10', event)">5 ශ්‍රේණිය</div>
+        <div class="grade-btn active" onclick="showGrade('g1', event)">1 ශ්‍රේණිය</div>
+        <div class="grade-btn" onclick="showGrade('g2', event)">2 ශ්‍රේණිය</div>
+        <div class="grade-btn" onclick="showGrade('g3', event)">3 ශ්‍රේණිය</div>
+        <div class="grade-btn" onclick="showGrade('g4', event)">4 ශ්‍රේණිය</div>
+        <div class="grade-btn" onclick="showGrade('g5', event)">5 ශ්‍රේණිය</div>
     </div>
 
-    <div id="g6" class="subject-card active">
+    <div id="g1" class="subject-card active">
         <h3 class="subject-title">1 ශ්‍රේණිය - පරිසරය</h3>
         <ul class="lesson-list">
             <li class="lesson-item">
                 <span>1. ජීවී ලෝකය</span>
                 <div class="btn-group">
-                    <a href="notes/g6_sci_p1.pdf" class="btn-sm btn-pdf">PDF සටහන</a>
-                    <a href="https://youtube.com/link" class="btn-sm btn-video">වීඩියෝව</a>
-                </div>
-            </li>
-            <li class="lesson-item">
-                <span>2. අප අවට ද්‍රව්‍ය</span>
-                <div class="btn-group">
                     <a href="#" class="btn-sm btn-pdf">PDF සටහන</a>
+                    <a href="#" class="btn-sm btn-video">වීඩියෝව</a>
                 </div>
             </li>
         </ul>
     </div>
 
-    <div id="g7" class="subject-card">
+    <div id="g2" class="subject-card">
         <h3 class="subject-title">2 ශ්‍රේණිය - ගණිතය</h3>
         <ul class="lesson-list">
             <li class="lesson-item">
@@ -219,29 +234,26 @@
     </div>
 </div>
 
-<footer>&copy; 2026 Galewela Royal College | IT Unit</footer>
+<footer>
+    <p>&copy; 2026 Galewela Royal College | IT Unit</p>
+</footer>
 
 <script>
     function showGrade(gradeId, event) {
-        // හැම subject card එකක්ම හංගන්න
         var cards = document.getElementsByClassName('subject-card');
         for (var i = 0; i < cards.length; i++) {
             cards[i].classList.remove('active');
         }
 
-        // හැම බටන් එකකම active ගතිය අයින් කරන්න
         var btns = document.getElementsByClassName('grade-btn');
         for (var i = 0; i < btns.length; i++) {
             btns[i].classList.remove('active');
         }
 
-        // තෝරපු එක විතරක් පෙන්වන්න
         var targetCard = document.getElementById(gradeId);
         if(targetCard) {
             targetCard.classList.add('active');
         }
-        
-        // ක්ලික් කරපු බටන් එක active කරන්න
         event.currentTarget.classList.add('active');
     }
 </script>
