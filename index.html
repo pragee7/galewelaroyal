@@ -189,6 +189,39 @@
         <p>ඊමේල්: galewelaroyal@gmail.com</p>
     </div>
 </footer>
+<audio id="schoolAnthem" src="anthem.mp3" loop></audio>
 
+<div id="musicControl" onclick="toggleMusic()" style="position: fixed; bottom: 20px; left: 20px; background: var(--gold); color: white; padding: 12px 18px; border-radius: 50px; cursor: pointer; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 8px; font-weight: 600;">
+    <span id="musicIcon">🎵</span> <span id="musicText">පාසල් ගීතය</span>
+</div>
+
+<script>
+    var audio = document.getElementById("schoolAnthem");
+    var icon = document.getElementById("musicIcon");
+    var text = document.getElementById("musicText");
+
+    function toggleMusic() {
+        if (audio.paused) {
+            audio.volume = 0.5; // හෙමීට ඇහෙන්න (Volume එක 50% දාලා තියෙන්නේ)
+            audio.play();
+            icon.innerHTML = "⏸️";
+            text.innerHTML = "නවත්වන්න";
+            audio.style.animation = "pulse 2s infinite";
+        } else {
+            audio.pause();
+            icon.innerHTML = "🎵";
+            text.innerHTML = "පාසල් ගීතය";
+        }
+    }
+</script>
+
+<style>
+    /* බටන් එක ගැස්සෙන පෙනුමක් ලබා දීමට (Animation) */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+</style>
 </body>
 </html>
