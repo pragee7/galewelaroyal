@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS - ඉගෙනුම් කළමනාකරණ පද්ධතිය | Galewela Royal College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --royal-blue: #002147; --gold: #D4AF37; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f0f2f5; color: #333; }
+
+        /* Header */
+        header { background: white; padding: 15px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
+        .logo { height: 50px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.3rem; }
+
+        nav { background: var(--royal-blue); padding: 10px 50px; }
+        nav a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        .lms-header { text-align: center; margin-bottom: 30px; }
+        .lms-header h2 { font-family: 'Abhaya Libre', serif; color: var(--royal-blue); font-size: 2.2rem; }
+        .lms-header p { color: #666; font-size: 1rem; margin-top: 5px; }
+
+        /* Grade Selection */
+        .grade-selector { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; margin-bottom: 40px; }
+        .grade-btn { padding: 15px; background: #f8f9fa; border: 2px solid #ddd; border-radius: 10px; cursor: pointer; text-align: center; font-weight: 600; transition: 0.3s; }
+        .grade-btn:hover, .grade-btn.active { background: var(--royal-blue); color: white; border-color: var(--royal-blue); }
+
+        /* Subject Section */
+        .subject-card { display: none; border: 1px solid #eee; border-radius: 12px; padding: 20px; margin-bottom: 20px; background: #fff; }
+        .subject-card.active { display: block; animation: fadeIn 0.5s; }
+
+        .subject-title { font-size: 1.4rem; color: var(--royal-blue); margin-bottom: 15px; border-left: 5px solid var(--gold); padding-left: 10px; }
+
+        .lesson-list { list-style: none; }
+        .lesson-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #eee; transition: 0.2s; }
+        .lesson-item:hover { background: #f9f9f9; }
+
+        .btn-group { display: flex; gap: 10px; }
+        .btn-sm { padding: 6px 12px; border-radius: 5px; text-decoration: none; font-size: 0.8rem; font-weight: 600; }
+        .btn-pdf { background: #e74c3c; color: white; }
+        .btn-video { background: #2ecc71; color: white; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        footer { text-align: center; padding: 30px; color: #888; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
+</header>
+
+<nav><a href="index.html">🏠 මුල් පිටුවට</a></nav>
+
+<div class="container">
+    <div class="lms-header">
+        <h2>ඉගෙනුම් මධ්‍යස්ථානය (LMS)</h2>
+        <p>ඔබේ ශ්‍රේණිය තෝරා ඉගෙනුම් ද්‍රව්‍ය ලබාගන්න</p>
+    </div>
+
+    <div class="grade-selector">
+        <div class="grade-btn" onclick="showGrade('g6')">6 ශ්‍රේණිය</div>
+        <div class="grade-btn" onclick="showGrade('g7')">7 ශ්‍රේණිය</div>
+        <div class="grade-btn" onclick="showGrade('g8')">8 ශ්‍රේණිය</div>
+        <div class="grade-btn" onclick="showGrade('g9')">9 ශ්‍රේණිය</div>
+        <div class="grade-btn" onclick="showGrade('g10')">10 ශ්‍රේණිය</div>
+        <div class="grade-btn" onclick="showGrade('g11')">11 ශ්‍රේණිය</div>
+    </div>
+
+    <div id="g6" class="subject-card">
+        <h3 class="subject-title">6 ශ්‍රේණිය - විද්‍යාව</h3>
+        <ul class="lesson-list">
+            <li class="lesson-item">
+                <span>1. ජීවී ලෝකය</span>
+                <div class="btn-group">
+                    <a href="notes/g6_sci_p1.pdf" class="btn-sm btn-pdf">PDF සටහන</a>
+                    <a href="https://youtube.com/link" class="btn-sm btn-video">වීඩියෝව</a>
+                </div>
+            </li>
+            <li class="lesson-item">
+                <span>2. අප අවට ද්‍රව්‍ය</span>
+                <div class="btn-group">
+                    <a href="#" class="btn-sm btn-pdf">PDF සටහන</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="g10" class="subject-card">
+        <h3 class="subject-title">10 ශ්‍රේණිය - ගණිතය</h3>
+        <ul class="lesson-list">
+            <li class="lesson-item">
+                <span>1. මූල්‍ය ගණිතය</span>
+                <div class="btn-group">
+                    <a href="#" class="btn-sm btn-pdf">PDF සටහන</a>
+                    <a href="#" class="btn-sm btn-video">වීඩියෝව</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px; color: #999;">
+        <p>අනෙක් ශ්‍රේණි සඳහා පාඩම් ඉදිරියේදී ඇතුළත් කරනු ලැබේ...</p>
+    </div>
+</div>
+
+<footer>&copy; 2026 Galewela Royal College | IT Unit</footer>
+
+<script>
+    function showGrade(gradeId) {
+        // හැම subject card එකක්ම හංගන්න
+        var cards = document.getElementsByClassName('subject-card');
+        for (var i = 0; i < cards.length; i++) {
+            cards[i].classList.remove('active');
+        }
+
+        // හැම බටන් එකකම active ගතිය අයින් කරන්න
+        var btns = document.getElementsByClassName('grade-btn');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].classList.remove('active');
+        }
+
+        // තෝරපු එක විතරක් පෙන්වන්න
+        document.getElementById(gradeId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
