@@ -6,39 +6,53 @@
     <title>ශිෂ්‍ය තොරතුරු | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --royal-blue: #002147; --gold: #D4AF37; --white: #ffffff; }
+        :root { --royal-blue: #002349; --gold: #c5a028; --white: #ffffff; --light-bg: #f0f2f5; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f4f7f9; color: #333; }
+        body { background-color: var(--light-bg); color: #333; }
 
-        header { background: white; padding: 20px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
-        .logo { height: 60px; margin-right: 20px; }
-        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.5rem; }
+        header { background: white; padding: 15px 50px; display: flex; align-items: center; border-bottom: 4px solid var(--royal-blue); }
+        .logo { height: 65px; margin-right: 20px; }
+        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.6rem; }
+
         nav { background: var(--royal-blue); padding: 10px 50px; }
         nav a { color: white; text-decoration: none; font-size: 0.9rem; }
 
-        .container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .section-title { text-align: center; margin-bottom: 40px; }
         .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
-        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
+        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; border-radius: 5px; }
 
-        /* Student Stats & Houses */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .info-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border-left: 5px solid var(--royal-blue); }
-        .info-card h3 { color: var(--gold); margin-bottom: 15px; font-size: 1.5rem; }
-        .info-card ul { list-style: none; padding: 0; }
-        .info-card ul li { padding: 10px 0; border-bottom: 1px solid #eee; }
+        /* Main Info Cards */
+        .grid-main { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        
+        /* Classes Grid Styling */
+        .classes-title { margin: 40px 0 20px; color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; text-align: left; border-left: 5px solid var(--gold); padding-left: 15px; }
+        .classes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 
-        /* House Colors Styles */
-        .house-list li { font-weight: 600; }
-        .gemunu { color: #d32f2f; } /* Red */
-        .tissa { color: #1976d2; }   /* Blue */
-        .parakum { color: #fbc02d; } /* Yellow */
-        .vijaya { color: #388e3c; }  /* Green */
+        .info-card { 
+            background: white; padding: 25px; border-radius: 15px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; 
+            border-top: 4px solid var(--royal-blue); transition: 0.3s;
+        }
+        .info-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        .class-card { border-top-color: var(--gold); padding: 20px; }
+        .class-card h4 { color: var(--royal-blue); margin-bottom: 10px; font-size: 1.2rem; }
+        .class-card p { font-size: 0.9rem; color: #666; margin: 5px 0; }
+        .class-card .count { font-weight: bold; color: var(--gold); font-size: 1.1rem; }
 
-        .back-btn { display: block; width: 200px; margin: 40px auto; text-align: center; padding: 12px; background: var(--royal-blue); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s; }
-        .back-btn:hover { background: var(--gold); }
+        .house-list li { font-weight: 600; list-style: none; padding: 8px 0; border-bottom: 1px solid #eee; }
+        .gemunu { color: #d32f2f; } .tissa { color: #1976d2; } .parakum { color: #f1c40f; } .vijaya { color: #27ae60; }
 
-        footer { background: #00152e; color: #ccc; padding: 20px; text-align: center; margin-top: 50px; }
+        .prefects-banner { 
+            background: var(--royal-blue); color: white; padding: 30px; border-radius: 15px; 
+            margin-top: 50px; text-align: center; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+        }
+        .prefects-banner h3 { font-family: 'Abhaya Libre', serif; font-size: 1.5rem; }
+        .btn-gold { background: var(--gold); color: var(--royal-blue); padding: 10px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-gold:hover { background: var(--white); }
+
+        footer { background: #00152e; color: #ccc; padding: 25px; text-align: center; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -48,7 +62,7 @@
     <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
 </header>
 
-<nav><a href="index.html">🏠 මුල් පිටුවට</a></nav>
+<nav><a href="index.html" style="color: white; text-decoration: none;">🏠 මුල් පිටුවට</a></nav>
 
 <div class="container">
     <div class="section-title">
@@ -56,37 +70,72 @@
         <hr>
     </div>
 
-    <div class="grid">
+    <div class="grid-main">
         <div class="info-card">
-            <h3>ශිෂ්‍ය සංඛ්‍යාලේඛන</h3>
-            <ul>
-                <li>මුළු ශිෂ්‍ය සංඛ්‍යාව: 1500+</li>
-                <li>ප්‍රාථමික අංශය: 600+</li>
-                <li>ද්විතීයික අංශය: 900+</li>
-                <li>ශිෂ්‍ය නායක මණ්ඩලය: 40</li>
-            </ul>
+            <h3 style="color: var(--gold);">මුළු ශිෂ්‍ය සංඛ්‍යාව</h3>
+            <p style="font-size: 2.5rem; font-weight: bold; color: var(--royal-blue);">1500+</p>
+            <p>විද්‍යාලයේ දැනට අධ්‍යාපනය ලබන මුළු සිසුන්</p>
         </div>
-
         <div class="info-card">
-            <h3>නිවාස ක්‍රමය</h3>
+            <h3 style="color: var(--gold);">නිවාස ක්‍රමය</h3>
             <ul class="house-list">
-                <li class="gemunu">ගැමුණු නිවාසය (රතු)</li>
-                <li class="tissa">තිස්ස නිවාසය (නිල්)</li>
-                <li class="parakum">පරාක්‍රම නිවාසය (කහ)</li>
-                <li class="vijaya">විජය නිවාසය (කොළ)</li>
+                <li class="gemunu">ගැමුණු නිවාසය</li>
+                <li class="tissa">තිස්ස නිවාසය</li>
+                <li class="parakum">පරාක්‍රම නිවාසය</li>
+                <li class="vijaya">විජය නිවාසය</li>
             </ul>
         </div>
     </div>
 
-    <div class="info-card" style="margin-top: 30px; border-left: 5px solid var(--gold);">
-        <h3>ශිෂ්‍ය නායක මණ්ඩලය</h3>
-        <p>විද්‍යාලයේ විනය හා ගුණාංග ආරක්ෂා කරමින් ශිෂ්‍ය ප්‍රජාව මෙහෙයවීම සඳහා තෝරාගත් විශිෂ්ට ශිෂ්‍ය නායක මණ්ඩලයක් අප සතුය.</p>
+    <h3 class="classes-title">පන්ති මට්ටම් අනුව තොරතුරු</h3>
+    <div class="classes-grid">
+        <div class="info-card class-card">
+            <h4>6 ශ්‍රේණිය</h4>
+            <p>ශිෂ්‍ය සංඛ්‍යාව: <span class="count">180</span></p>
+            <p>පන්ති සංඛ්‍යාව: 05</p>
+            <p>අංශ භාර ගුරු: ඒ. පෙරේරා මිය</p>
+        </div>
+
+        <div class="info-card class-card">
+            <h4>7 ශ්‍රේණිය</h4>
+            <p>ශිෂ්‍ය සංඛ්‍යාව: <span class="count">175</span></p>
+            <p>පන්ති සංඛ්‍යාව: 05</p>
+            <p>අංශ භාර ගුරු: බී. සිල්වා මහතා</p>
+        </div>
+
+        <div class="info-card class-card">
+            <h4>8 ශ්‍රේණිය</h4>
+            <p>ශිෂ්‍ය සංඛ්‍යාව: <span class="count">190</span></p>
+            <p>පන්ති සංඛ්‍යාව: 05</p>
+            <p>අංශ භාර ගුරු: සී. කුමාරි මිය</p>
+        </div>
+
+        <div class="info-card class-card">
+            <h4>9 ශ්‍රේණිය</h4>
+            <p>ශිෂ්‍ය සංඛ්‍යාව: <span class="count">165</span></p>
+            <p>පන්ති සංඛ්‍යාව: 05</p>
+            <p>අංශ භාර ගුරු: ඩී. ගමගේ මහතා</p>
+        </div>
+
+        <div class="info-card class-card">
+            <h4>10 ශ්‍රේණිය</h4>
+            <p>ශිෂ්‍ය සංඛ්‍යාව: <span class="count">200</span></p>
+            <p>පන්ති සංඛ්‍යාව: 06</p>
+            <p>අංශ භාර ගුරු: ඊ. ප්‍රනාන්දු මිය</p>
+        </div>
     </div>
 
-    <a href="index.html" class="back-btn">නැවත මුල් පිටුවට</a>
+    <div class="prefects-banner">
+        <h3>විද්‍යාලයීය ශිෂ්‍ය නායක මණ්ඩලය</h3>
+        <a href="prefects.html" class="btn-gold">නායකත්ව විස්තර බලන්න</a>
+    </div>
+
+    <center style="margin-top: 40px;">
+        <a href="index.html" style="color: var(--royal-blue); font-weight: bold; text-decoration: none;">← නැවත මුල් පිටුවට</a>
+    </center>
 </div>
 
-<footer><p>&copy; 2026 Galewela Royal College</p></footer>
+<footer><p>&copy; 2026 Galewela Royal College. All rights reserved.</p></footer>
 
 </body>
 </html>
