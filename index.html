@@ -14,7 +14,6 @@
             --light-bg: #f4f7f9;
         }
 
-        /* මෙතැනදී font-family එක Abhaya Libre ලෙස වෙනස් කළා */
         * { 
             margin: 0; 
             padding: 0; 
@@ -75,7 +74,7 @@
             padding: 15px 20px;
             color: white;
             text-decoration: none;
-            font-size: 1rem; /* සිංහල අකුරු නිසා පොඩ්ඩක් විශාල කළා */
+            font-size: 1rem;
             font-weight: 500;
             transition: 0.3s;
         }
@@ -100,19 +99,25 @@
         .dropdown-content a:hover { background-color: #f1f1f1; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Hero Section */
+        /* UPDATED MODERN HERO SECTION */
         .hero {
-            height: 500px;
-            background: linear-gradient(rgba(0,33,71,0.5), rgba(0,33,71,0.5)), url('school_front.jpg') center/cover no-repeat;
+            height: 550px;
+            /* මෙතන banner_new.jpg නමින් පින්තූරය තිබිය යුතුය */
+            background: linear-gradient(rgba(0,33,71,0.5), rgba(0,33,71,0.5)), url('banner_new.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
+            border-bottom: 5px solid var(--gold);
         }
         .hero-text {
-            max-width: 800px;
-            padding: 0 20px;
+            max-width: 850px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
         .hero-text h2 { 
             font-family: 'Abhaya Libre', serif; 
@@ -125,7 +130,7 @@
             text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
-        /* Principal Section Layout */
+        /* Principal Section */
         .principal-section {
             display: flex;
             align-items: center;
@@ -190,7 +195,6 @@
         .footer-grid a { color: #ccc; text-decoration: none; display: block; margin-bottom: 8px; }
         .footer-grid a:hover { color: var(--gold); }
 
-        /* Music Control */
         #musicControl {
             position: fixed; bottom: 20px; left: 20px;
             background: var(--gold); color: white;
@@ -200,13 +204,13 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .top-bar, .news-ticker { display: none; }
             header { flex-direction: column; padding: 15px; text-align: center; }
             .logo { margin-right: 0; margin-bottom: 10px; }
             nav ul { flex-wrap: wrap; }
             nav ul li a { padding: 10px; font-size: 0.9rem; }
+            .hero-text h2 { font-size: 2rem; }
             .principal-section { flex-direction: column; text-align: center; padding: 20px; }
             .principal-img { width: 200px; }
         }
