@@ -34,7 +34,7 @@
 
         /* Dashboard Section Styles (Initial Hidden) */
         #dashboard-section {
-            display: none; /* පටන් ගද්දි හංගලා තියෙන්නේ */
+            display: none;
         }
 
         .header { background: var(--royal-blue); color: white; padding: 20px; text-align: center; border-bottom: 5px solid var(--gold); }
@@ -46,7 +46,7 @@
         .card:hover { transform: translateY(-5px); }
         .card button { background: var(--gold); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
 
-        /* Form & Button Elements */
+        /* Form Elements */
         .input-group { margin-bottom: 20px; text-align: left; }
         .input-group label { display: block; margin-bottom: 5px; color: var(--royal-blue); font-weight: 600; }
         .input-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
@@ -90,4 +90,38 @@
             <div class="grid">
                 <div class="card"><h3>ගණිතය</h3><p>1 වාරය</p><button>බලන්න</button></div>
                 <div class="card"><h3>විද්‍යාව</h3><p>1 වාරය</p><button>බලන්න</button></div>
-                <div class="card"><h3>ඉතිහාසය</h3><p>1 වාරය</p>
+                <div class="card"><h3>ඉතිහාසය</h3><p>1 වාරය</p><button>බලන්න</button></div>
+            </div>
+            <center><span class="logout-btn" onclick="logout()">පද්ධතියෙන් ඉවත් වන්න (Logout)</span></center>
+        </div>
+    </section>
+
+    <script>
+        const loginForm = document.getElementById('lmsLoginForm');
+        const loginSection = document.getElementById('login-section');
+        const dashboardSection = document.getElementById('dashboard-section');
+        const errorMsg = document.getElementById('errorMessage');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            if(user === "admin" && pass === "1234") {
+                loginSection.style.display = "none";
+                dashboardSection.style.display = "block";
+                document.getElementById('display-user').innerText = user;
+            } else {
+                errorMsg.style.display = "block";
+            }
+        });
+
+        function logout() {
+            loginSection.style.display = "flex";
+            dashboardSection.style.display = "none";
+            loginForm.reset();
+            errorMsg.style.display = "none";
+        }
+    </script>
+</body>
+</html>
