@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>බාගත කිරීම් | Galewela Royal College</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --royal-blue: #002147;
@@ -14,165 +16,82 @@
             --light-bg: #f4f7f9;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Abhaya Libre', 'Poppins', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Abhaya Libre', sans-serif; }
         body { background-color: var(--light-bg); }
 
-        /* Navigation */
-        nav { background: var(--royal-blue); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        nav ul { list-style: none; display: flex; justify-content: center; }
-        nav ul li a { display: block; padding: 15px 20px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        /* Navigation Fix with Dropdown */
+        nav { background: var(--royal-blue); position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        nav ul { list-style: none; display: flex; justify-content: center; align-items: center; max-width: 1200px; margin: 0 auto; }
+        nav ul li { position: relative; }
+        nav ul li a { display: block; padding: 20px 15px; color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
         nav ul li a:hover { color: var(--gold); }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--royal-blue);
+            min-width: 200px;
+            top: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            border-top: 3px solid var(--gold);
+        }
+        .dropdown-content a { padding: 12px 16px; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        nav ul li:hover .dropdown-content { display: block; }
 
         /* Header */
         .page-header {
             background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('school_front.jpg') center/cover no-repeat;
-            height: 200px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            text-align: center;
             border-bottom: 5px solid var(--gold);
         }
-        .page-header h1 { font-size: 2.5rem; color: var(--gold); }
+        .page-header h1 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--gold); }
+
+        /* Search Bar */
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto 0;
+            padding: 0 20px;
+            text-align: center;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 2px solid var(--royal-blue);
+            outline: none;
+            font-size: 1rem;
+        }
 
         /* Downloads Container */
-        .download-container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 20px;
+        .download-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        
+        .section-title {
+            margin: 30px 0 20px;
+            color: var(--royal-blue);
+            border-bottom: 3px solid var(--gold);
+            display: inline-block;
+            font-family: 'Abhaya Libre', serif;
+            font-size: 1.8rem;
         }
 
         .download-card {
             background: white;
-            padding: 25px;
+            padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-left: 5px solid var(--royal-blue);
+            border-left: 6px solid var(--royal-blue);
             transition: 0.3s;
         }
-        .download-card:hover { transform: scale(1.02); }
+        .download-card:hover { transform: translateX(10px); background: #fdfdfd; }
 
         .file-info { display: flex; align-items: center; }
-        .file-icon { font-size: 2.5rem; color: #e74c3c; margin-right: 20px; }
-        .file-details h3 { color: var(--royal-blue); margin-bottom: 5px; }
-        .file-details p { color: #666; font-size: 0.9rem; }
-
-        .btn-download {
-            background: var(--royal-blue);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-        .btn-download:hover { background: var(--gold); color: var(--royal-blue); }
-
-        footer { background: #00152e; color: #ccc; padding: 40px; text-align: center; border-top: 5px solid var(--gold); margin-top: 50px; }
-        .social-links a { color: var(--gold); font-size: 1.5rem; margin: 0 10px; text-decoration: none; }
-    </style>
-</head>
-<body>
-
-<nav>
-    <ul>
-        <li><a href="index.html">මුල් පිටුව</a></li>
-        <li>
-            <a href="#">අප ගැන ▾</a>
-            <div class="dropdown-content">
-                <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
-                <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
-                <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
-                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
-            </div>
-        </li>
-        <li>
-            <a href="#">අධ්‍යයන අංශ ▾</a>
-            <div class="dropdown-content">
-                <a href="primary.html">ප්‍රාථමික අංශය</a>
-                <a href="lib.html">පුස්තකාල අංශය</a>
-                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
-            </div>
-        </li>
-        <li><a href="facilities.html">පහසුකම්</a></li>
-        <li><a href="gallery.html">ඡායාරූප</a></li>
-        <li><a href="contact.html">සම්බන්ධතා</a></li>
-        <li><a href="downloads.html">බාගත කිරීම්</a></li>
-         <li><a href="news.html">ප්‍රවෘත්ති</a></li>
-    
-        <li><a href="lms.html" style="background: var(--gold); color: var(--royal-blue); border-radius: 5px; margin-left: 10px; font-weight: bold;">LMS ලොගින්</a></li>
-    </ul>
-</nav>
-
-<div class="page-header">
-    <h1>බාගත කිරීම් (Downloads)</h1>
-</div>
-
-<div class="download-container">
-    
-    <h2 style="margin-bottom: 20px; color: var(--royal-blue); border-bottom: 2px solid var(--gold); display: inline-block;">විභාග කාලසටහන්</h2>
-    
-    <div class="download-card">
-        <div class="file-info">
-            <i class="fas fa-file-pdf file-icon"></i>
-            <div class="file-details">
-                <h3>2026 පළමු වාර පරීක්ෂණ කාලසටහන</h3>
-                <p>සියලුම ශ්‍රේණි සඳහා | PDF (450KB)</p>
-            </div>
-        </div>
-        <a href="documents/exam_timetable.pdf" class="btn-download" download>
-            <i class="fas fa-download"></i> බාගත කරන්න
-        </a>
-    </div>
-
-    <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--royal-blue); border-bottom: 2px solid var(--gold); display: inline-block;">අයදුම්පත්</h2>
-
-    <div class="download-card">
-        <div class="file-info">
-            <i class="fas fa-file-pdf file-icon"></i>
-            <div class="file-details">
-                <h3>1 ශ්‍රේණිය ඇතුළත් කිරීමේ අයදුම්පත</h3>
-                <p>2027 වර්ෂය සඳහා | PDF (800KB)</p>
-            </div>
-        </div>
-        <a href="documents/admission_form.pdf" class="btn-download" download>
-            <i class="fas fa-download"></i> බාගත කරන්න
-        </a>
-    </div>
-
-    <h2 style="margin-top: 40px; margin-bottom: 20px; color: var(--royal-blue); border-bottom: 2px solid var(--gold); display: inline-block;">පාසල් වාර සඟරා (E-Magazines)</h2>
-
-    <div class="download-card">
-        <div class="file-info">
-            <i class="fas fa-book file-icon" style="color: var(--gold);"></i>
-            <div class="file-details">
-                <h3>"රාජකීය ප්‍රදීපය" - 2025 වාර සඟරාව</h3>
-                <p>PDF (5.2MB)</p>
-            </div>
-        </div>
-        <a href="documents/magazine_2025.pdf" class="btn-download" download>
-            <i class="fas fa-download"></i> බාගත කරන්න
-        </a>
-    </div>
-
-</div>
-
-<footer>
-    <div class="social-links">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
-    </div>
-    <p style="margin-top: 20px;">© 2026 Galewela Royal College. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+        .file-icon { font-size
