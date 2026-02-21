@@ -11,75 +11,79 @@
             --gold: #D4AF37;
         }
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 0; padding: 0; height: 100vh;
+            display: flex; align-items: center; justify-content: center;
             background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('school_front.jpg') center/cover;
             font-family: 'Poppins', sans-serif;
         }
         .login-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
+            background: white; padding: 40px; border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
+            width: 100%; max-width: 400px; text-align: center;
             border-top: 8px solid var(--gold);
         }
-        .login-card h2 {
-            color: var(--royal-blue);
-            font-family: 'Abhaya Libre', serif;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
+        .login-card h2 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 2rem; margin-bottom: 10px; }
         .login-card p { color: #666; font-size: 0.9rem; margin-bottom: 30px; }
+        
         .input-group { margin-bottom: 20px; text-align: left; }
         .input-group label { display: block; margin-bottom: 5px; color: var(--royal-blue); font-weight: 600; }
         .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            transition: 0.3s;
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; transition: 0.3s;
         }
         .input-group input:focus { border-color: var(--gold); box-shadow: 0 0 5px rgba(212,175,55,0.5); }
+        
         .login-btn {
-            width: 100%;
-            padding: 12px;
-            background: var(--royal-blue);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 1rem;
+            width: 100%; padding: 12px; background: var(--royal-blue); color: white; border: none;
+            border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 1rem;
         }
         .login-btn:hover { background: var(--gold); color: var(--royal-blue); }
+        
         .back-home { margin-top: 20px; display: block; color: var(--royal-blue); text-decoration: none; font-size: 0.85rem; }
+        
+        /* Error Message Style */
+        #errorMessage { color: red; font-size: 0.85rem; margin-top: 10px; display: none; }
     </style>
 </head>
 <body>
+
     <div class="login-card">
         <h2>LMS ලොගින්</h2>
         <p>ඉගෙනුම් කළමනාකරණ පද්ධතියට ඇතුළු වන්න</p>
-        <form>
+        
+        <form id="lmsLoginForm">
             <div class="input-group">
                 <label>පරිශීලක නාමය (Username)</label>
-                <input type="text" placeholder="ඔබේ අංකය ඇතුළත් කරන්න" required>
+                <input type="text" id="username" placeholder="පරිශීලක නාමය ඇතුළත් කරන්න" required>
             </div>
             <div class="input-group">
                 <label>මුරපදය (Password)</label>
-                <input type="password" placeholder="********" required>
+                <input type="password" id="password" placeholder="********" required>
             </div>
             <button type="submit" class="login-btn">ඇතුළු වන්න</button>
+            <p id="errorMessage">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</p>
         </form>
+
         <a href="index.html" class="back-home">← නැවත මුල් පිටුවට</a>
     </div>
+
+    <script>
+        document.getElementById('lmsLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // පේජ් එක refresh වීම නවත්වනවා
+
+            // මෙතන තමයි අපි login details චෙක් කරන්නේ
+            var user = document.getElementById('username').value;
+            var pass = document.getElementById('password').value;
+            var errorMsg = document.getElementById('errorMessage');
+
+            // සරලව චෙක් කිරීමක් (මේක පස්සේ වෙනස් කරන්න පුළුවන්)
+            if(user === "admin" && pass === "1234") {
+                alert("සාර්ථකව ලොග් වුණා! දැන් ඔබව LMS එකට යොමු කරනවා.");
+                window.location.href = "lms_dashboard.html"; // ලොග් වුණාට පස්සේ යන පේජ් එක
+            } else {
+                errorMsg.style.display = "block"; // වැරදි නම් message එක පෙන්වනවා
+            }
+        });
+    </script>
+
 </body>
 </html>
