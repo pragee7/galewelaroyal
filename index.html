@@ -23,6 +23,19 @@
         
         body { background-color: var(--light-bg); color: #333; }
 
+        /* Animation සඳහා අවශ්‍ය කරන CSS */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* News Ticker */
         .news-ticker {
             background: var(--gold);
@@ -99,11 +112,9 @@
         .dropdown-content a:hover { background-color: #f1f1f1; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* HERO SECTION - BRIGHT & CLEAR */
-        /* HERO SECTION - BRIGHT IMAGE WITH CLEAR TEXT */
+        /* HERO SECTION */
         .hero {
             height: 550px;
-            /* පින්තූරය උඩට පොඩි අඳුරු ලේයර් එකක් දැම්මා අකුරු පේන්න */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('school_front.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -116,7 +127,6 @@
         .hero-text {
             max-width: 850px;
             padding: 20px;
-            /* අකුරු පසුපසට තද කළු හෙවනැල්ලක් එකතු කළා */
             text-shadow: 0px 4px 10px rgba(0, 0, 0, 1), 0px 0px 20px rgba(0, 0, 0, 0.8);
         }
 
@@ -129,15 +139,9 @@
         }
 
         .hero-text p { 
-            font-size: 1.8rem; /* පොඩ්ඩක් ලොකු කළා */
+            font-size: 1.8rem;
             color: white;
             font-weight: 600;
-        }
-        .hero-text p { 
-            font-size: 1.6rem;
-            color: white;
-            font-weight: 400;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
         /* Principal Section */
@@ -281,7 +285,7 @@
     </div>
 </div>
 
-<div class="principal-section">
+<div class="principal-section reveal">
     <img src="principal.jpg" alt="Principal" class="principal-img">
     <div class="p-text">
         <h2>විදුහල්පති පණිවිඩය</h2>
@@ -291,12 +295,12 @@
     </div>
 </div>
 
-<div class="section-title">
+<div class="section-title reveal">
     <h2>නිදහස් ඉගෙනුම් පරිසරය</h2>
     <hr>
 </div>
 
-<div class="facilities-grid">
+<div class="facilities-grid reveal">
     <div class="f-card">
         <img src="lab.jpg" alt="Science Lab">
         <div class="f-overlay"><h3>විද්‍යාගාර පහසුකම්</h3></div>
@@ -311,12 +315,12 @@
     </div>
 </div>
 
-<div class="section-title">
+<div class="section-title reveal">
     <h2>ඉක්මන් සබැඳි (Quick Links)</h2>
     <hr>
 </div>
 
-<div class="facilities-grid" style="margin-bottom: 60px;">
+<div class="facilities-grid reveal" style="margin-bottom: 60px;">
     <a href="https://www.doenets.lk/examresults" target="_blank" style="text-decoration: none; color: inherit;">
         <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd; cursor: pointer;">🔍 විභාග ප්‍රතිඵල</div>
     </a>
@@ -358,6 +362,7 @@
 </div>
 
 <script>
+    // Music Toggle Function
     var audio = document.getElementById("schoolAnthem");
     var icon = document.getElementById("musicIcon");
     var text = document.getElementById("musicText");
@@ -372,6 +377,21 @@
             text.innerHTML = "පාසල් ගීතය"; 
         }
     }
+
+    // Reveal Animation Script
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal(); // Load එකේදීත් චෙක් කරනවා
 </script>
 </body>
 </html>
