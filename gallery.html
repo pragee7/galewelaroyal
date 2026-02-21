@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ඡායාරූප එකතුව | Galewela Royal College</title>
+    
+    <meta name="description" content="ගලේවෙල රාජකීය විද්‍යාලයීය නිල ඡායාරූප එකතුව. ක්‍රීඩා, ආගමික සහ විශේෂ උත්සව අවස්ථා මෙහි නරඹන්න.">
+    <meta name="keywords" content="Galewela Royal College Gallery, Photos, Sports Meet, Prize Giving, ගලේවෙල රාජකීය විද්‍යාලය">
+
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         :root {
             --royal-blue: #002147;
@@ -18,7 +24,7 @@
 
         /* Navigation */
         nav { background: var(--royal-blue); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        nav ul { list-style: none; display: flex; justify-content: center; }
+        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
         nav ul li a { display: block; padding: 15px 20px; color: white; text-decoration: none; font-weight: 500; }
         nav ul li a:hover { color: var(--gold); }
 
@@ -35,10 +41,31 @@
         }
         .page-header h1 { font-size: 2.5rem; color: var(--gold); }
 
+        /* Filter Buttons */
+        .filter-section {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--royal-blue);
+            color: var(--royal-blue);
+            padding: 8px 25px;
+            margin: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--royal-blue);
+            color: white;
+        }
+
         /* Gallery Grid */
         .gallery-container {
             max-width: 1200px;
-            margin: 50px auto;
+            margin: 20px auto 50px;
             padding: 0 20px;
         }
 
@@ -58,6 +85,9 @@
             cursor: pointer;
         }
 
+        /* Category Filter Logic */
+        .gallery-item.hide { display: none; }
+
         .gallery-item img {
             width: 100%;
             height: 100%;
@@ -65,9 +95,7 @@
             transition: transform 0.5s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
+        .gallery-item:hover img { transform: scale(1.1); }
 
         .gallery-overlay {
             position: absolute;
@@ -86,15 +114,13 @@
             text-align: center;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
 
         /* Animation class */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease;
+            transition: all 0.6s ease;
         }
         .reveal.active {
             opacity: 1;
@@ -106,6 +132,7 @@
 
         @media (max-width: 768px) {
             .page-header h1 { font-size: 1.8rem; }
+            nav ul li a { padding: 10px 15px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -125,10 +152,19 @@
     <h1>විද්‍යාලයීය ඡායාරූප එකතුව</h1>
 </div>
 
+<div class="filter-section">
+    <button class="filter-btn active" data-filter="all">සියල්ල</button>
+    <button class="filter-btn" data-filter="sports">ක්‍රීඩා</button>
+    <button class="filter-btn" data-filter="religious">ආගමික</button>
+    <button class="filter-btn" data-filter="academic">අධ්‍යයන</button>
+    <button class="filter-btn" data-filter="events">වෙනත්</button>
+</div>
+
 <div class="gallery-container">
-    <div class="gallery-grid">
-        <div class="gallery-item reveal">
-            <img src="event1.jpg" alt="School Event">
+    <div class="gallery-grid" id="galleryGrid">
+        
+        <div class="gallery-item reveal sports">
+            <img src="event1.jpg" alt="Galewela Royal Sports Meet">
             <div class="gallery-overlay">
                 <div>
                     <h3>නිවාසාන්තර ක්‍රීඩා උත්සවය</h3>
@@ -137,8 +173,8 @@
             </div>
         </div>
 
-        <div class="gallery-item reveal">
-            <img src="event2.jpg" alt="Prize Giving">
+        <div class="gallery-item reveal academic">
+            <img src="event2.jpg" alt="Prize Giving Galewela Royal">
             <div class="gallery-overlay">
                 <div>
                     <h3>ත්‍යාග ප්‍රදානෝත්සවය</h3>
@@ -147,7 +183,7 @@
             </div>
         </div>
 
-        <div class="gallery-item reveal">
+        <div class="gallery-item reveal religious">
             <img src="event3.jpg" alt="Religious Event">
             <div class="gallery-overlay">
                 <div>
@@ -157,8 +193,8 @@
             </div>
         </div>
 
-        <div class="gallery-item reveal">
-            <img src="event4.jpg" alt="Building">
+        <div class="gallery-item reveal academic">
+            <img src="event4.jpg" alt="Science Lab">
             <div class="gallery-overlay">
                 <div>
                     <h3>නව විද්‍යාගාරය</h3>
@@ -167,8 +203,8 @@
             </div>
         </div>
 
-        <div class="gallery-item reveal">
-            <img src="event5.jpg" alt="Classroom">
+        <div class="gallery-item reveal events">
+            <img src="event5.jpg" alt="Primary School">
             <div class="gallery-overlay">
                 <div>
                     <h3>ප්‍රාථමික අංශය</h3>
@@ -177,8 +213,8 @@
             </div>
         </div>
 
-        <div class="gallery-item reveal">
-            <img src="event6.jpg" alt="Band">
+        <div class="gallery-item reveal events">
+            <img src="event6.jpg" alt="School Band">
             <div class="gallery-overlay">
                 <div>
                     <h3>බටහිර තූර්ය වාදක කණ්ඩායම</h3>
@@ -186,6 +222,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -194,8 +231,33 @@
 </footer>
 
 <script>
+    // Gallery Filtering Script
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons and add to clicked
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            galleryItems.forEach(item => {
+                if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                    item.classList.remove('hide');
+                    // Re-trigger animation
+                    setTimeout(() => item.classList.add('reveal', 'active'), 100);
+                } else {
+                    item.classList.add('hide');
+                }
+            });
+        });
+    });
+
+    // Reveal Animation Script
     function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
+        var reveals = document.querySelectorAll(".reveal:not(.hide)");
         for (var i = 0; i < reveals.length; i++) {
             var windowHeight = window.innerHeight;
             var elementTop = reveals[i].getBoundingClientRect().top;
@@ -206,7 +268,7 @@
         }
     }
     window.addEventListener("scroll", reveal);
-    reveal(); // පේජ් එක ලෝඩ් වෙද්දීම පේන්න
+    window.addEventListener("load", reveal);
 </script>
 
 </body>
