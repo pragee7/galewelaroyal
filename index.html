@@ -100,10 +100,11 @@
         nav ul li:hover .dropdown-content { display: block; }
 
         /* HERO SECTION - BRIGHT & CLEAR */
+        /* HERO SECTION - BRIGHT IMAGE WITH CLEAR TEXT */
         .hero {
             height: 550px;
-            /* අඳුරු ගතිය ඉවත් කර පින්තූරය පමණක් දැම්මා */
-            background: url('school_front.jpg') center/cover no-repeat;
+            /* පින්තූරය උඩට පොඩි අඳුරු ලේයර් එකක් දැම්මා අකුරු පේන්න */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('school_front.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -111,16 +112,26 @@
             text-align: center;
             border-bottom: 5px solid var(--gold);
         }
+
         .hero-text {
             max-width: 850px;
             padding: 20px;
+            /* අකුරු පසුපසට තද කළු හෙවනැල්ලක් එකතු කළා */
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 1), 0px 0px 20px rgba(0, 0, 0, 0.8);
         }
+
         .hero-text h2 { 
             font-family: 'Abhaya Libre', serif; 
             font-size: 3.5rem; 
             margin-bottom: 10px;
             color: var(--gold); 
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.8); /* අකුරු කැපී පෙනෙන්න shadow එකක් */
+            font-weight: 700;
+        }
+
+        .hero-text p { 
+            font-size: 1.8rem; /* පොඩ්ඩක් ලොකු කළා */
+            color: white;
+            font-weight: 600;
         }
         .hero-text p { 
             font-size: 1.6rem;
