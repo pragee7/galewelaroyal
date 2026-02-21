@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>පුවත් සහ නිවේදන | Galewela Royal College</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --royal-blue: #002147;
@@ -14,19 +16,34 @@
             --light-bg: #f4f7f9;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Abhaya Libre', 'Poppins', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Abhaya Libre', sans-serif; }
         body { background-color: var(--light-bg); color: #333; }
 
-        /* Navigation */
-        nav { background: var(--royal-blue); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        nav ul { list-style: none; display: flex; justify-content: center; }
-        nav ul li a { display: block; padding: 15px 20px; color: white; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        /* Navigation Style Fix */
+        nav { background: var(--royal-blue); position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        nav ul { list-style: none; display: flex; justify-content: center; align-items: center; max-width: 1200px; margin: 0 auto; }
+        nav ul li { position: relative; }
+        nav ul li a { display: block; padding: 20px 15px; color: white; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
         nav ul li a:hover { color: var(--gold); }
+
+        /* Dropdown CSS */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--royal-blue);
+            min-width: 200px;
+            top: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            border-top: 3px solid var(--gold);
+        }
+        .dropdown-content a { padding: 12px 16px; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        nav ul li:hover .dropdown-content { display: block; }
 
         /* Header */
         .page-header {
             background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('school_front.jpg') center/cover no-repeat;
-            height: 200px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -34,60 +51,85 @@
             text-align: center;
             border-bottom: 5px solid var(--gold);
         }
-        .page-header h1 { font-size: 2.5rem; color: var(--gold); font-family: 'Abhaya Libre', serif; }
+        .page-header h1 { font-size: 2.2rem; color: var(--gold); font-family: 'Abhaya Libre', serif; }
 
         /* News Section */
-        .news-section {
-            max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
+        .news-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
 
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+        /* Important Notice Box */
+        .important-notice-box {
+            background: #fff3cd;
+            border-left: 6px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            animation: pulse 2s infinite;
         }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+        }
+        .important-notice-box h2 { color: #856404; font-size: 1.4rem; margin-bottom: 8px; font-family: 'Abhaya Libre', serif; }
 
+        /* News Cards */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        
         .news-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: 0.3s;
-            border-top: 5px solid var(--royal-blue);
+            display: flex;
+            flex-direction: column;
         }
+        .news-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
 
-        .news-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .news-img { width: 100%; height: 200px; background: #ddd; object-fit: cover; }
 
+        .news-content { padding: 20px; flex-grow: 1; }
         .news-tag {
             background: var(--gold);
             color: var(--royal-blue);
-            padding: 5px 12px;
-            font-size: 0.8rem;
+            padding: 4px 10px;
+            font-size: 0.75rem;
             font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
             border-radius: 4px;
+            text-transform: uppercase;
         }
-
-        .news-content { padding: 25px; }
-        .news-date { font-size: 0.85rem; color: #888; margin-bottom: 10px; display: block; }
-        .news-content h3 { color: var(--royal-blue); margin-bottom: 15px; font-family: 'Abhaya Libre', serif; font-size: 1.4rem; }
-        .news-content p { color: #555; line-height: 1.6; font-size: 1rem; margin-bottom: 15px; }
-
-        /* Important Notices Sidebar Style */
-        .important-notice-box {
-            background: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 20px;
-            margin-bottom: 40px;
-            border-radius: 8px;
+        .news-date { font-size: 0.8rem; color: #888; margin-left: 10px; }
+        
+        .news-content h3 { 
+            color: var(--royal-blue); 
+            margin: 15px 0; 
+            font-family: 'Abhaya Libre', serif; 
+            font-size: 1.3rem;
+            line-height: 1.3;
         }
-        .important-notice-box h2 { color: #856404; font-size: 1.5rem; margin-bottom: 10px; }
+        .news-content p { color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
 
-        footer { background: #00152e; color: #ccc; padding: 40px; text-align: center; border-top: 5px solid var(--gold); margin-top: 50px; }
-        .social-links a { color: var(--gold); font-size: 1.5rem; margin: 0 10px; text-decoration: none; }
+        .read-more {
+            color: var(--royal-blue);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: 0.2s;
+        }
+        .read-more:hover { color: var(--gold); padding-left: 5px; }
+
+        /* Footer */
+        footer { background: #00152e; color: #ccc; padding: 40px; text-align: center; border-top: 5px solid var(--gold); }
+        .social-links a { color: var(--gold); font-size: 1.5rem; margin: 0 10px; }
+
+        @media (max-width: 768px) {
+            nav ul { flex-wrap: wrap; }
+            nav ul li a { padding: 10px; font-size: 0.8rem; }
+            .page-header h1 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -101,14 +143,13 @@
                 <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
                 <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
                 <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
-                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
             </div>
         </li>
         <li>
             <a href="#">අධ්‍යයන අංශ ▾</a>
             <div class="dropdown-content">
                 <a href="primary.html">ප්‍රාථමික අංශය</a>
-                <a href="lib.html">පුස්තකාල අංශය</a>
+                <a href="lib.html">පුස්තකාලය</a>
                 <a href="mul.html">බහුමාධ්‍ය අංශය</a>
             </div>
         </li>
@@ -116,9 +157,8 @@
         <li><a href="gallery.html">ඡායාරූප</a></li>
         <li><a href="contact.html">සම්බන්ධතා</a></li>
         <li><a href="downloads.html">බාගත කිරීම්</a></li>
-         <li><a href="news.html">ප්‍රවෘත්ති</a></li>
-    
-        <li><a href="lms.html" style="background: var(--gold); color: var(--royal-blue); border-radius: 5px; margin-left: 10px; font-weight: bold;">LMS ලොගින්</a></li>
+        <li><a href="news.html" style="color: var(--gold);">ප්‍රවෘත්ති</a></li>
+        <li><a href="lms.html" style="background: var(--gold); color: var(--royal-blue); border-radius: 5px; font-weight: bold;">LMS</a></li>
     </ul>
 </nav>
 
@@ -130,38 +170,41 @@
 
     <div class="important-notice-box">
         <h2>📢 විශේෂ නිවේදනයයි</h2>
-        <p>අයහපත් කාලගුණය හේතුවෙන් හෙට දින (පෙබරවාරි 23) පාසලේ සියලුම බාහිර ක්‍රියාකාරකම් අවලංගු කර ඇත. පාසල සාමාන්‍ය පරිදි පැවැත්වේ.</p>
+        <p>අයහපත් කාලගුණය හේතුවෙන් හෙට දින (පෙබරවාරි 23) පාසලේ සියලුම බාහිර ක්‍රියාකාරකම් අවලංගු කර ඇත. පාසල් පැවැත්වීම පිළිබඳ තීරණය හෙට උදෑසන දැනුම් දෙනු ලැබේ.</p>
     </div>
 
     <div class="news-grid">
         
         <div class="news-card">
+            <img src="news1.jpg" alt="Holiday News" class="news-img">
             <div class="news-content">
-                <span class="news-tag">නිවාඩු දින</span>
+                <span class="news-tag">නිවේදන</span>
                 <span class="news-date">2026 පෙබරවාරි 20</span>
                 <h3>පළමු වාරයේ නිවාඩු දින ලැයිස්තුව</h3>
-                <p>2026 අධ්‍යයන වර්ෂයේ පළමු වාරය සඳහා නියමිත නිවාඩු දින සහ පාසල් වාරය අවසන් වන දිනයන් මෙහි ඇතුළත් කර ඇත.</p>
-                <a href="#" style="color: var(--royal-blue); font-weight: bold; text-decoration: none;">වැඩිදුර කියවන්න →</a>
+                <p>2026 අධ්‍යයන වර්ෂයේ පළමු වාරය සඳහා නියමිත රජයේ සහ පාසල් නිවාඩු දින ලැයිස්තුව දැන් බාගත හැකිය.</p>
+                <a href="#" class="read-more">වැඩිදුර කියවන්න <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
         <div class="news-card">
+            <img src="news2.jpg" alt="Sports News" class="news-img">
             <div class="news-content">
                 <span class="news-tag">ක්‍රීඩා</span>
                 <span class="news-date">2026 පෙබරවාරි 15</span>
-                <h3>නිවාසන්තර ක්‍රීඩා උත්සවයේ ජයග්‍රාහකයෝ</h3>
-                <p>මෙවර වාර්ෂික නිවාසන්තර ක්‍රීඩා උත්සවයේ සමස්ත ශූරතාවය 'රාජසිංහ' නිවාසය විසින් දිනාගත් අතර එහි විශේෂ අවස්ථා සහ ජයග්‍රාහක නාම ලේඛනය මෙහි දැක්වේ.</p>
-                <a href="#" style="color: var(--royal-blue); font-weight: bold; text-decoration: none;">වැඩිදුර කියවන්න →</a>
+                <h3>නිවාසන්තර ක්‍රීඩා උත්සවයේ ශූරතාවය රාජසිංහ නිවාසයට</h3>
+                <p>උණුසුම් තරගකාරීත්වයකින් පසුව මෙවර වාර්ෂික නිවාසන්තර ක්‍රීඩා උත්සවයේ සමස්ත ශූරතාවය දිනා ගැනීමට රාජසිංහ නිවාසය සමත් විය.</p>
+                <a href="#" class="read-more">වැඩිදුර කියවන්න <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
         <div class="news-card">
+            <img src="news3.jpg" alt="Academic News" class="news-img">
             <div class="news-content">
                 <span class="news-tag">අධ්‍යයන</span>
                 <span class="news-date">2026 පෙබරවාරි 05</span>
                 <h3>O/L පසුගිය විභාග ප්‍රශ්න පත්‍ර සාකච්ඡාව</h3>
-                <p>අධ්‍යයන පොදු සහතික පත්‍ර සාමාන්‍ය පෙළ සිසුන් සඳහා විශේෂ වැඩමුළු මාලාවක් ලබන සතියේදී විද්‍යාලයීය ශ්‍රවණාගාරයේදී පැවැත්වේ.</p>
-                <a href="#" style="color: var(--royal-blue); font-weight: bold; text-decoration: none;">වැඩිදුර කියවන්න →</a>
+                <p>මෙවර සාමාන්‍ය පෙළ විභාගයට පෙනී සිටින සිසුන් සඳහා ගණිතය සහ විද්‍යාව ප්‍රශ්න පත්‍ර සාකච්ඡා කිරීමේ සම්මන්ත්‍රණ මාලාවක් ආරම්භ වේ.</p>
+                <a href="#" class="read-more">වැඩිදුර කියවන්න <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
