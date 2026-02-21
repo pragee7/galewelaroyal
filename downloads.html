@@ -19,7 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Abhaya Libre', sans-serif; }
         body { background-color: var(--light-bg); }
 
-        /* Navigation Fix with Dropdown */
+        /* Navigation Fix */
         nav { background: var(--royal-blue); position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
         nav ul { list-style: none; display: flex; justify-content: center; align-items: center; max-width: 1200px; margin: 0 auto; }
         nav ul li { position: relative; }
@@ -65,7 +65,9 @@
             border: 2px solid var(--royal-blue);
             outline: none;
             font-size: 1rem;
+            transition: 0.3s;
         }
+        #searchInput:focus { box-shadow: 0 0 10px rgba(0, 33, 71, 0.2); border-color: var(--gold); }
 
         /* Downloads Container */
         .download-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
@@ -94,4 +96,150 @@
         .download-card:hover { transform: translateX(10px); background: #fdfdfd; }
 
         .file-info { display: flex; align-items: center; }
-        .file-icon { font-size
+        .file-icon { font-size: 2.2rem; color: #e74c3c; margin-right: 20px; }
+        .file-details h3 { color: var(--royal-blue); font-size: 1.1rem; margin-bottom: 4px; }
+        .file-details p { color: #666; font-size: 0.85rem; }
+
+        .btn-download {
+            background: var(--royal-blue);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .btn-download:hover { background: var(--gold); color: var(--royal-blue); }
+
+        /* Footer */
+        footer { background: #00152e; color: #ccc; padding: 40px; text-align: center; border-top: 5px solid var(--gold); margin-top: 50px; }
+        .social-links a { color: var(--gold); font-size: 1.5rem; margin: 0 10px; text-decoration: none; }
+
+        /* Mobile Fixes */
+        @media (max-width: 768px) {
+            nav ul { flex-wrap: wrap; }
+            nav ul li a { padding: 10px; font-size: 0.8rem; }
+            .download-card { flex-direction: column; text-align: center; gap: 15px; }
+            .file-info { flex-direction: column; }
+            .file-icon { margin-right: 0; margin-bottom: 10px; }
+            .page-header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html">මුල් පිටුව</a></li>
+        <li>
+            <a href="#">අප ගැන ▾</a>
+            <div class="dropdown-content">
+                <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
+                <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
+                <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
+                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
+            </div>
+        </li>
+        <li>
+            <a href="#">අධ්‍යයන අංශ ▾</a>
+            <div class="dropdown-content">
+                <a href="primary.html">ප්‍රාථමික අංශය</a>
+                <a href="lib.html">පුස්තකාලය</a>
+                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
+            </div>
+        </li>
+        <li><a href="facilities.html">පහසුකම්</a></li>
+        <li><a href="gallery.html">ඡායාරූප</a></li>
+        <li><a href="downloads.html" style="color: var(--gold);">බාගත කිරීම්</a></li>
+        <li><a href="news.html">ප්‍රවෘත්ති</a></li>
+        <li><a href="contact.html">සම්බන්ධතා</a></li>
+        <li><a href="lms.html" style="background: var(--gold); color: var(--royal-blue); border-radius: 5px; font-weight: bold;">LMS</a></li>
+    </ul>
+</nav>
+
+<div class="page-header">
+    <h1>බාගත කිරීම් (Downloads)</h1>
+</div>
+
+<div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchFiles()" placeholder="ලේඛනයේ නම ගසා සොයන්න... (Search documents)">
+</div>
+
+<div class="download-container">
+    
+    <h2 class="section-title">විභාග කාලසටහන්</h2>
+    <div class="download-card file-item">
+        <div class="file-info">
+            <i class="fas fa-file-pdf file-icon"></i>
+            <div class="file-details">
+                <h3>2026 පළමු වාර පරීක්ෂණ කාලසටහන</h3>
+                <p>PDF (450KB)</p>
+            </div>
+        </div>
+        <a href="documents/exam_timetable.pdf" class="btn-download" download>
+            <i class="fas fa-download"></i> බාගත කරන්න
+        </a>
+    </div>
+
+    <h2 class="section-title">අයදුම්පත්</h2>
+    <div class="download-card file-item">
+        <div class="file-info">
+            <i class="fas fa-file-pdf file-icon"></i>
+            <div class="file-details">
+                <h3>1 ශ්‍රේණිය ඇතුළත් කිරීමේ අයදුම්පත - 2027</h3>
+                <p>PDF (800KB)</p>
+            </div>
+        </div>
+        <a href="documents/admission_form.pdf" class="btn-download" download>
+            <i class="fas fa-download"></i> බාගත කරන්න
+        </a>
+    </div>
+
+    <h2 class="section-title">පාසල් වාර සඟරා</h2>
+    <div class="download-card file-item">
+        <div class="file-info">
+            <i class="fas fa-book file-icon" style="color: var(--gold);"></i>
+            <div class="file-details">
+                <h3>"රාජකීය ප්‍රදීපය" - 2025 වාර සඟරාව</h3>
+                <p>PDF (5.2MB)</p>
+            </div>
+        </div>
+        <a href="documents/magazine_2025.pdf" class="btn-download" download>
+            <i class="fas fa-download"></i> බාගත කරන්න
+        </a>
+    </div>
+
+</div>
+
+<footer>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p style="margin-top: 20px;">© 2026 Galewela Royal College. All rights reserved.</p>
+</footer>
+
+<script>
+    // Document සෙවීමේ function එක
+    function searchFiles() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('file-item');
+        
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+            if (title.includes(input)) {
+                cards[i].style.display = "flex";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
