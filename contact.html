@@ -14,243 +14,183 @@
             --light-bg: #f4f7f9;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--light-bg); color: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Abhaya Libre', 'Poppins', sans-serif; }
+        body { background-color: var(--light-bg); }
 
-        /* Header Area */
-        header {
-            background: white;
-            padding: 20px 50px;
+        /* Navigation Style (Same as Index) */
+        nav { background: var(--royal-blue); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        nav ul { list-style: none; display: flex; justify-content: center; }
+        nav ul li a { display: block; padding: 15px 20px; color: white; text-decoration: none; font-weight: 500; }
+        nav ul li a:hover { color: var(--gold); }
+
+        /* Header Style */
+        .page-header {
+            background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('school_front.jpg') center/cover;
+            height: 250px;
             display: flex;
             align-items: center;
-            border-bottom: 4px solid var(--royal-blue);
-        }
-        .logo { height: 70px; margin-right: 20px; }
-        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
-
-        /* Navigation Bar - Fixed & Dropdown Support */
-        nav {
-            background: var(--royal-blue);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            padding: 0 50px;
-            display: flex;
             justify-content: center;
-        }
-        nav ul { list-style: none; display: flex; }
-        nav ul li { position: relative; }
-        nav ul li a {
-            display: block;
-            padding: 18px 20px;
             color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: 0.3s;
+            text-align: center;
+            border-bottom: 5px solid var(--gold);
         }
-        nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
+        .page-header h1 { font-size: 3rem; font-family: 'Abhaya Libre', serif; color: var(--gold); }
 
-        /* Dropdown CSS - මේ කොටස තමයි අඩුවෙලා තිබුණේ */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--white);
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 100;
-            border-radius: 0 0 10px 10px;
-            border-top: 3px solid var(--gold);
-        }
-        .dropdown-content a {
-            color: var(--royal-blue) !important;
-            padding: 12px 16px !important;
-            border-bottom: 1px solid #eee;
-            display: block;
-        }
-        .dropdown-content a:last-child { border-bottom: none; }
-        nav ul li:hover .dropdown-content { display: block; }
-
-        /* Main Content Styles */
-        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
-        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
-
-        .contact-wrapper {
+        /* Contact Content Area */
+        .contact-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
-            margin-bottom: 50px;
         }
 
+        /* Contact Details Card */
         .contact-info {
-            background: var(--royal-blue);
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .info-item span {
-            background: var(--gold);
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 1.5rem;
-        }
-        .info-item h4 { color: var(--gold); margin-bottom: 5px; }
-        .info-item p { font-size: 0.95rem; opacity: 0.9; }
-
-        .contact-form {
             background: white;
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--royal-blue);
         }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--royal-blue); }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-            outline: none;
-            transition: 0.3s;
-        }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--royal-blue); box-shadow: 0 0 8px rgba(0,33,71,0.1); }
+        .contact-info h2 { color: var(--royal-blue); margin-bottom: 25px; font-family: 'Abhaya Libre', serif; }
+        .info-item { display: flex; align-items: flex-start; margin-bottom: 20px; }
+        .info-item span { font-size: 1.5rem; margin-right: 15px; }
+        .info-item div h4 { color: var(--gold); margin-bottom: 5px; }
+        .info-item div p { color: #555; font-size: 1.1rem; }
 
-        .submit-btn {
+        /* Contact Form */
+        .contact-form {
+            background: var(--royal-blue);
+            padding: 40px;
+            border-radius: 15px;
+            color: white;
+        }
+        .contact-form h2 { color: var(--gold); margin-bottom: 20px; font-family: 'Abhaya Libre', serif; }
+        .contact-form input, .contact-form textarea {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .contact-form button {
             background: var(--gold);
             color: var(--royal-blue);
+            padding: 12px 25px;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 700;
+            border-radius: 5px;
+            font-weight: bold;
             cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
             transition: 0.3s;
         }
-        .submit-btn:hover { background: var(--royal-blue); color: white; transform: translateY(-3px); }
+        .contact-form button:hover { background: #e6c24d; }
 
+        /* Google Map Section */
+        .map-section {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
         .map-container {
-            border-radius: 20px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-top: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 4px solid white;
         }
 
-        footer {
-            background: var(--deep-blue);
-            color: #ccc;
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 4px solid var(--gold);
-        }
+        /* Footer */
+        footer { background: var(--deep-blue); color: #ccc; padding: 40px; text-align: center; border-top: 5px solid var(--gold); }
 
         @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; padding: 20px; }
-            .contact-wrapper { grid-template-columns: 1fr; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
-            nav ul li a { padding: 12px 15px; font-size: 0.85rem; }
+            .contact-container { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="logo.png" alt="Logo" class="logo">
-    <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
-</header>
-
 <nav>
     <ul>
         <li><a href="index.html">මුල් පිටුව</a></li>
-        <li>
-            <a href="#">අප ගැන ▾</a>
-            <div class="dropdown-content">
-                <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
-                <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
-                <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
-            </div>
-        </li>
-        <li>
-            <a href="#">අධ්‍යයන අංශ ▾</a>
-            <div class="dropdown-content">
-                <a href="primary.html">ප්‍රාථමික අංශය</a>
-                <a href="lib.html">පුස්තකාල අංශය</a>
-                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
-            </div>
-        </li>
-        <li><a href="lms.html">LMS</a></li>
+        <li><a href="about.html">අප ගැන</a></li>
+        <li><a href="facilities.html">පහසුකම්</a></li>
         <li><a href="gallery.html">ඡායාරූප</a></li>
-        <li><a href="contact.html">සම්බන්ධතා</a></li>
+        <li><a href="contact.html" style="color: var(--gold);">සම්බන්ධතා</a></li>
     </ul>
 </nav>
 
-<div class="container">
-    <div class="section-title">
-        <h2>අප හා සම්බන්ධ වන්න</h2>
-        <hr>
+<div class="page-header">
+    <div>
+        <h1>අප හා සම්බන්ධ වන්න</h1>
+        <p>ගලේවෙල රාජකීය විද්‍යාලය - මහගෙදරට ඔබ සැම සාදරයෙන් පිළිගනිමු</p>
     </div>
+</div>
 
-    <div class="contact-wrapper">
-        <div class="contact-info">
-            <div class="info-item">
-                <span>📍</span>
-                <div>
-                    <h4>ලිපිනය</h4>
-                    <p>ගලේවෙල රාජකීය විද්‍යාලය,<br>පුවක්ගපිටිය, ගලේවෙල.</p>
-                </div>
-            </div>
-            <div class="info-item">
-                <span>📞</span>
-                <div>
-                    <h4>දුරකථන</h4>
-                    <p>070 784 3077</p>
-                </div>
-            </div>
-            <div class="info-item">
-                <span>✉️</span>
-                <div>
-                    <h4>ඊමේල්</h4>
-                    <p>galewelaroyal@gmail.com</p>
-                </div>
+<div class="contact-container">
+    <div class="contact-info">
+        <h2>සම්බන්ධ කරගැනීමට තොරතුරු</h2>
+        
+        <div class="info-item">
+            <span>📍</span>
+            <div>
+                <h4>ලිපිනය</h4>
+                <p>පුවක්පිටිය, ගලේවෙල, ශ්‍රී ලංකාව.</p>
             </div>
         </div>
 
-        <div class="contact-form">
-            <form action="#">
-                <div class="form-group">
-                    <label>ඔබේ නම</label>
-                    <input type="text" placeholder="මෙහි ටයිප් කරන්න...">
-                </div>
-                <div class="form-group">
-                    <label>ඊමේල් ලිපිනය</label>
-                    <input type="email" placeholder="example@mail.com">
-                </div>
-                <div class="form-group">
-                    <label>පණිවිඩය</label>
-                    <textarea rows="4" placeholder="ඔබට දැන ගැනීමට අවශ්‍ය දේ මෙහි ලියන්න..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">පණිවිඩය යොමු කරන්න</button>
-            </form>
+        <div class="info-item">
+            <span>📞</span>
+            <div>
+                <h4>දුරකථන අංකය</h4>
+                <p>+94 70 784 3077</p>
+                <p>+94 66 228 8234</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <span>✉️</span>
+            <div>
+                <h4>විද්‍යුත් තැපෑල</h4>
+                <p>galewelaroyal@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="info-item">
+            <span>⏰</span>
+            <div>
+                <h4>කාර්යාලය විවෘත වේලාවන්</h4>
+                <p>සඳුදා - සිකුරාදා: පෙ.ව. 7.30 - ප.ව. 2.30</p>
+            </div>
         </div>
     </div>
 
+    <div class="contact-form">
+        <h2>අපට පණිවිඩයක් එවන්න</h2>
+        <form action="#">
+            <input type="text" placeholder="ඔබේ නම" required>
+            <input type="email" placeholder="විද්‍යුත් තැපෑල" required>
+            <input type="text" placeholder="විෂය" required>
+            <textarea rows="5" placeholder="ඔබේ පණිවිඩය..." required></textarea>
+            <button type="submit">පණිවිඩය යොමු කරන්න</button>
+        </form>
+    </div>
+</div>
+
+<div class="map-section">
+    <h2 style="text-align: center; color: var(--royal-blue); margin-bottom: 20px; font-family: 'Abhaya Libre', serif;">අපව සොයාගැනීමට සිතියම</h2>
     <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15814.364426578058!2d80.573966!3d7.729124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNDMnNDQuOSJOIDgwwrAzNCc0Ni4zIkU!5e0!3m2!1sen!2slk!4v1645000000000!5m2!1sen!2slk" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.2690466431945!2d80.58433367405141!3d7.761271107572343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afcad0761e3895b%3A0xc644365775df5720!2zR2FsZXdlbGEgUm95YWwgQ29sbGVnZSB8IGdhbGV3ZWxhIHJveWFsIGNvbmxlZ2UgfCDgtq_gtqzgt4_gtr_gt4_gtrog4Lau4Lax4Lac4LaA4LiS4LiS4LreIOC3gOC3kuC3gOC3iuC3jOC3g-C3jA!5e0!3m2!1ssi!2slk!4v1700000000000!5m2!1ssi!2slk" 
+        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
 
 <footer>
-    <p>© 2026 Galewela Royal College. All Rights Reserved.</p>
+    <p>&copy; 2026 Galewela Royal College. All rights reserved.</p>
 </footer>
 
 </body>
