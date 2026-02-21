@@ -10,86 +10,51 @@
             --royal-blue: #002147;
             --deep-blue: #00152e;
             --gold: #D4AF37;
-            --white: #ffffff;
             --light-bg: #f4f7f9;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--light-bg); color: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Abhaya Libre', 'Poppins', sans-serif; }
+        body { background-color: var(--light-bg); }
 
-        /* Header Area */
-        header {
-            background: white;
-            padding: 20px 50px;
+        /* Navigation */
+        nav { background: var(--royal-blue); padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        nav ul { list-style: none; display: flex; justify-content: center; }
+        nav ul li a { display: block; padding: 15px 20px; color: white; text-decoration: none; font-weight: 500; }
+        nav ul li a:hover { color: var(--gold); }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('school_front.jpg') center/cover;
+            height: 200px;
             display: flex;
             align-items: center;
-            border-bottom: 4px solid var(--royal-blue);
-        }
-        .logo { height: 70px; margin-right: 20px; }
-        .school-name h1 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 1.8rem; }
-
-        /* Navigation Bar */
-        nav {
-            background: var(--royal-blue);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            padding: 0 50px;
-            display: flex;
             justify-content: center;
-        }
-        nav ul { list-style: none; display: flex; }
-        nav ul li { position: relative; }
-        nav ul li a {
-            display: block;
-            padding: 18px 20px;
             color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: 0.3s;
+            text-align: center;
+            border-bottom: 5px solid var(--gold);
         }
-        nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
+        .page-header h1 { font-size: 2.5rem; color: var(--gold); }
 
-        /* Dropdown Styles */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--white);
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 100;
-            border-radius: 0 0 10px 10px;
-            border-top: 3px solid var(--gold);
+        /* Gallery Grid */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
         }
-        .dropdown-content a {
-            color: var(--royal-blue) !important;
-            padding: 12px 16px !important;
-            border-bottom: 1px solid #eee;
-            display: block;
-        }
-        nav ul li:hover .dropdown-content { display: block; }
-
-        /* Gallery Styles */
-        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; text-align: center; }
-        
-        .section-title { margin-bottom: 40px; }
-        .section-title h2 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; color: var(--royal-blue); }
-        .section-title hr { width: 80px; height: 4px; background: var(--gold); border: none; margin: 10px auto; }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
-            margin-bottom: 40px;
         }
 
         .gallery-item {
             position: relative;
-            overflow: hidden;
-            border-radius: 15px;
             height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #ddd;
             cursor: pointer;
         }
 
@@ -100,127 +65,149 @@
             transition: transform 0.5s ease;
         }
 
-        /* Hover Effect */
-        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
 
-        .overlay {
+        .gallery-overlay {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 33, 71, 0.9));
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 33, 71, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
             color: white;
             padding: 20px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            opacity: 0;
-            transition: 0.3s;
-            text-align: left;
-        }
-
-        .gallery-item:hover .overlay { opacity: 1; }
-
-        .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: var(--royal-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: 0.3s;
-            font-weight: 600;
-        }
-        .back-btn:hover { background: var(--gold); transform: translateY(-3px); }
-
-        footer {
-            background: var(--deep-blue);
-            color: #ccc;
-            padding: 40px 20px;
             text-align: center;
-            margin-top: 60px;
-            border-top: 4px solid var(--gold);
         }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Animation class */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer { background: var(--deep-blue); color: #ccc; padding: 30px; text-align: center; border-top: 5px solid var(--gold); margin-top: 50px; }
 
         @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; padding: 20px; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
-            .gallery-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <img src="logo.png" alt="Logo" class="logo">
-    <div class="school-name"><h1>ගලේවෙල රාජකීය විද්‍යාලය</h1></div>
-</header>
-
 <nav>
     <ul>
         <li><a href="index.html">මුල් පිටුව</a></li>
-        <li>
-            <a href="#">අප ගැන ▾</a>
-            <div class="dropdown-content">
-                <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
-                <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
-                <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
-                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
-            </div>
-        </li>
-        <li>
-            <a href="#">අධ්‍යයන අංශ ▾</a>
-            <div class="dropdown-content">
-                <a href="primary.html">ප්‍රාථමික අංශය</a>
-                <a href="lib.html">පුස්තකාල අංශය</a>
-                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
-            </div>
-        </li>
+        <li><a href="about.html">අප ගැන</a></li>
         <li><a href="facilities.html">පහසුකම්</a></li>
-        <li><a href="gallery.html">ඡායාරූප</a></li>
+        <li><a href="gallery.html" style="color: var(--gold);">ඡායාරූප</a></li>
         <li><a href="contact.html">සම්බන්ධතා</a></li>
     </ul>
 </nav>
 
-<div class="container">
-    <div class="section-title">
-        <h2>ඡායාරූප එකතුව</h2>
-        <hr>
-    </div>
+<div class="page-header">
+    <h1>විද්‍යාලයීය ඡායාරූප එකතුව</h1>
+</div>
 
+<div class="gallery-container">
     <div class="gallery-grid">
-        <div class="gallery-item">
-            <img src="g1.jpg" alt="Gallery 1">
-            <div class="overlay">විද්‍යාලයීය ගොඩනැගිල්ල</div>
+        <div class="gallery-item reveal">
+            <img src="event1.jpg" alt="School Event">
+            <div class="gallery-overlay">
+                <div>
+                    <h3>නිවාසාන්තර ක්‍රීඩා උත්සවය</h3>
+                    <p>2025 වාර්ෂික ක්‍රීඩා මංගල්‍යය</p>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-            <img src="g2.jpg" alt="Gallery 2">
-            <div class="overlay">පරිගණක විද්‍යාගාරය</div>
+
+        <div class="gallery-item reveal">
+            <img src="event2.jpg" alt="Prize Giving">
+            <div class="gallery-overlay">
+                <div>
+                    <h3>ත්‍යාග ප්‍රදානෝත්සවය</h3>
+                    <p>දක්ෂතා දැක්වූ දරුවන් ඇගයීම</p>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-            <img src="g3.jpg" alt="Gallery 3">
-            <div class="overlay">ක්‍රීඩා උත්සවය</div>
+
+        <div class="gallery-item reveal">
+            <img src="event3.jpg" alt="Religious Event">
+            <div class="gallery-overlay">
+                <div>
+                    <h3>ආගමික වැඩසටහන්</h3>
+                    <p>වාර්ෂික බෝධි පූජා පිංකම</p>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-            <img src="g4.jpg" alt="Gallery 4">
-            <div class="overlay">ත්‍යාග ප්‍රදානෝත්සවය</div>
+
+        <div class="gallery-item reveal">
+            <img src="event4.jpg" alt="Building">
+            <div class="gallery-overlay">
+                <div>
+                    <h3>නව විද්‍යාගාරය</h3>
+                    <p>විද්‍යාලයේ නවීන පහසුකම්</p>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-            <img src="g5.jpg" alt="Gallery 5">
-            <div class="overlay">විද්‍යාගාරය</div>
+
+        <div class="gallery-item reveal">
+            <img src="event5.jpg" alt="Classroom">
+            <div class="gallery-overlay">
+                <div>
+                    <h3>ප්‍රාථමික අංශය</h3>
+                    <p>අපේ පුංචි දරුවන්ගේ ලෝකය</p>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-            <img src="g6.jpg" alt="Gallery 6">
-            <div class="overlay">පුස්තකාලය</div>
+
+        <div class="gallery-item reveal">
+            <img src="event6.jpg" alt="Band">
+            <div class="gallery-overlay">
+                <div>
+                    <h3>බටහිර තූර්ය වාදක කණ්ඩායම</h3>
+                    <p>විද්‍යාලයීය අභිමානය</p>
+                </div>
+            </div>
         </div>
     </div>
-
-    <a href="index.html" class="back-btn">නැවත මුල් පිටුවට</a>
 </div>
 
 <footer>
-    <p>&copy; 2026 Galewela Royal College. All Rights Reserved.</p>
+    <p>© 2026 Galewela Royal College. All rights reserved.</p>
 </footer>
+
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 100;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal(); // පේජ් එක ලෝඩ් වෙද්දීම පේන්න
+</script>
 
 </body>
 </html>
