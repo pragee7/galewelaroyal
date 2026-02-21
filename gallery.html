@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ඡායාරූප එකතුව | Galewela Royal College</title>
     
-    <meta name="description" content="ගලේවෙල රාජකීය විද්‍යාලයීය නිල ඡායාරූප එකතුව. ක්‍රීඩා, ආගමික සහ විශේෂ උත්සව අවස්ථා මෙහි නරඹන්න.">
-    <meta name="keywords" content="Galewela Royal College Gallery, Photos, Sports Meet, Prize Giving, ගලේවෙල රාජකීය විද්‍යාලය">
-
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -19,75 +16,97 @@
             --light-bg: #f4f7f9;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Abhaya Libre', 'Poppins', sans-serif; }
-        body { background-color: var(--light-bg); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Abhaya Libre', sans-serif; }
+        body { background-color: var(--light-bg); overflow-x: hidden; }
 
-        /* Navigation Style Update */
-        nav { background: var(--royal-blue); padding: 5px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        nav ul { list-style: none; display: flex; justify-content: center; align-items: center; }
+        /* Navigation Fix */
+        nav { 
+            background: var(--royal-blue); 
+            position: sticky; 
+            top: 0; 
+            z-index: 9999; /* ඉතා වැදගත් - Dropdown උඩින් පේන්න */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+        }
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
         nav ul li { position: relative; }
-        nav ul li a { display: block; padding: 15px 18px; color: white; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+        nav ul li a { 
+            display: block; 
+            padding: 20px 15px; 
+            color: white; 
+            text-decoration: none; 
+            font-weight: 500; 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
         nav ul li a:hover { color: var(--gold); }
 
-        /* Dropdown CSS - මේක තමයි කලින් අඩු වෙලා තිබුණේ */
+        /* Dropdown Style */
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: var(--royal-blue);
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
+            min-width: 220px;
+            top: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
             border-top: 3px solid var(--gold);
         }
         .dropdown-content a {
-            color: white;
             padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .dropdown-content a:hover { background-color: var(--deep-blue); color: var(--gold); }
         nav ul li:hover .dropdown-content { display: block; }
 
         /* Page Header */
         .page-header {
             background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('school_front.jpg') center/cover;
-            height: 200px;
+            height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--gold);
             text-align: center;
             border-bottom: 5px solid var(--gold);
         }
-        .page-header h1 { font-size: 2.5rem; color: var(--gold); }
+        .page-header h1 { font-family: 'Abhaya Libre', serif; font-size: 2.5rem; }
 
-        /* Filter Buttons */
-        .filter-section { text-align: center; margin: 40px 0 20px; }
+        /* Filter Section */
+        .filter-section { text-align: center; padding: 30px 0; }
         .filter-btn {
             background: white;
             border: 2px solid var(--royal-blue);
             color: var(--royal-blue);
-            padding: 8px 25px;
+            padding: 8px 20px;
             margin: 5px;
-            border-radius: 30px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
         .filter-btn.active, .filter-btn:hover { background: var(--royal-blue); color: white; }
 
         /* Gallery Grid */
-        .gallery-container { max-width: 1200px; margin: 20px auto 50px; padding: 0 20px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .gallery-container { max-width: 1200px; margin: 0 auto 50px; padding: 0 20px; }
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
+        }
         .gallery-item {
             position: relative;
             height: 250px;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background: #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: #eee;
         }
         .gallery-item.hide { display: none; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
@@ -95,23 +114,21 @@
 
         .gallery-overlay {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 33, 71, 0.7);
+            bottom: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 33, 71, 0.75);
             display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: 0.3s; color: white; padding: 20px; text-align: center;
+            opacity: 0; transition: 0.3s; color: white; text-align: center; padding: 15px;
         }
         .gallery-item:hover .gallery-overlay { opacity: 1; }
 
-        /* Animation */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.6s; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* Footer */
+        footer { background: var(--deep-blue); color: #ccc; padding: 30px; text-align: center; border-top: 5px solid var(--gold); }
 
-        footer { background: var(--deep-blue); color: #ccc; padding: 30px; text-align: center; border-top: 5px solid var(--gold); margin-top: 50px; }
-
-        @media (max-width: 768px) {
-            .page-header h1 { font-size: 1.8rem; }
-            nav ul { flex-direction: column; }
-            .dropdown-content { position: static; width: 100%; box-shadow: none; }
+        /* Mobile Fix */
+        @media (max-width: 900px) {
+            nav ul { flex-wrap: wrap; }
+            nav ul li a { padding: 10px; font-size: 0.8rem; }
+            .dropdown-content { position: relative; min-width: 100%; }
         }
     </style>
 </head>
@@ -121,28 +138,26 @@
     <ul>
         <li><a href="index.html">මුල් පිටුව</a></li>
         <li>
-            <a href="#">අප ගැන ▾</a>
+            <a href="#">අප ගැන <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
             <div class="dropdown-content">
                 <a href="school_history.html">විද්‍යාලයීය ඉතිහාසය</a> 
                 <a href="vision.html">දැක්ම සහ මෙහෙවර</a>
                 <a href="staff.html">ආචාර්ය මණ්ඩලය</a>
-                <a href="student.html">ශිෂ්‍ය තොරතුරු</a>
             </div>
         </li>
         <li>
-            <a href="#">අධ්‍යයන අංශ ▾</a>
+            <a href="#">අධ්‍යයන අංශ <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
             <div class="dropdown-content">
                 <a href="primary.html">ප්‍රාථමික අංශය</a>
-                <a href="lib.html">පුස්තකාල අංශය</a>
-                <a href="mul.html">බහුමාධ්‍ය අංශය</a>
+                <a href="lib.html">පුස්තකාලය</a>
             </div>
         </li>
         <li><a href="facilities.html">පහසුකම්</a></li>
         <li><a href="gallery.html" style="color: var(--gold);">ඡායාරූප</a></li>
-        <li><a href="contact.html">සම්බන්ධතා</a></li>
-        <li><a href="downloads.html">බාගත කිරීම්</a></li>
         <li><a href="news.html">ප්‍රවෘත්ති</a></li>
-        <li><a href="lms.html" style="background: var(--gold); color: var(--royal-blue); border-radius: 5px; font-weight: bold; margin-left: 10px; padding: 8px 15px;">LMS ලොගින්</a></li>
+        <li><a href="downloads.html">බාගත කිරීම්</a></li>
+        <li><a href="contact.html">සම්බන්ධතා</a></li>
+        <li><a href="lms.html" style="background: var(--gold); color: var(--royal-blue); border-radius: 5px; margin-left: 10px; padding: 10px 15px; font-weight: bold;">LMS</a></li>
     </ul>
 </nav>
 
@@ -151,32 +166,25 @@
 </div>
 
 <div class="filter-section">
-    <button class="filter-btn active" data-filter="all">සියල්ල</button>
-    <button class="filter-btn" data-filter="sports">ක්‍රීඩා</button>
-    <button class="filter-btn" data-filter="religious">ආගමික</button>
-    <button class="filter-btn" data-filter="academic">අධ්‍යයන</button>
-    <button class="filter-btn" data-filter="events">වෙනත්</button>
+    <button class="filter-btn active" onclick="filterImg('all', this)">සියල්ල</button>
+    <button class="filter-btn" onclick="filterImg('sports', this)">ක්‍රීඩා</button>
+    <button class="filter-btn" onclick="filterImg('religious', this)">ආගමික</button>
+    <button class="filter-btn" onclick="filterImg('academic', this)">අධ්‍යයන</button>
 </div>
 
 <div class="gallery-container">
-    <div class="gallery-grid" id="galleryGrid">
-        <div class="gallery-item reveal sports">
-            <img src="event1.jpg" alt="Galewela Royal Sports Meet">
-            <div class="gallery-overlay">
-                <div><h3>නිවාසාන්තර ක්‍රීඩා උත්සවය</h3><p>2025 වාර්ෂික ක්‍රීඩා මංගල්‍යය</p></div>
-            </div>
+    <div class="gallery-grid">
+        <div class="gallery-item sports">
+            <img src="event1.jpg" alt="Sports">
+            <div class="gallery-overlay"><div><h3>නිවාසාන්තර ක්‍රීඩා උත්සවය</h3><p>2025 වාර්ෂික ක්‍රීඩා මංගල්‍යය</p></div></div>
         </div>
-        <div class="gallery-item reveal academic">
-            <img src="event2.jpg" alt="Prize Giving">
-            <div class="gallery-overlay">
-                <div><h3>ත්‍යාග ප්‍රදානෝත්සවය</h3><p>දක්ෂතා ඇගයීම</p></div>
-            </div>
+        <div class="gallery-item academic">
+            <img src="event2.jpg" alt="Academic">
+            <div class="gallery-overlay"><div><h3>ත්‍යාග ප්‍රදානෝත්සවය</h3><p>දක්ෂතා ඇගයීම</p></div></div>
         </div>
-        <div class="gallery-item reveal religious">
-            <img src="event3.jpg" alt="Religious Event">
-            <div class="gallery-overlay">
-                <div><h3>ආගමික වැඩසටහන්</h3><p>බෝධි පූජා පිංකම</p></div>
-            </div>
+        <div class="gallery-item religious">
+            <img src="event3.jpg" alt="Religious">
+            <div class="gallery-overlay"><div><h3>ආගමික වැඩසටහන්</h3><p>බෝධි පූජා පිංකම</p></div></div>
         </div>
         </div>
 </div>
@@ -186,38 +194,21 @@
 </footer>
 
 <script>
-    // Filter Script
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    function filterImg(category, btn) {
+        // බටන් එකේ Active පෙනුම වෙනස් කිරීම
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            const filterValue = button.getAttribute('data-filter');
-
-            galleryItems.forEach(item => {
-                if (filterValue === 'all' || item.classList.contains(filterValue)) {
-                    item.classList.remove('hide');
-                    setTimeout(() => item.classList.add('active'), 100);
-                } else {
-                    item.classList.add('hide');
-                }
-            });
-        });
-    });
-
-    // Reveal Script
-    function reveal() {
-        var reveals = document.querySelectorAll(".reveal:not(.hide)");
-        reveals.forEach(el => {
-            var windowHeight = window.innerHeight;
-            var elementTop = el.getBoundingClientRect().top;
-            if (elementTop < windowHeight - 100) el.classList.add("active");
+        // පින්තූර Filter කිරීම
+        const items = document.querySelectorAll('.gallery-item');
+        items.forEach(item => {
+            if (category === 'all' || item.classList.contains(category)) {
+                item.classList.remove('hide');
+            } else {
+                item.classList.add('hide');
+            }
         });
     }
-    window.addEventListener("scroll", reveal);
-    window.addEventListener("load", reveal);
 </script>
 
 </body>
