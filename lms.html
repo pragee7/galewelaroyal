@@ -65,11 +65,11 @@
             <form id="lmsLoginForm">
                 <div class="input-group">
                     <label>පරිශීලක නාමය</label>
-                    <input type="text" id="username" placeholder="admin" required>
+                    <input type="text" id="username" placeholder="පරිශීලක නාමය ඇතුළත් කරන්න" required>
                 </div>
                 <div class="input-group">
                     <label>මුරපදය</label>
-                    <input type="password" id="password" placeholder="1234" required>
+                    <input type="password" id="password" placeholder="********" required>
                 </div>
                 <button type="submit" class="login-btn">ඇතුළු වන්න</button>
                 <p id="errorMessage">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</p>
@@ -90,41 +90,4 @@
             <div class="grid">
                 <div class="card"><h3>ගණිතය</h3><p>1 වාරය</p><button>බලන්න</button></div>
                 <div class="card"><h3>විද්‍යාව</h3><p>1 වාරය</p><button>බලන්න</button></div>
-                <div class="card"><h3>ඉතිහාසය</h3><p>1 වාරය</p><button>බලන්න</button></div>
-            </div>
-            <center><span class="logout-btn" onclick="logout()">පද්ධතියෙන් ඉවත් වන්න (Logout)</span></center>
-        </div>
-    </section>
-
-    <script>
-        const loginForm = document.getElementById('lmsLoginForm');
-        const loginSection = document.getElementById('login-section');
-        const dashboardSection = document.getElementById('dashboard-section');
-        const errorMsg = document.getElementById('errorMessage');
-
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
-
-            if(user === "admin" && pass === "1234") {
-                // සෙක්ෂන් මාරු කරනවා
-                loginSection.style.display = "none";
-                dashboardSection.style.display = "block";
-                document.getElementById('display-user').innerText = user;
-            } else {
-                errorMsg.style.display = "block";
-            }
-        });
-
-        function logout() {
-            // ආයෙත් ලොගින් පේජ් එකට
-            loginSection.style.display = "flex";
-            dashboardSection.style.display = "none";
-            loginForm.reset();
-            errorMsg.style.display = "none";
-        }
-    </script>
-
-</body>
-</html>
+                <div class="card"><h3>ඉතිහාසය</h3><p>1 වාරය</p>
