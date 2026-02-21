@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Dashboard | Galewela Royal College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --royal-blue: #002147; --gold: #D4AF37; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: #f4f7f9; }
+        
+        .header { background: var(--royal-blue); color: white; padding: 20px; text-align: center; border-bottom: 5px solid var(--gold); }
+        .container { max-width: 1000px; margin: 30px auto; padding: 20px; }
+        
+        .welcome-msg { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; border-top: 5px solid var(--royal-blue); }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { color: var(--royal-blue); }
+        .card button { background: var(--gold); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        
+        .logout-btn { display: inline-block; margin-top: 20px; color: red; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
 
+    <div class="header">
+        <h1>LMS ශිෂ්‍ය පුවරුව (Dashboard)</h1>
+    </div>
+
+    <div class="container">
+        <div class="welcome-msg">
+            <h2>ආයුබෝවන්, ශිෂ්‍යයා! 👋</h2>
+            <p>ඔබේ පාඩම් මාලාවන් සහ පැවරුම් මෙතැනින් ලබාගත හැක.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>ගණිතය</h3>
+                <p>පළමු වාරයට අදාළ පාඩම්</p>
+                <button>පාඩම් බලන්න</button>
+            </div>
+            <div class="card">
+                <h3>විද්‍යාව</h3>
+                <p>පරීක්ෂණ සහ වීඩියෝ</p>
+                <button>පාඩම් බලන්න</button>
+            </div>
+            <div class="card">
+                <h3>ඉතිහාසය</h3>
+                <p>සටහන් සහ ප්‍රශ්න පත්‍ර</p>
+                <button>පාඩම් බලන්න</button>
+            </div>
+        </div>
+
+        <center><a href="lms.html" class="logout-btn">පද්ධතියෙන් ඉවත් වන්න (Logout)</a></center>
+    </div>
+
+</body>
+</html>
