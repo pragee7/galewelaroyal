@@ -3,86 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMS ලොගින් | Galewela Royal College</title>
+    <title>LMS | Galewela Royal College</title>
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --royal-blue: #002147;
             --gold: #D4AF37;
+            --light-bg: #f4f7f9;
         }
+
         body {
-            margin: 0; padding: 0; height: 100vh;
+            margin: 0; padding: 0; min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: var(--light-bg);
+        }
+
+        /* Login Section Styles */
+        #login-section {
+            height: 100vh;
             display: flex; align-items: center; justify-content: center;
             background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('school_front.jpg') center/cover;
-            font-family: 'Poppins', sans-serif;
         }
+
         .login-card {
             background: white; padding: 40px; border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            width: 100%; max-width: 400px; text-align: center;
+            width: 90%; max-width: 400px; text-align: center;
             border-top: 8px solid var(--gold);
         }
-        .login-card h2 { color: var(--royal-blue); font-family: 'Abhaya Libre', serif; font-size: 2rem; margin-bottom: 10px; }
-        .login-card p { color: #666; font-size: 0.9rem; margin-bottom: 30px; }
+
+        /* Dashboard Section Styles (Initial Hidden) */
+        #dashboard-section {
+            display: none; /* පටන් ගද්දි හංගලා තියෙන්නේ */
+        }
+
+        .header { background: var(--royal-blue); color: white; padding: 20px; text-align: center; border-bottom: 5px solid var(--gold); }
+        .container { max-width: 1000px; margin: 30px auto; padding: 20px; }
+        .welcome-msg { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 30px; }
         
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; border-top: 5px solid var(--royal-blue); }
+        .card:hover { transform: translateY(-5px); }
+        .card button { background: var(--gold); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+
+        /* Form & Button Elements */
         .input-group { margin-bottom: 20px; text-align: left; }
         .input-group label { display: block; margin-bottom: 5px; color: var(--royal-blue); font-weight: 600; }
-        .input-group input {
-            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; outline: none; transition: 0.3s;
-        }
-        .input-group input:focus { border-color: var(--gold); box-shadow: 0 0 5px rgba(212,175,55,0.5); }
-        
-        .login-btn {
-            width: 100%; padding: 12px; background: var(--royal-blue); color: white; border: none;
-            border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 1rem;
-        }
-        .login-btn:hover { background: var(--gold); color: var(--royal-blue); }
-        
-        .back-home { margin-top: 20px; display: block; color: var(--royal-blue); text-decoration: none; font-size: 0.85rem; }
-        
-        /* Error Message Style */
+        .input-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .login-btn { width: 100%; padding: 12px; background: var(--royal-blue); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .logout-btn { color: red; text-decoration: none; font-weight: bold; cursor: pointer; display: inline-block; margin-top: 20px; }
         #errorMessage { color: red; font-size: 0.85rem; margin-top: 10px; display: none; }
     </style>
 </head>
 <body>
 
-    <div class="login-card">
-        <h2>LMS ලොගින්</h2>
-        <p>ඉගෙනුම් කළමනාකරණ පද්ධතියට ඇතුළු වන්න</p>
-        
-        <form id="lmsLoginForm">
-            <div class="input-group">
-                <label>පරිශීලක නාමය (Username)</label>
-                <input type="text" id="username" placeholder="පරිශීලක නාමය ඇතුළත් කරන්න" required>
-            </div>
-            <div class="input-group">
-                <label>මුරපදය (Password)</label>
-                <input type="password" id="password" placeholder="********" required>
-            </div>
-            <button type="submit" class="login-btn">ඇතුළු වන්න</button>
-            <p id="errorMessage">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</p>
-        </form>
+    <section id="login-section">
+        <div class="login-card">
+            <h2 style="font-family: 'Abhaya Libre'; color: var(--royal-blue);">LMS ලොගින්</h2>
+            <p style="color: #666; font-size: 0.9rem; margin-bottom: 30px;">ඉගෙනුම් කළමනාකරණ පද්ධතියට ඇතුළු වන්න</p>
+            
+            <form id="lmsLoginForm">
+                <div class="input-group">
+                    <label>පරිශීලක නාමය</label>
+                    <input type="text" id="username" placeholder="admin" required>
+                </div>
+                <div class="input-group">
+                    <label>මුරපදය</label>
+                    <input type="password" id="password" placeholder="1234" required>
+                </div>
+                <button type="submit" class="login-btn">ඇතුළු වන්න</button>
+                <p id="errorMessage">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</p>
+            </form>
+            <a href="index.html" style="margin-top:20px; display:block; text-decoration:none; color:var(--royal-blue); font-size:0.8rem;">← නැවත මුල් පිටුවට</a>
+        </div>
+    </section>
 
-        <a href="index.html" class="back-home">← නැවත මුල් පිටුවට</a>
-    </div>
+    <section id="dashboard-section">
+        <div class="header">
+            <h1>LMS ශිෂ්‍ය පුවරුව</h1>
+        </div>
+        <div class="container">
+            <div class="welcome-msg">
+                <h2>ආයුබෝවන්, <span id="display-user">ශිෂ්‍යයා</span>! 👋</h2>
+                <p>ඔබේ පාඩම් මාලාවන් මෙතැනින් ලබාගත හැක.</p>
+            </div>
+            <div class="grid">
+                <div class="card"><h3>ගණිතය</h3><p>1 වාරය</p><button>බලන්න</button></div>
+                <div class="card"><h3>විද්‍යාව</h3><p>1 වාරය</p><button>බලන්න</button></div>
+                <div class="card"><h3>ඉතිහාසය</h3><p>1 වාරය</p><button>බලන්න</button></div>
+            </div>
+            <center><span class="logout-btn" onclick="logout()">පද්ධතියෙන් ඉවත් වන්න (Logout)</span></center>
+        </div>
+    </section>
 
     <script>
-        document.getElementById('lmsLoginForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // පේජ් එක refresh වීම නවත්වනවා
+        const loginForm = document.getElementById('lmsLoginForm');
+        const loginSection = document.getElementById('login-section');
+        const dashboardSection = document.getElementById('dashboard-section');
+        const errorMsg = document.getElementById('errorMessage');
 
-            // මෙතන තමයි අපි login details චෙක් කරන්නේ
-            var user = document.getElementById('username').value;
-            var pass = document.getElementById('password').value;
-            var errorMsg = document.getElementById('errorMessage');
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
 
-            // සරලව චෙක් කිරීමක් (මේක පස්සේ වෙනස් කරන්න පුළුවන්)
             if(user === "admin" && pass === "1234") {
-                alert("සාර්ථකව ලොග් වුණා! දැන් ඔබව LMS එකට යොමු කරනවා.");
-                window.location.href = "lms_dashboard.html"; // ලොග් වුණාට පස්සේ යන පේජ් එක
+                // සෙක්ෂන් මාරු කරනවා
+                loginSection.style.display = "none";
+                dashboardSection.style.display = "block";
+                document.getElementById('display-user').innerText = user;
             } else {
-                errorMsg.style.display = "block"; // වැරදි නම් message එක පෙන්වනවා
+                errorMsg.style.display = "block";
             }
         });
+
+        function logout() {
+            // ආයෙත් ලොගින් පේජ් එකට
+            loginSection.style.display = "flex";
+            dashboardSection.style.display = "none";
+            loginForm.reset();
+            errorMsg.style.display = "none";
+        }
     </script>
 
 </body>
