@@ -170,15 +170,16 @@
     </div>
 
     <div class="contact-form">
-        <h2>අපට පණිවිඩයක් එවන්න</h2>
-        <form action="https://formspree.io/f/mykdnwlp">
-            <input type="text" placeholder="ඔබේ නම" required>
-            <input type="email" placeholder="විද්‍යුත් තැපෑල" required>
-            <input type="text" placeholder="විෂය" required>
-            <textarea rows="5" placeholder="ඔබේ පණිවිඩය..." required></textarea>
-            <button type="submit">පණිවිඩය යොමු කරන්න</button>
-        </form>
-    </div>
+    <h2>අපට පණිවිඩයක් එවන්න</h2>
+    <form action="https://formspree.io/f/mykdnwlp" method="POST">
+        <input type="text" name="name" placeholder="ඔබේ නම" required>
+        <input type="email" name="email" placeholder="විද්‍යුත් තැපෑල" required>
+        <input type="text" name="subject" placeholder="විෂය" required>
+        <textarea name="message" rows="5" placeholder="ඔබේ පණිවිඩය..." required></textarea>
+        
+        <button type="submit">පණිවිඩය යොමු කරන්න</button>
+    </form>
+</div>
 </div>
 
 <div class="map-section">
