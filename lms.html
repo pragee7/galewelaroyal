@@ -7,87 +7,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --royal-blue: #002147;
-            --gold: #D4AF37;
-            --white: #ffffff;
-        }
-
+        :root { --royal-blue: #002147; --gold: #D4AF37; }
         body {
             font-family: 'Poppins', 'Abhaya Libre', sans-serif;
             background: linear-gradient(rgba(0,33,71,0.85), rgba(0,33,71,0.85)), url('school_front.webp') center/cover no-repeat fixed;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
+            height: 100vh; display: flex; justify-content: center; align-items: center; margin: 0;
         }
-
         .login-box {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-            border-top: 5px solid var(--gold);
+            background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4); width: 100%; max-width: 400px;
+            text-align: center; border-top: 5px solid var(--gold);
         }
-
         .login-box img { width: 80px; margin-bottom: 15px; }
-        .login-box h2 { color: var(--royal-blue); margin-bottom: 5px; font-size: 1.8rem; font-family: 'Abhaya Libre', serif; }
-        .login-box p { color: #555; margin-bottom: 25px; font-size: 0.95rem; }
-
+        .login-box h2 { color: var(--royal-blue); margin-bottom: 5px; font-family: 'Abhaya Libre', serif; }
         .input-group { text-align: left; margin-bottom: 20px; }
         .input-group label { display: block; margin-bottom: 8px; color: var(--royal-blue); font-weight: 600; }
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: 0.3s;
-            outline: none;
-        }
-
+        .input-group input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; outline: none; box-sizing: border-box; }
         .input-group input:focus { border-color: var(--gold); }
-
         .login-btn {
-            width: 100%;
-            padding: 13px;
-            background: var(--royal-blue);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            margin-top: 10px;
+            width: 100%; padding: 13px; background: var(--royal-blue); color: white;
+            border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; font-weight: bold; transition: 0.3s;
         }
-
-        .login-btn:hover { background: var(--gold); color: var(--royal-blue); transform: translateY(-2px); }
-
-        #error-msg {
-            color: #d63031;
-            background: #ffeded;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            display: none;
-            font-weight: 600;
-        }
-
-        .back-link { 
-            margin-top: 25px; 
-            display: inline-block; 
-            color: var(--royal-blue); 
-            text-decoration: none; 
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .back-link:hover { color: var(--gold); }
+        .login-btn:hover { background: var(--gold); color: var(--royal-blue); }
+        #error-msg { color: #d63031; background: #ffeded; padding: 10px; border-radius: 5px; font-size: 0.9rem; margin-bottom: 20px; display: none; font-weight: 600; }
+        .back-link { margin-top: 25px; display: inline-block; color: var(--royal-blue); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -96,13 +39,11 @@
     <img src="logo.png" alt="School Logo">
     <h2>LMS ලොගින්</h2>
     <p>ඉගෙනුම් කළමනාකරණ පද්ධතියට ඇතුළු වන්න</p>
-
-    <div id="error-msg">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</div>
-
+    <div id="error-msg"></div>
     <form id="lmsLoginForm">
         <div class="input-group">
             <label><i class="fas fa-user"></i> පරිශීලක නාමය</label>
-            <input type="text" id="uname" placeholder="Username ඇතුළත් කරන්න" required>
+            <input type="text" id="uname" placeholder="04089/XXXX" required>
         </div>
         <div class="input-group">
             <label><i class="fas fa-lock"></i> මුරපදය</label>
@@ -110,65 +51,57 @@
         </div>
         <button type="submit" class="login-btn">ඇතුළු වන්න</button>
     </form>
-
     <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> නැවත මුල් පිටුවට</a>
 </div>
 
 <script>
-    // ළමයින්ගේ දත්ත ගබඩාව (Student Database)
     const studentDatabase = {
-        "admin": "19770212", // ඇඩ්මින් ලොගින් එකත් මෙතනටම දැම්මා
-        "04089/0001": "pass0001",
-        "04089/0002": "pass0002",
-        "04089/0003": "pass0003",
-        "04089/0004": "pass0004",
-        "04089/0005": "pass0005",
-        "04089/0006": "pass0006",
-        "04089/0007": "pass0007",
-        "04089/0008": "pass0008",
-        "04089/0009": "pass0009",
-        "04089/0010": "pass0010",
-        "04089/0011": "pass0011",
-        "04089/0012": "pass0012",
-        "04089/0013": "pass0013",
-        "04089/0014": "pass0014",
-        "04089/0015": "pass0015",
-        "04089/0016": "pass0016",
-        "04089/0017": "pass0017",
-        "04089/0018": "pass0018",
-        "04089/0019": "pass0019",
-        "04089/0020": "pass0020"
+        "admin": { name: "Administrator", pass: "19770212" },
+        "04009/7243": { name: "H.M.S. Hansika Thilakarathna", pass: "123" },
+        "04009/7263": { name: "K.N.G.S. Ishan Narawaththa", pass: "123" },
+        "04009/7284": { name: "A.G. Isija Methsara Somarathna", pass: "123" },
+        "04078/2654": { name: "W.R.G.S. Mithusha Denuwan", pass: "123" },
+        "04078/2655": { name: "S.G. Vihaga Thejan Samarakoon", pass: "123" },
+        "04089/0001": { name: "H.M. Pabasara Janidhu Bandara Herath", pass: "123" },
+        "04089/0003": { name: "K. Prethiba Patalee Nandarathna", pass: "123" },
+        "04089/0004": { name: "H.H. Dineth Pawan Thilakarathna", pass: "123" },
+        "04089/0005": { name: "H.G. Tachini Mohensha Tishani", pass: "123" },
+        "04089/0006": { name: "K.G. Dinusha Vikum Siriwardana", pass: "123" },
+        "04089/0007": { name: "W.G. Asmitha Eduwari Aberathna", pass: "123" },
+        "04089/0008": { name: "Senudi Yehansha Werasekara", pass: "123" },
+        "04089/0009": { name: "S.M. Deuli Akshada Samarakoon", pass: "123" },
+        "04089/0011": { name: "Y.A. Saidi Ashirya Sasnadi", pass: "123" },
+        "04089/0012": { name: "W.M. Kithnuli Siyansa", pass: "123" },
+        "04089/0013": { name: "K.M.S.G. Ashen Nimsara Karunarathna", pass: "123" },
+        "04089/0014": { name: "A.M. Minuli Methrada Abeykoon", pass: "123" },
+        "04089/0015": { name: "A.G. Mihinsha Nimashi Chandrathilaka", pass: "123" },
+        "04089/0016": { name: "A.G. Mihidum Lakshan Wijesuriya", pass: "123" },
+        "04089/0018": { name: "I.G. Sanuldi Heshanya Nimnadi", pass: "123" },
+        "04089/0019": { name: "B.G. Theuni Hiyansa Balasooriya", pass: "123" },
+        "04089/0020": { name: "N.R.A. Sandinu Ruhan Samarasekara", pass: "123" },
+        "04089/0021": { name: "A.G. Lihansa Sithurangani Jayathilaka", pass: "123" },
+        "04089/0022": { name: "M.L. Sasadu Ruwanaka Liyanage", pass: "123" },
+        "04089/0025": { name: "P.G. Ometh Dishan Wijerathna", pass: "123" },
+        "04089/0026": { name: "I.G. Niyoosh Okithya", pass: "123" },
+        "04089/0027": { name: "T.K. Methuka Bimsara Senarathna", pass: "123" },
+        "04089/0028": { name: "T.M. Himanshi Nadunya Jayarathna", pass: "123" }
     };
 
-    window.onload = function() {
-        var loginForm = document.getElementById('lmsLoginForm');
-        
-        if(loginForm) {
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
+    document.getElementById('lmsLoginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var u = document.getElementById('uname').value.trim();
+        var p = document.getElementById('upass').value.trim();
+        var err = document.getElementById('error-msg');
 
-                var enteredUser = document.getElementById('uname').value.trim();
-                var enteredPass = document.getElementById('upass').value.trim();
-                var errorMsg = document.getElementById('error-msg');
-
-                // පරීක්ෂා කිරීම: Database එකේ පරීක්ෂා කරනවා
-                if (studentDatabase[enteredUser] && studentDatabase[enteredUser] === enteredPass) {
-                    // සාර්ථක නම් Session එකේ දත්ත සේව් කරලා resources.html වෙත යන්න
-                    sessionStorage.setItem("isLoggedIn", "true");
-                    sessionStorage.setItem("studentID", enteredUser);
-                    window.location.href = "resources.html"; 
-                } else {
-                    // වැරදි නම් පණිවිඩය පෙන්වන්න
-                    if(errorMsg) {
-                        errorMsg.style.display = "block";
-                        errorMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> පරිශීලක නාමය හෝ මුරපදය වැරදියි!';
-                        document.getElementById('upass').value = ""; // Password එක ක්ලියර් කරනවා
-                    }
-                }
-            });
+        if (studentDatabase[u] && studentDatabase[u].pass === p) {
+            sessionStorage.setItem("isLoggedIn", "true");
+            sessionStorage.setItem("studentName", studentDatabase[u].name);
+            window.location.href = "resources.html";
+        } else {
+            err.style.display = "block";
+            err.innerHTML = '<i class="fas fa-exclamation-triangle"></i> පරිශීලක නාමය හෝ මුරපදය වැරදියි!';
         }
-    };
+    });
 </script>
-
 </body>
 </html>
