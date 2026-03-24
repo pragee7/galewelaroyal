@@ -6,206 +6,158 @@
     <title>ඉගෙනුම් සම්පත් පියස | Galewela Royal College</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --royal-blue: #002147;
-            --gold: #D4AF37;
-            --bg: #f8f9fa;
-        }
+        :root { --royal-blue: #002147; --gold: #D4AF37; --bg: #f0f2f5; }
+        body { font-family: 'Poppins', 'Iskoola Pota', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        
+        .header { background: var(--royal-blue); color: white; padding: 25px; text-align: center; border-bottom: 5px solid var(--gold); }
+        .header h1 { margin: 0; font-size: 1.8rem; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg);
-            margin: 0;
-            padding: 0;
-        }
+        .container { max-width: 1200px; margin: 20px auto; padding: 15px; }
 
-        /* Header Section */
-        .header {
-            background: var(--royal-blue);
-            color: white;
-            padding: 30px 15px;
-            text-align: center;
-            border-bottom: 5px solid var(--gold);
-        }
+        /* Grade Selection */
+        .grade-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
+        .grade-btn { padding: 10px 20px; border: none; border-radius: 5px; background: white; color: var(--royal-blue); cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
+        .grade-btn.active { background: var(--gold); color: var(--royal-blue); }
 
-        .header h1 { margin: 0; font-size: 2rem; }
-        .header p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; }
+        /* Subject Selection */
+        .subject-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; background: #e2e8f0; padding: 10px; border-radius: 10px; }
+        .sub-btn { padding: 8px 15px; border: none; border-radius: 5px; background: transparent; color: #444; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        .sub-btn.active { background: var(--royal-blue); color: white; }
 
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 15px;
-        }
+        /* Resource Section */
+        .resource-display { display: none; animation: fadeIn 0.4s ease; }
+        .resource-display.active { display: block; }
 
-        /* Grade Selection Buttons */
-        .grade-selector {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .grade-btn {
-            padding: 12px 25px;
-            background: white;
-            color: var(--royal-blue);
-            border: 2px solid var(--royal-blue);
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 1rem;
-        }
-
-        .grade-btn:hover, .grade-btn.active {
-            background: var(--royal-blue);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        /* Resources Grid */
-        .resource-section {
-            display: none; /* මුලින්ම හංගලා තියෙන්නේ */
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .res-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: center;
-            border-top: 4px solid var(--gold);
-        }
-
-        .res-card i { font-size: 3rem; color: var(--royal-blue); margin-bottom: 15px; }
-        .res-card h3 { color: var(--royal-blue); margin: 10px 0; }
-        .res-card p { color: #666; font-size: 0.95rem; margin-bottom: 20px; }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-download { background: var(--royal-blue); color: white; }
-        .btn-watch { background: #27ae60; color: white; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--royal-blue); }
+        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
+        .card h3 { margin: 10px 0; color: var(--royal-blue); }
+        
+        .action-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .btn { padding: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; color: white; transition: 0.3s; }
+        .btn-pdf { background: #e74c3c; }
+        .btn-video { background: #27ae60; }
+        .btn-paper { background: #3498db; }
         .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
-        .logout-container { text-align: center; margin-top: 50px; margin-bottom: 30px; }
-        .logout-btn {
-            background: #e74c3c;
-            color: white;
-            padding: 10px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        h2.section-title {
-            text-align: center;
-            color: var(--royal-blue);
-            margin-bottom: 25px;
-            border-bottom: 2px solid #ddd;
-            display: inline-block;
-            width: 100%;
-            padding-bottom: 10px;
-        }
+        .footer-nav { text-align: center; margin-top: 40px; padding-bottom: 40px; }
+        .logout { background: #333; color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; }
     </style>
 </head>
 <body>
 
 <div class="header">
     <h1>ඉගෙනුම් සම්පත් පියස</h1>
-    <p>ගලේවෙල රාජකීය විද්‍යාලයීය මාර්ගගත අධ්‍යාපන ඒකකය</p>
+    <p>ගලේවෙල රාජකීය විද්‍යාලය</p>
 </div>
 
 <div class="container">
-    <div class="grade-selector">
-        <button class="grade-btn" onclick="showGrade('1')">1 ශ්‍රේණිය</button>
-        <button class="grade-btn" onclick="showGrade('2')">2 ශ්‍රේණිය</button>
-        <button class="grade-btn" onclick="showGrade('3')">3 ශ්‍රේණිය</button>
-        <button class="grade-btn" onclick="showGrade('4')">4 ශ්‍රේණිය</button>
-        <button class="grade-btn" onclick="showGrade('5')">5 ශ්‍රේණිය</button>
+    <div class="grade-nav">
+        <button class="grade-btn active" onclick="changeGrade(1)">1 ශ්‍රේණිය</button>
+        <button class="grade-btn" onclick="changeGrade(2)">2 ශ්‍රේණිය</button>
+        <button class="grade-btn" onclick="changeGrade(3)">3 ශ්‍රේණිය</button>
+        <button class="grade-btn" onclick="changeGrade(4)">4 ශ්‍රේණිය</button>
+        <button class="grade-btn" onclick="changeGrade(5)">5 ශ්‍රේණිය</button>
     </div>
 
-    <div id="grade-1" class="resource-section">
-        <h2 class="section-title">1 ශ්‍රේණිය සම්පත්</h2>
-        <div class="resource-grid">
-            <div class="res-card">
-                <i class="fas fa-file-pdf"></i>
-                <h3>1 ශ්‍රේණිය - සිංහල</h3>
-                <p>පළමු වාරය සඳහා අදාළ වැඩ පත්‍රිකා</p>
-                <a href="#" class="btn btn-download">බාගත කරන්න</a>
+    <div class="subject-nav">
+        <button class="sub-btn active" onclick="changeSubject('sinhala')">සිංහල</button>
+        <button class="sub-btn" onclick="changeSubject('math')">ගණිතය</button>
+        <button class="sub-btn" onclick="changeSubject('env')">පරිසරය</button>
+        <button class="sub-btn" onclick="changeSubject('religion')">ආගම</button>
+        <button class="sub-btn" onclick="changeSubject('english')">English</button>
+        <button class="sub-btn" onclick="changeSubject('tamil')">දෙමළ</button>
+    </div>
+
+    <h2 id="display-title" style="text-align:center; color:var(--royal-blue);">1 ශ්‍රේණිය - සිංහල</h2>
+
+    <div id="content-area" class="resource-display active">
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-book-open"></i>
+                <h3>පාඩම් මාලාව</h3>
+                <p>සියලුම පාඩම් වලට අදාළ සටහන් සහ PDF මෙතැනින් ලබාගන්න.</p>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-pdf"><i class="fas fa-file-pdf"></i> PDF බාගත කරන්න</a>
+                </div>
             </div>
-            <div class="res-card">
-                <i class="fas fa-video"></i>
-                <h3>ගණිතය සජීවී පාඩම්</h3>
-                <p>වීඩියෝ දර්ශන නැරඹීමට මෙතැනින් පිවිසෙන්න</p>
-                <a href="#" class="btn btn-watch">නරඹන්න</a>
+
+            <div class="card">
+                <i class="fab fa-youtube"></i>
+                <h3>වීඩියෝ පාඩම්</h3>
+                <p>අමාරු පාඩම් වීඩියෝ මගින් සරලව ඉගෙන ගන්න.</p>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-video"><i class="fas fa-play"></i> දැන් නරඹන්න</a>
+                </div>
             </div>
-            <div class="res-card">
-                <i class="fas fa-file-alt"></i>
-                <h3>ප්‍රශ්න පත්‍ර කට්ටල</h3>
-                <p>පසුගිය වාර විභාග ප්‍රශ්න පත්‍ර</p>
-                <a href="#" class="btn btn-download">බාගත කරන්න</a>
+
+            <div class="card">
+                <i class="fas fa-file-signature"></i>
+                <h3>ප්‍රශ්න පත්‍ර</h3>
+                <p>වාර විභාග සහ පුහුණු ප්‍රශ්න පත්‍ර මෙතැනින් ලබාගන්න.</p>
+                <div class="action-btns">
+                    <a href="#" class="btn btn-paper"><i class="fas fa-download"></i> පත්‍රිකා බාගත කරන්න</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="grade-others" class="resource-section" style="text-align: center; padding: 50px;">
-        <h2 id="selected-title">ශ්‍රේණිය තෝරා ඇත</h2>
-        <p>මෙම ශ්‍රේණිය සඳහා සම්පත් ඉක්මනින් යාවත්කාලීන කරනු ලැබේ...</p>
-    </div>
-
-    <div class="logout-container">
-        <a href="lms.html" class="logout-btn"><i class="fas fa-sign-out-alt"></i> ඉවත් වන්න</a>
+    <div class="footer-nav">
+        <a href="lms.html" class="logout"><i class="fas fa-sign-out-alt"></i> ඉවත් වන්න</a>
     </div>
 </div>
 
 <script>
-    function showGrade(grade) {
-        // සියලුම Section හංගන්න
-        var sections = document.getElementsByClassName('resource-section');
-        for (var i = 0; i < sections.length; i++) {
-            sections[i].style.display = 'none';
-        }
+    let currentGrade = 1;
+    let currentSubject = 'sinhala';
 
-        // තෝරපු Grade එක පෙන්වන්න
-        if (grade === '1') {
-            document.getElementById('grade-1').style.display = 'block';
-        } else {
-            document.getElementById('grade-others').style.display = 'block';
-            document.getElementById('selected-title').innerText = grade + " ශ්‍රේණිය සම්පත්";
-        }
+    const subjectNames = {
+        'sinhala': 'සිංහල',
+        'math': 'ගණිතය',
+        'env': 'පරිසරය',
+        'religion': 'ආගම',
+        'english': 'English',
+        'tamil': 'දෙමළ'
+    };
 
-        // Button වල පාට වෙනස් කරන්න
-        var buttons = document.getElementsByClassName('grade-btn');
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove('active');
-            if(buttons[i].innerText.includes(grade)) {
-                buttons[i].classList.add('active');
-            }
-        }
+    function changeGrade(grade) {
+        currentGrade = grade;
+        updateUI();
+        updateButtons('.grade-btn', grade - 1);
     }
-    
-    // මුලින්ම 1 ශ්‍රේණිය පෙන්වීමට
-    window.onload = function() { showGrade('1'); };
+
+    function changeSubject(subject) {
+        currentSubject = subject;
+        updateUI();
+        // විෂය බොත්තම් වල active එක මාරු කිරීම
+        const btns = document.querySelectorAll('.sub-btn');
+        btns.forEach(btn => {
+            if(btn.innerText.includes(subjectNames[subject])) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+    }
+
+    function updateUI() {
+        document.getElementById('display-title').innerText = currentGrade + " ශ්‍රේණිය - " + subjectNames[currentSubject];
+        
+        // මෙතැනදී ඔයාට පුළුවන් ළමයා තෝරන විෂය සහ ශ්‍රේණිය අනුව 
+        // href ලින්ක් ටික (Links) වෙනස් කරන්න.
+        console.log("Loading data for Grade: " + currentGrade + " Subject: " + currentSubject);
+        
+        // සජීවීව පේන්න පොඩි animation එකක්
+        const area = document.getElementById('content-area');
+        area.classList.remove('active');
+        setTimeout(() => { area.classList.add('active'); }, 50);
+    }
+
+    function updateButtons(className, index) {
+        const btns = document.querySelectorAll(className);
+        btns.forEach(btn => btn.classList.remove('active'));
+        btns[index].classList.add('active');
+    }
 </script>
 
 </body>
