@@ -2,15 +2,15 @@
 <html lang="si">
 <head>
     <meta name="title" content="Galewela Royal College | Official Website">
-<meta name="description" content="ගලේවෙල රාජකීය විද්‍යාලයීය නිල වෙබ් අඩවිය. පුවත්, බාගත කිරීම් සහ පාසල් තොරතුරු ලබාගැනීම සඳහා පිවිසෙන්න.">
-<meta name="keywords" content="Galewela Royal College, ගලේවෙල රාජකීය විද්‍යාලය, Royal College Galewela, Galewela Schools, Schools in Matale District">
-<meta name="author" content="Galewela Royal College">
+    <meta name="description" content="ගලේවෙල රාජකීය විද්‍යාලයීය නිල වෙබ් අඩවිය. පුවත්, බාගත කිරීම් සහ පාසල් තොරතුරු ලබාගැනීම සඳහා පිවිසෙන්න.">
+    <meta name="keywords" content="Galewela Royal College, ගලේවෙල රාජකීය විද්‍යාලය, Royal College Galewela, Galewela Schools, Schools in Matale District">
+    <meta name="author" content="Galewela Royal College">
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://pragee7.github.io/galewelaroyal/">
-<meta property="og:title" content="Galewela Royal College | Official Website">
-<meta property="og:description" content="නැණ ගුණ සපිරි දරු පරපුරක් බිහිකරන මහගෙදර - ගලේවෙල රාජකීය විද්‍යාලය.">
-<meta property="og:image" content="https://pragee7.github.io/galewelaroyal/school_front.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pragee7.github.io/galewelaroyal/">
+    <meta property="og:title" content="Galewela Royal College | Official Website">
+    <meta property="og:description" content="නැණ ගුණ සපිරි දරු පරපුරක් බිහිකරන මහගෙදර - ගලේවෙල රාජකීය විද්‍යාලය.">
+    <meta property="og:image" content="https://pragee7.github.io/galewelaroyal/school_front.webp">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galewela Royal College | Official Website</title>
@@ -32,9 +32,8 @@
             font-family: 'Abhaya Libre', 'Poppins', sans-serif; 
         } 
         
-        body { background-color: var(--light-bg); color: #333; }
+        body { background-color: var(--light-bg); color: #333; overflow-x: hidden; }
 
-        /* Animation සඳහා අවශ්‍ය කරන CSS */
         .reveal {
             position: relative;
             opacity: 0;
@@ -104,7 +103,6 @@
         }
         nav ul li a:hover { background: rgba(255,255,255,0.1); color: var(--gold); }
 
-        /* Dropdown Menu */
         .dropdown-content {
             display: none;
             position: absolute;
@@ -155,22 +153,37 @@
             font-weight: 600;
         }
 
-        /* Principal Section */
+        /* Principal Section - UPDATED */
         .principal-section {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 40px;
             max-width: 1100px;
             margin: 60px auto;
-            padding: 30px;
+            padding: 40px;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 8px solid var(--royal-blue);
         }
-        .principal-img { width: 280px; border-radius: 10px; border: 4px solid var(--gold); }
-        .p-text h2 { font-family: 'Abhaya Libre', serif; color: var(--royal-blue); margin-bottom: 10px; }
-        .p-text hr { width: 50px; height: 3px; background: var(--gold); border: none; margin-bottom: 15px; }
-        .p-text p { line-height: 1.6; font-size: 1.1rem; }
+        .principal-img { 
+            width: 280px; 
+            height: auto;
+            border-radius: 10px; 
+            border: 4px solid var(--gold);
+            flex-shrink: 0;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+        }
+        .p-text { flex: 1; }
+        .p-text h2 { font-family: 'Abhaya Libre', serif; color: var(--royal-blue); margin-bottom: 5px; font-size: 2rem; }
+        .p-text hr { width: 60px; height: 4px; background: var(--gold); border: none; margin-bottom: 20px; }
+        .p-text p { 
+            line-height: 1.8; 
+            font-size: 1.1rem; 
+            text-align: justify; /* Justified text */
+            margin-bottom: 15px;
+            color: #444;
+        }
 
         /* Sections Styling */
         .section-title { text-align: center; margin: 50px 0 30px; }
@@ -202,30 +215,45 @@
             padding: 15px; text-align: center;
         }
 
-        /* Footer New Styles */
+        /* Quick Links Hover */
+        .link-card {
+            text-align: center; 
+            padding: 25px; 
+            background: white; 
+            border-radius: 10px; 
+            border-bottom: 4px solid var(--gold); 
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .link-card:hover {
+            transform: translateY(-10px);
+            background: var(--royal-blue);
+            color: white;
+        }
+
+        /* Footer Styles */
         footer {
             background: var(--deep-blue);
             color: #ccc;
-            padding: 40px 50px 20px;
+            padding: 60px 50px 20px;
             border-top: 5px solid var(--gold);
-            text-align: center;
         }
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
-            text-align: left;
         }
-        .footer-grid h3 { color: var(--gold); margin-bottom: 15px; }
-        .footer-grid a { color: #ccc; text-decoration: none; display: block; margin-bottom: 8px; }
-        .footer-grid a:hover { color: var(--gold); }
+        .footer-grid h3 { color: var(--gold); margin-bottom: 20px; font-size: 1.4rem; }
+        .footer-grid a { color: #ccc; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; }
+        .footer-grid a:hover { color: var(--gold); padding-left: 5px; }
 
-        .social-links { margin-top: 25px; text-align: center; }
+        .social-links { margin-top: 40px; text-align: center; }
         .social-links a {
             color: var(--gold);
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin: 0 15px;
             transition: 0.3s;
             display: inline-block;
@@ -234,8 +262,8 @@
 
         .footer-copy {
             text-align: center;
-            margin-top: 30px;
-            font-size: 0.85rem;
+            margin-top: 40px;
+            font-size: 0.9rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 20px;
             opacity: 0.7;
@@ -243,11 +271,18 @@
 
         #musicControl {
             position: fixed; bottom: 20px; left: 20px;
-            background: var(--gold); color: white;
-            padding: 10px 20px; border-radius: 30px;
+            background: var(--gold); color: var(--royal-blue);
+            padding: 12px 20px; border-radius: 30px;
             cursor: pointer; z-index: 1000;
-            display: flex; align-items: center; gap: 10px; font-weight: 600;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex; align-items: center; gap: 10px; font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+        #musicControl:hover { transform: scale(1.05); }
+
+        @media (max-width: 992px) {
+            .principal-section { margin: 40px 20px; padding: 30px; }
+            .principal-img { width: 220px; }
         }
 
         @media (max-width: 768px) {
@@ -255,10 +290,12 @@
             header { flex-direction: column; padding: 15px; text-align: center; }
             .logo { margin-right: 0; margin-bottom: 10px; }
             nav ul { flex-wrap: wrap; }
-            nav ul li a { padding: 10px; font-size: 0.9rem; }
-            .hero-text h2 { font-size: 2rem; }
-            .principal-section { flex-direction: column; text-align: center; padding: 20px; }
-            .principal-img { width: 200px; }
+            nav ul li a { padding: 12px 10px; font-size: 0.9rem; }
+            .hero-text h2 { font-size: 2.2rem; }
+            .hero-text p { font-size: 1.2rem; }
+            .principal-section { flex-direction: column; text-align: center; align-items: center; }
+            .p-text p { text-align: justify; }
+            .p-text hr { margin: 10px auto 20px; }
         }
     </style>
 </head>
@@ -269,8 +306,8 @@
 </div>
 
 <div class="top-bar">
-    <span>Galewela - Sri Lanka</span>
-    <span>📞 +94 70 784 3077 | ✉️ galewelaroyal@gmail.com</span>
+    <span><i class="fas fa-map-marker-alt"></i> Galewela - Sri Lanka</span>
+    <span><i class="fas fa-phone"></i> +94 70 784 3077 | <i class="fas fa-envelope"></i> galewelaroyal@gmail.com</span>
 </div>
 
 <header>
@@ -308,7 +345,6 @@
         <li><a href="contact.html">සම්බන්ධතා</a></li>
         <li><a href="downloads.html">බාගත කිරීම්</a></li>
          <li><a href="news.html">ප්‍රවෘත්ති</a></li>
-    
         <li><a href="lms.html" style="background: var(--gold); color: var(--royal-blue); border-radius: 5px; margin-left: 10px; font-weight: bold;">LMS ලොගින්</a></li>
     </ul>
 </nav>
@@ -333,16 +369,15 @@
             1 ශ්‍රේණියේ සිට 5 ශ්‍රේණිය දක්වා පන්ති පැවැත්වෙන අප පාසල, වර්තමාන ලෝකයට ගැළපෙන නවීන තාක්ෂණයෙන් සන්නද්ධ අධ්‍යාපන රටාවකට මුලපුරා ඇත. විශේෂයෙන්ම පරිගණක හා බහුමාධ්‍ය (Multimedia) තාක්ෂණය ඉගෙනුම් ක්‍රියාවලියට මුසු කරමින්, දරුවන්ට වඩාත් ආකර්ෂණීය හා ඵලදායී අධ්‍යාපනයක් ලබා දීමට අප පියවර ගෙන තිබේ.
         </p>
         <p>
-            තවද, සිංහල, දෙමළ සහ ඉංග්‍රීසි යන භාෂා තුනම කේන්ද්‍ර කරගත් 'ත්‍රිභාෂා සංකල්පය' හඳුන්වා දෙමින්, සහජීවනයෙන් පිරි බුද්ධිමත් දරු පරපුරක් නිර්මාණය කිරීම අපේ සුවිශේෂී අනන්ූයතාවයයි. තාක්ෂණය හා භාෂා නිපුණතාවයෙන් හෙබි ගුණගරුක දරුවෙකු දැයට දායාද කිරීම අපේ ඒකායන ප්‍රාර්ථනයයි. අප හා එක්වන ලෙස සැමට ගෞරවයෙන් ආරාධනා කරමි!
+            තවද, සිංහල, දෙමළ සහ ඉංග්‍රීසි යන භාෂා තුනම කේන්ද්‍ර කරගත් 'ත්‍රිභාෂා සංකල්පය' හඳුන්වා දෙමින්, සහජීවනයෙන් පිරි බුද්ධිමත් දරු පරපුරක් නිර්මාණය කිරීම අපේ සුවිශේෂී අනන්‍යතාවයයි. තාක්ෂණය හා භාෂා නිපුණතාවයෙන් හෙබි ගුණගරුක දරුවෙකු දැයට දායාද කිරීම අපේ ඒකායන ප්‍රාර්ථනයයි. අප හා එක්වන ලෙස සැමට ගෞරවයෙන් ආරාධනා කරමි!
         </p>
         
-        <div style="margin-top: 20px;">
-            <span style="font-weight: bold; color: var(--royal-blue, #002366); display: block;">- විදුහල්පතිතුමා</span>
-            <span style="font-weight: bold;">ඒ.එම්.අයි.පී. අබේකෝන්</span><br>
-            <span>(පාසලේ නම මෙතැනට ඇතුළත් කරන්න)</span>
+        <div style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 15px;">
+            <span style="font-weight: bold; color: var(--royal-blue); font-size: 1.1rem; display: block;">ඒ.එම්.අයි.පී. අබේකෝන්</span>
+            <span style="font-weight: 600; color: #666;">විදුහල්පති</span><br>
+            <span style="font-size: 0.9rem; color: var(--gold); font-weight: bold;">ගලේවෙල රාජකීය විද්‍යාලය</span>
         </div>
     </div>
-</div>
 </div>
 
 <div class="section-title reveal">
@@ -370,15 +405,15 @@
     <hr>
 </div>
 
-<div class="facilities-grid reveal" style="margin-bottom: 60px;">
+<div class="facilities-grid reveal" style="margin-bottom: 80px;">
     <a href="https://www.doenets.lk/examresults" target="_blank" style="text-decoration: none; color: inherit;">
-        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd; cursor: pointer;">🔍 විභාග ප්‍රතිඵල</div>
+        <div class="link-card">🔍 විභාග ප්‍රතිඵල</div>
     </a>
     <a href="https://e-thaksalawa.moe.gov.lk/lcms/#" target="_blank" style="text-decoration: none; color: inherit;">
-        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd; cursor: pointer;">📚 ඊ-තක්සලාව</div>
+        <div class="link-card">📚 ඊ-තක්සලාව</div>
     </a>
     <a href="lms.html" style="text-decoration: none; color: inherit;">
-        <div style="text-align: center; padding: 20px; background: white; border-radius: 10px; border: 1px solid #ddd; cursor: pointer;">💻 LMS ලොගින්</div>
+        <div class="link-card">💻 LMS ලොගින්</div>
     </a>
 </div>
 
@@ -386,19 +421,20 @@
     <div class="footer-grid">
         <div>
             <h3>අප ගැන</h3>
-            <p>ගලේවෙල රාජකීය විද්‍යාලය දිවයිනේ ප්‍රමුඛතම පාසලක් ලෙස දරු දැරියන්ගේ නැණැස පාදන්නට කැපවී සිටී.</p>
+            <p style="line-height: 1.8;">ගලේවෙල රාජකීය විද්‍යාලය දිවයිනේ ප්‍රමුඛතම පාසලක් ලෙස දරු දැරියන්ගේ නැණැස පාදන්නට කැපවී සිටී. තාක්ෂණය හා ගුණය සපිරි පරපුරක් අපේ අරමුණයි.</p>
         </div>
         <div>
             <h3>පිටු</h3>
-            <a href="index.html">මුල් පිටුව</a>
-            <a href="gallery.html">ඡායාරූප</a>
-            <a href="contact.html">සම්බන්ධතා</a>
+            <a href="index.html"><i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i> මුල් පිටුව</a>
+            <a href="gallery.html"><i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i> ඡායාරූප</a>
+            <a href="contact.html"><i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i> සම්බන්ධතා</a>
+            <a href="downloads.html"><i class="fas fa-chevron-right" style="font-size: 0.8rem;"></i> බාගත කිරීම්</a>
         </div>
         <div>
             <h3>සම්බන්ධතා</h3>
-            <p>පුවක්පිටිය, ගලේවෙල</p>
-            <p>📞 +94 70 784 3077</p>
-            <p>✉️ galewelaroyal@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> පුවක්පිටිය, ගලේවෙල</p>
+            <p><i class="fas fa-phone" style="color: var(--gold);"></i> +94 70 784 3077</p>
+            <p><i class="fas fa-envelope" style="color: var(--gold);"></i> galewelaroyal@gmail.com</p>
         </div>
     </div>
 
