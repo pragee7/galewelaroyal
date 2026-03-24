@@ -114,13 +114,27 @@
     let currentGrade = 1;
     let currentSubject = 'sinhala';
 
+    // --- මෙතන තමයි ඔයා ලින්ක් ටික ඇතුළත් කරන්නේ ---
+    const resourceData = {
+        "1": { // 1 ශ්‍රේණිය
+            "sinhala": { pdf: "links/g1_sinhala.pdf", video: "https://youtube.com/link1", paper: "links/g1_sinhala_paper.pdf" },
+            "math": { pdf: "links/g1_math.pdf", video: "https://youtube.com/link2", paper: "links/g1_math_paper.pdf" },
+            "env": { pdf: "#", video: "#", paper: "#" },
+            "religion": { pdf: "#", video: "#", paper: "#" },
+            "english": { pdf: "#", video: "#", paper: "#" },
+            "tamil": { pdf: "#", video: "#", paper: "#" }
+        },
+        "2": { // 2 ශ්‍රේණිය
+            "sinhala": { pdf: "links/g2_sinhala.pdf", video: "https://youtube.com/link3", paper: "#" },
+            "math": { pdf: "#", video: "#", paper: "#" },
+            // අනෙක් විෂයන් මෙලෙසම දාන්න...
+        },
+        // 3, 4, 5 පන්ති සඳහාද මෙලෙසම කොටස් එකතු කරන්න
+    };
+
     const subjectNames = {
-        'sinhala': 'සිංහල',
-        'math': 'ගණිතය',
-        'env': 'පරිසරය',
-        'religion': 'ආගම',
-        'english': 'English',
-        'tamil': 'දෙමළ'
+        'sinhala': 'සිංහල', 'math': 'ගණිතය', 'env': 'පරිසරය',
+        'religion': 'ආගම', 'english': 'English', 'tamil': 'දෙමළ'
     };
 
     function changeGrade(grade) {
@@ -132,10 +146,9 @@
     function changeSubject(subject) {
         currentSubject = subject;
         updateUI();
-        // විෂය බොත්තම් වල active එක මාරු කිරීම
         const btns = document.querySelectorAll('.sub-btn');
         btns.forEach(btn => {
-            if(btn.innerText.includes(subjectNames[subject])) btn.classList.add('active');
+            if(btn.getAttribute('onclick').includes(subject)) btn.classList.add('active');
             else btn.classList.remove('active');
         });
     }
@@ -143,11 +156,16 @@
     function updateUI() {
         document.getElementById('display-title').innerText = currentGrade + " ශ්‍රේණිය - " + subjectNames[currentSubject];
         
-        // මෙතැනදී ඔයාට පුළුවන් ළමයා තෝරන විෂය සහ ශ්‍රේණිය අනුව 
-        // href ලින්ක් ටික (Links) වෙනස් කරන්න.
-        console.log("Loading data for Grade: " + currentGrade + " Subject: " + currentSubject);
-        
-        // සජීවීව පේන්න පොඩි animation එකක්
+        // අදාළ ලින්ක් ටික ගන්නවා
+        let data = resourceData[currentGrade] && resourceData[currentGrade][currentSubject] 
+                   ? resourceData[currentGrade][currentSubject] 
+                   : { pdf: "#", video: "#", paper: "#" };
+
+        // HTML එකේ තියෙන බටන් වලට ලින්ක් ටික දානවා
+        document.querySelector('.btn-pdf').href = data.pdf;
+        document.querySelector('.btn-video').href = data.video;
+        document.querySelector('.btn-paper').href = data.paper;
+
         const area = document.getElementById('content-area');
         area.classList.remove('active');
         setTimeout(() => { area.classList.add('active'); }, 50);
@@ -158,6 +176,8 @@
         btns.forEach(btn => btn.classList.remove('active'));
         btns[index].classList.add('active');
     }
+
+    window.onload = updateUI; // මුලින්ම පේජ් එක ලෝඩ් වෙද්දී 1 ශ්‍රේණිය පෙන්වීමට
 </script>
 
 </body>
