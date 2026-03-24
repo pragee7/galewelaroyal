@@ -115,6 +115,31 @@
 </div>
 
 <script>
+    // ළමයින්ගේ දත්ත ගබඩාව (Student Database)
+    const studentDatabase = {
+        "admin": "19770212", // ඇඩ්මින් ලොගින් එකත් මෙතනටම දැම්මා
+        "04089/0001": "pass0001",
+        "04089/0002": "pass0002",
+        "04089/0003": "pass0003",
+        "04089/0004": "pass0004",
+        "04089/0005": "pass0005",
+        "04089/0006": "pass0006",
+        "04089/0007": "pass0007",
+        "04089/0008": "pass0008",
+        "04089/0009": "pass0009",
+        "04089/0010": "pass0010",
+        "04089/0011": "pass0011",
+        "04089/0012": "pass0012",
+        "04089/0013": "pass0013",
+        "04089/0014": "pass0014",
+        "04089/0015": "pass0015",
+        "04089/0016": "pass0016",
+        "04089/0017": "pass0017",
+        "04089/0018": "pass0018",
+        "04089/0019": "pass0019",
+        "04089/0020": "pass0020"
+    };
+
     window.onload = function() {
         var loginForm = document.getElementById('lmsLoginForm');
         
@@ -122,23 +147,22 @@
             loginForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
-                // මෙතන තමයි ඔයා ඉල්ලපු දත්ත තියෙන්නේ
-                var correctUser = "admin"; 
-                var correctPass = "19770212";
-
-                var enteredUser = document.getElementById('uname').value;
-                var enteredPass = document.getElementById('upass').value;
+                var enteredUser = document.getElementById('uname').value.trim();
+                var enteredPass = document.getElementById('upass').value.trim();
                 var errorMsg = document.getElementById('error-msg');
 
-                if (enteredUser === correctUser && enteredPass === correctPass) {
-                    // සාර්ථක නම් resources.html වෙත යන්න
+                // පරීක්ෂා කිරීම: Database එකේ පරීක්ෂා කරනවා
+                if (studentDatabase[enteredUser] && studentDatabase[enteredUser] === enteredPass) {
+                    // සාර්ථක නම් Session එකේ දත්ත සේව් කරලා resources.html වෙත යන්න
+                    sessionStorage.setItem("isLoggedIn", "true");
+                    sessionStorage.setItem("studentID", enteredUser);
                     window.location.href = "resources.html"; 
                 } else {
                     // වැරදි නම් පණිවිඩය පෙන්වන්න
                     if(errorMsg) {
                         errorMsg.style.display = "block";
-                        // වැරදි පාස්වර්ඩ් එක ගැහුවම ෆීල්ඩ් එක ක්ලියර් කරන්න
-                        document.getElementById('upass').value = "";
+                        errorMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> පරිශීලක නාමය හෝ මුරපදය වැරදියි!';
+                        document.getElementById('upass').value = ""; // Password එක ක්ලියර් කරනවා
                     }
                 }
             });
