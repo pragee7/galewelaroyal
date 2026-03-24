@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ඉගෙනුම් සම්පත් | Galewela Royal College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --royal-blue: #002147; --gold: #D4AF37; --bg: #f4f7f9; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+        
+        .header { background: var(--royal-blue); color: white; padding: 20px; text-align: center; border-radius: 10px; margin-bottom: 30px; }
+        .header h1 { margin: 0; font-size: 1.8rem; }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .res-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .res-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .res-card i { font-size: 3rem; color: var(--royal-blue); margin-bottom: 15px; }
+        .res-card h3 { margin: 10px 0; color: var(--royal-blue); }
+        
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: var(--royal-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            display: block;
+            width: 120px;
+            margin: 30px auto;
+            text-align: center;
+            padding: 10px;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>ඉගෙනුම් සම්පත් පියස</h1>
+    <p>ගලේවෙල රාජකීය විද්‍යාලයීය මාර්ගගත අධ්‍යාපන ඒකකය</p>
+</div>
+
+<div class="resource-grid">
+    <div class="res-card">
+        <i class="fas fa-file-pdf"></i>
+        <h3>1 ශ්‍රේණිය - සිංහල</h3>
+        <p>පළමු වාරය සඳහා අදාළ වැඩ පත්‍රිකා</p>
+        <a href="#" class="download-btn">බාගත කරන්න</a>
+    </div>
+
+    <div class="res-card">
+        <i class="fas fa-video"></i>
+        <h3>ගණිතය සජීවී පාඩම්</h3>
+        <p>වීඩියෝ දර්ශන නැරඹීමට මෙතැනින් පිවිසෙන්න</p>
+        <a href="#" class="download-btn" style="background: #27ae60;">නරඹන්න</a>
+    </div>
+
+    <div class="res-card">
+        <i class="fas fa-book"></i>
+        <h3>ප්‍රශ්න පත්‍ර කට්ටල</h3>
+        <p>පසුගිය වාර විභාග ප්‍රශ්න පත්‍ර</p>
+        <a href="#" class="download-btn">බාගත කරන්න</a>
+    </div>
+</div>
+
+<a href="lms.html" class="logout-btn">ඉවත් වන්න</a>
+
+</body>
+</html>
