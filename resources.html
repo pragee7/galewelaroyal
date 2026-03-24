@@ -14,42 +14,36 @@
 
         .container { max-width: 1200px; margin: 20px auto; padding: 15px; }
 
-        /* Grade Selection */
-        .grade-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .grade-btn { padding: 10px 20px; border: none; border-radius: 5px; background: white; color: var(--royal-blue); cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
-        .grade-btn.active { background: var(--gold); color: var(--royal-blue); }
+        .grade-nav, .subject-nav, .term-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        
+        .grade-btn, .term-btn { padding: 10px 20px; border: none; border-radius: 5px; background: white; color: var(--royal-blue); cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
+        .grade-btn.active, .term-btn.active { background: var(--gold); color: var(--royal-blue); }
 
-        /* Subject Selection */
-        .subject-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; background: #e2e8f0; padding: 10px; border-radius: 10px; }
-        .sub-btn { padding: 8px 15px; border: none; border-radius: 5px; background: transparent; color: #444; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        .subject-nav { background: #e2e8f0; padding: 10px; border-radius: 10px; }
+        .sub-btn { padding: 8px 15px; border: none; border-radius: 5px; background: transparent; color: #444; cursor: pointer; font-weight: 600; }
         .sub-btn.active { background: var(--royal-blue); color: white; }
 
-        /* Term Selection (NEW) */
-        .term-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
-        .term-btn { padding: 8px 20px; border: 2px solid var(--royal-blue); border-radius: 20px; background: white; color: var(--royal-blue); cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .term-btn.active { background: var(--gold); border-color: var(--gold); }
-
-        /* Resource Section */
         .resource-display { display: none; animation: fadeIn 0.4s ease; }
         .resource-display.active { display: block; }
-
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
         
-        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; border-top: 4px solid var(--royal-blue); }
-        .card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 15px; }
-        .card h3 { margin: 10px 0; color: var(--royal-blue); }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--royal-blue); }
+        .card h3 { color: var(--royal-blue); text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         
-        .action-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
-        .btn { padding: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; color: white; transition: 0.3s; }
-        .btn-pdf { background: #e74c3c; }
-        .btn-video { background: #27ae60; }
-        .btn-paper { background: #3498db; }
-        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        .link-list { list-style: none; padding: 0; margin-top: 15px; max-height: 400px; overflow-y: auto; }
+        .link-list li { margin-bottom: 8px; }
+        .link-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #f9f9f9; border-radius: 5px; text-decoration: none; color: #333; font-size: 0.9rem; transition: 0.2s; border: 1px solid #eee; }
+        .link-item:hover { background: #f0f2f5; border-color: var(--gold); }
+        .link-item i { margin-right: 10px; color: var(--royal-blue); }
 
-        .footer-nav { text-align: center; margin-top: 40px; padding-bottom: 40px; }
+        .footer-nav { text-align: center; margin: 40px 0; }
         .logout { background: #333; color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; }
+
+        /* Scrollbar styling */
+        .link-list::-webkit-scrollbar { width: 5px; }
+        .link-list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -88,30 +82,18 @@
     <div id="content-area" class="resource-display active">
         <div class="grid">
             <div class="card">
-                <i class="fas fa-book-open"></i>
-                <h3>පාඩම් මාලාව</h3>
-                <p>තෝරාගත් වාරයට අදාළ සටහන් සහ PDF මෙතැනින් ලබාගන්න.</p>
-                <div class="action-btns">
-                    <a href="#" class="btn btn-pdf"><i class="fas fa-file-pdf"></i> PDF බාගත කරන්න</a>
-                </div>
+                <h3><i class="fas fa-book-open"></i> පාඩම් මාලාව (PDF)</h3>
+                <ul class="link-list" id="pdf-list"></ul>
             </div>
 
             <div class="card">
-                <i class="fab fa-youtube"></i>
-                <h3>වීඩියෝ පාඩම්</h3>
-                <p>අමාරු පාඩම් වීඩියෝ මගින් සරලව ඉගෙන ගන්න.</p>
-                <div class="action-btns">
-                    <a href="#" class="btn btn-video"><i class="fas fa-play"></i> දැන් නරඹන්න</a>
-                </div>
+                <h3><i class="fab fa-youtube"></i> වීඩියෝ පාඩම්</h3>
+                <ul class="link-list" id="video-list"></ul>
             </div>
 
             <div class="card">
-                <i class="fas fa-file-signature"></i>
-                <h3>ප්‍රශ්න පත්‍ර</h3>
-                <p>වාර විභාග සහ පුහුණු ප්‍රශ්න පත්‍ර මෙතැනින් ලබාගන්න.</p>
-                <div class="action-btns">
-                    <a href="#" class="btn btn-paper"><i class="fas fa-download"></i> පත්‍රිකා බාගත කරන්න</a>
-                </div>
+                <h3><i class="fas fa-file-signature"></i> ප්‍රශ්න පත්‍ර</h3>
+                <ul class="link-list" id="paper-list"></ul>
             </div>
         </div>
     </div>
@@ -126,80 +108,84 @@
     let currentSubject = 'sinhala';
     let currentTerm = 1;
 
-    // --- මෙතන වාර 3 ටම ලින්ක් දාන්න පුළුවන් ---
+    // --- මෙතන තමයි ලින්ක් 20ම දාන්නේ ---
+    // එක විෂයකට උදාහරණයක් පෙන්වන්නම්, අනිත් ඒවත් මේ වගේම පුරවන්න
     const resourceData = {
         "1": {
             "sinhala": {
-                // 1 ශ්‍රේණිය - සිංහල - 1 වාරය සඳහා ඇත්තම ලින්ක්ස්
-                1: { 
-                    pdf: "https://www.edupub.gov.lk/Administrator/Downloads/Sinhala%20Medium/Gr1/Grade%2001%20-%20Sinhala%20(Reading%20Book).pdf", 
-                    video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // උදාහරණයක් ලෙස YouTube ලින්ක් එකක්
-                    paper: "https://www.e-thaksalawa.moe.gov.lk/moodle/pluginfile.php/3103/mod_resource/content/1/Grade%2001%20Sinhala.pdf" 
+                1: {
+                    pdfs: [
+                        { name: "1 පාඩම - අකුරු ලියමු", url: "links/g1/s1/p1.pdf" },
+                        { name: "2 පාඩම - වචන කියවමු", url: "#" },
+                        // මෙතනට ලින්ක් 20ක් දක්වා දාන්න පුළුවන්...
+                    ],
+                    videos: [
+                        { name: "සිංහල හෝඩි වීඩියෝව", url: "https://youtube.com/..." },
+                        { name: "පිල්ලම් හඳුනාගමු", url: "#" },
+                    ],
+                    papers: [
+                        { name: "පළමු මාසික පරීක්ෂණය", url: "#" },
+                    ]
                 },
-                2: { pdf: "#", video: "#", paper: "#" },
-                3: { pdf: "#", video: "#", paper: "#" }
+                2: { pdfs: [], videos: [], papers: [] },
+                3: { pdfs: [], videos: [], papers: [] }
             },
-            "math": {
-                1: { 
-                    pdf: "https://www.edupub.gov.lk/Administrator/Downloads/Sinhala%20Medium/Gr1/Mathematics%20-%20Grade%201.pdf", 
-                    video: "https://www.youtube.com/results?search_query=grade+1+maths+sinhala", 
-                    paper: "#" 
-                },
-                2: { pdf: "#", video: "#", paper: "#" },
-                3: { pdf: "#", video: "#", paper: "#" }
-            }
-        }
+            "math": { 1: { pdfs: [], videos: [], papers: [] }, 2: { pdfs: [], videos: [], papers: [] }, 3: { pdfs: [], videos: [], papers: [] } }
+        },
+        "2": { "sinhala": { 1: { pdfs: [], videos: [], papers: [] }, 2: { pdfs: [], videos: [], papers: [] }, 3: { pdfs: [], videos: [], papers: [] } } }
+        // 3, 4, 5 ශ්‍රේණි මේ විදියටම Object එක ඇතුලේ හදන්න
     };
 
-    const subjectNames = {
-        'sinhala': 'සිංහල', 'math': 'ගණිතය', 'env': 'පරිසරය',
-        'religion': 'ආගම', 'english': 'English', 'tamil': 'දෙමළ'
-    };
+    const subjectNames = { 'sinhala': 'සිංහල', 'math': 'ගණිතය', 'env': 'පරිසරය', 'religion': 'ආගම', 'english': 'English', 'tamil': 'දෙමළ' };
 
-    function changeGrade(grade) {
-        currentGrade = grade;
-        updateUI();
-        updateButtons('.grade-btn', grade - 1);
-    }
-
-    function changeSubject(subject) {
-        currentSubject = subject;
-        updateUI();
+    function changeGrade(grade) { currentGrade = grade; updateUI(); updateButtons('.grade-btn', grade - 1); }
+    function changeSubject(subject) { 
+        currentSubject = subject; updateUI(); 
         const btns = document.querySelectorAll('.sub-btn');
         btns.forEach(btn => {
             if(btn.getAttribute('onclick').includes(subject)) btn.classList.add('active');
             else btn.classList.remove('active');
         });
     }
-
-    function changeTerm(term) {
-        currentTerm = term;
-        updateUI();
-        updateButtons('.term-btn', term - 1);
-    }
+    function changeTerm(term) { currentTerm = term; updateUI(); updateButtons('.term-btn', term - 1); }
 
     function updateUI() {
-        document.getElementById('display-title').innerText = 
-            currentGrade + " ශ්‍රේණිය - " + subjectNames[currentSubject] + " (" + currentTerm + " වාරය)";
+        document.getElementById('display-title').innerText = currentGrade + " ශ්‍රේණිය - " + subjectNames[currentSubject] + " (" + currentTerm + " වාරය)";
         
-        // ලින්ක් ලබා ගැනීම (වාරය අනුව)
         let data = (resourceData[currentGrade] && resourceData[currentGrade][currentSubject] && resourceData[currentGrade][currentSubject][currentTerm])
                    ? resourceData[currentGrade][currentSubject][currentTerm]
-                   : { pdf: "#", video: "#", paper: "#" };
+                   : { pdfs: [], videos: [], papers: [] };
 
-        document.querySelector('.btn-pdf').href = data.pdf;
-        document.querySelector('.btn-video').href = data.video;
-        document.querySelector('.btn-paper').href = data.paper;
+        renderLinks('pdf-list', data.pdfs, 'fa-file-pdf');
+        renderLinks('video-list', data.videos, 'fa-play-circle');
+        renderLinks('paper-list', data.papers, 'fa-file-alt');
 
         const area = document.getElementById('content-area');
         area.classList.remove('active');
         setTimeout(() => { area.classList.add('active'); }, 50);
     }
 
+    function renderLinks(elementId, links, icon) {
+        const list = document.getElementById(elementId);
+        list.innerHTML = '';
+        if (links.length === 0) {
+            list.innerHTML = '<li style="text-align:center; color:#999; padding:20px;">තවමත් දත්ත ඇතුළත් කර නැත.</li>';
+            return;
+        }
+        links.forEach((link, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="${link.url}" target="_blank" class="link-item">
+                                <span><i class="fas ${icon}"></i> ${link.name}</span>
+                                <i class="fas fa-chevron-right" style="font-size:0.7rem; color:#ccc;"></i>
+                            </a>`;
+            list.appendChild(li);
+        });
+    }
+
     function updateButtons(className, index) {
         const btns = document.querySelectorAll(className);
         btns.forEach(btn => btn.classList.remove('active'));
-        btns[index].classList.add('active');
+        if(btns[index]) btns[index].classList.add('active');
     }
 
     window.onload = updateUI;
