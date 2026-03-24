@@ -1,122 +1,19 @@
-<!DOCTYPE html>
-<html lang="si">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMS Login | Galewela Royal College</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --royal-blue: #002147;
-            --gold: #D4AF37;
-            --white: #ffffff;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0,33,71,0.9), rgba(0,33,71,0.9)), url('school_front.webp') center/cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-        }
-
-        .login-box {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            width: 100%;
-            max-width: 380px;
-            text-align: center;
-        }
-
-        .login-box img { width: 80px; margin-bottom: 10px; }
-        .login-box h2 { color: var(--royal-blue); margin-bottom: 5px; font-size: 1.6rem; }
-        .login-box p { color: #666; margin-bottom: 25px; font-size: 0.9rem; }
-
-        .input-group { text-align: left; margin-bottom: 15px; }
-        .input-group label { display: block; margin-bottom: 5px; color: var(--royal-blue); font-weight: 600; }
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-        }
-
-        .login-btn {
-            width: 100%;
-            padding: 12px;
-            background: var(--royal-blue);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .login-btn:hover { background: var(--gold); color: var(--royal-blue); }
-
-        #error-msg {
-            color: red;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-            display: none; /* වැරදි නම් විතරක් පෙන්වීමට */
-        }
-
-        .back-link { margin-top: 20px; display: block; color: var(--royal-blue); text-decoration: none; font-weight: bold; }
-    </style>
-</head>
-<body>
-
-<div class="login-box">
-    <img src="logo.png" alt="Logo">
-    <h2>LMS ලොගින්</h2>
-    <p>ඉගෙනුම් කළමනාකරණ පද්ධතියට ඇතුළු වන්න</p>
-
-    <div id="error-msg">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</div>
-
-    <form id="lmsLoginForm">
-        <div class="input-group">
-            <label>පරිශීලක නාමය</label>
-            <input type="text" id="uname" placeholder="Username ඇතුළත් කරන්න" required>
-        </div>
-        <div class="input-group">
-            <label>මුරපදය</label>
-            <input type="password" id="upass" placeholder="Password ඇතුළත් කරන්න" required>
-        </div>
-        <button type="submit" class="login-btn">ඇතුළු වන්න</button>
-    </form>
-
-    <a href="index.html" class="back-link">← නැවත මුල් පිටුවට</a>
-</div>
-
 <script>
     document.getElementById('lmsLoginForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // --- මෙතන තමයි Username සහ Password එක තියෙන්නේ ---
         var correctUser = "admin"; 
         var correctPass = "19770212";
-        // ----------------------------------------------
 
         var enteredUser = document.getElementById('uname').value;
         var enteredPass = document.getElementById('upass').value;
         var errorMsg = document.getElementById('error-msg');
 
         if (enteredUser === correctUser && enteredPass === correctPass) {
-            // හරියටම ගැලපේ නම් යන පිටුව (උදා: student.html)
-            window.location.href = "student.html"; 
+            // ලොග් වුණාම "resources.html" කියන පිටුවට යනවා
+            window.location.href = "resources.html"; 
         } else {
-            // වැරදි නම් Error එක පෙන්වනවා
             errorMsg.style.display = "block";
         }
     });
 </script>
-
-</body>
-</html>
