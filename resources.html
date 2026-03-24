@@ -11,23 +11,18 @@
         .header { background: var(--royal-blue); color: white; padding: 25px; text-align: center; border-bottom: 5px solid var(--gold); }
         .welcome-bar { background: #fff; padding: 10px 20px; text-align: right; color: var(--royal-blue); font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .container { max-width: 1200px; margin: 20px auto; padding: 15px; }
-        
         .grade-nav, .term-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
         .grade-btn, .term-btn { padding: 10px 20px; border: none; border-radius: 5px; background: white; cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
         .grade-btn.active, .term-btn.active { background: var(--gold); color: var(--royal-blue); }
-
         .subject-nav { background: #e2e8f0; padding: 10px; border-radius: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;}
         .sub-btn { padding: 8px 15px; border: none; border-radius: 5px; background: transparent; cursor: pointer; font-weight: 600; color: #444; }
         .sub-btn.active { background: var(--royal-blue); color: white; }
-
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
         .card { background: white; padding: 20px; border-radius: 12px; border-top: 4px solid var(--royal-blue); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .card h3 { color: var(--royal-blue); text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-
         .link-list { list-style: none; padding: 0; margin-top: 15px; max-height: 400px; overflow-y: auto; }
         .link-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #f9f9f9; margin-bottom: 8px; border-radius: 5px; text-decoration: none; color: #333; border: 1px solid #eee; transition: 0.2s; }
         .link-item:hover { background: #f0f2f5; border-color: var(--gold); }
-        
         .logout-btn { background: #333; color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 30px; font-weight: bold; }
         .logout-btn:hover { background: #d63031; }
     </style>
@@ -107,28 +102,27 @@
         });
     });
 
-    // --- දත්ත ඇතුළත් කිරීම (උදාහරණ) ---
+    // --- මෙතන තමයි ඇත්තම පාඩම් දත්ත (Sample Content) ---
+
+    // 1 ශ්‍රේණිය - සිංහල - 1 වාරය
+    resourceData[1]["sinhala"][1].pdfs.push({ name: "අකුරු ලියමු - වැඩපත්‍රිකාව", url: "#" });
+    resourceData[1]["sinhala"][1].videos.push({ name: "සිංහල හෝඩිය ගායනය", url: "https://www.youtube.com/watch?v=D-mGIsK60iU" });
 
     // 4 ශ්‍රේණිය - සිංහල - 1 වාරය
     resourceData[4]["sinhala"][1].pdfs.push(
-        { name: "1 පාඩම - අපේ ගම (සටහන)", url: "links/g4/sinhala/lesson1.pdf" },
-        { name: "2 පාඩම - පරිසරය අඳුනමු", url: "links/g4/sinhala/lesson2.pdf" },
-        { name: "3 පාඩම - අකුරු මාලාව", url: "links/g4/sinhala/lesson3.pdf" }
+        { name: "1 පාඩම - අපේ ගම (සටහන)", url: "#" },
+        { name: "2 පාඩම - සතුන්ගේ ලෝකය", url: "#" }
     );
     resourceData[4]["sinhala"][1].videos.push(
-        { name: "අපේ ගම - වීඩියෝ පාඩම", url: "https://www.youtube.com/watch?v=example1" },
-        { name: "පරිසරය ගැන කතාවක්", url: "https://www.youtube.com/watch?v=example2" },
-        { name: "නිවැරදිව අකුරු ලියමු", url: "https://www.youtube.com/watch?v=example3" }
+        { name: "නාම පද හඳුනාගනිමු", url: "https://www.youtube.com/watch?v=example1" },
+        { name: "ක්‍රියා පද පාඩම", url: "https://www.youtube.com/watch?v=example2" }
     );
-    resourceData[4]["sinhala"][1].papers.push(
-        { name: "පෙබරවාරි මාසික පරීක්ෂණය", url: "links/g4/sinhala/paper1.pdf" },
-        { name: "මාර්තු මාසික පරීක්ෂණය", url: "links/g4/sinhala/paper2.pdf" }
-    );
+    resourceData[4]["sinhala"][1].papers.push({ name: "පළමු වාර ඇගයීම 01", url: "#" });
 
-    // 4 ශ්‍රේණිය - ගණිතය - 1 වාරය
-    resourceData[4]["math"][1].pdfs.push(
-        { name: "ස්ථානීය අගය පාඩම", url: "links/g4/math/math1.pdf" }
-    );
+    // 5 ශ්‍රේණිය - ශිෂ්‍යත්වය (ගණිතය/පරිසරය) - 1 වාරය
+    resourceData[5]["math"][1].pdfs.push({ name: "සංඛ්‍යා රටා - අභ්‍යාස", url: "#" });
+    resourceData[5]["math"][1].videos.push({ name: "වේලාව බැලීම පාඩම", url: "https://www.youtube.com/watch?v=example3" });
+    resourceData[5]["env"][1].pdfs.push({ name: "පැළෑටි ලෝකය", url: "#" });
 
     const subjectNames = { 
         'sinhala': 'සිංහල', 'math': 'ගණිතය', 'env': 'පරිසරය', 
@@ -169,18 +163,12 @@
         document.querySelectorAll(cls).forEach((b, i) => i === idx ? b.classList.add('active') : b.classList.remove('active'));
     }
 
-    function logout() {
-        sessionStorage.clear();
-        window.location.href = "lms.html";
-    }
+    function logout() { sessionStorage.clear(); window.location.href = "lms.html"; }
 
     window.onload = function() {
         let name = sessionStorage.getItem("studentName");
         if (!name) { window.location.href = "lms.html"; }
-        else { 
-            document.getElementById('welcome-name').innerText = name;
-            updateUI(); 
-        }
+        else { document.getElementById('welcome-name').innerText = name; updateUI(); }
     };
 </script>
 </body>
