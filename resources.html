@@ -52,7 +52,7 @@
         <button class="grade-btn" onclick="changeGrade(5)">5 ශ්‍රේණිය</button>
     </div>
 
-    <div class="subject-nav" id="sub-nav">
+    <div class="subject-nav">
         <button class="sub-btn active" onclick="changeSubject('sinhala')">සිංහල</button>
         <button class="sub-btn" onclick="changeSubject('math')">ගණිතය</button>
         <button class="sub-btn" onclick="changeSubject('env')">පරිසරය</button>
@@ -92,29 +92,43 @@
     let currentSubject = 'sinhala';
     let currentTerm = 1;
 
-    // --- මෙතන තමයි ඔයාගේ ලින්ක් ඔක්කොම දාන්නේ ---
-    const resourceData = {
-        "4": {
-            "sinhala": {
-                1: {
-                    pdfs: [
-                        { name: "1 වන පාඩම PDF", url: "links/g4/s1/p1.pdf" },
-                        { name: "2 වන පාඩම PDF", url: "#" }
-                    ],
-                    videos: [
-                        { name: "1 වන පාඩම වීඩියෝව", url: "https://youtube.com/..." }
-                    ],
-                    papers: [
-                        { name: "පළමු වාර පරීක්ෂණය", url: "#" }
-                    ]
-                }
-            },
-            "tamil": {
-                1: { pdfs: [{ name: "දෙමළ හෝඩිය", url: "#" }], videos: [], papers: [] }
-            }
-        }
-        // අනෙක් ශ්‍රේණි මේ විදිහටම එකතු කරන්න...
-    };
+    const resourceData = {};
+    const grades = [1, 2, 3, 4, 5];
+    const subjects = ['sinhala', 'math', 'env', 'religion', 'english', 'tamil'];
+    const terms = [1, 2, 3];
+
+    grades.forEach(g => {
+        resourceData[g] = {};
+        subjects.forEach(s => {
+            resourceData[g][s] = {};
+            terms.forEach(t => {
+                resourceData[g][s][t] = { pdfs: [], videos: [], papers: [] };
+            });
+        });
+    });
+
+    // --- දත්ත ඇතුළත් කිරීම (උදාහරණ) ---
+
+    // 4 ශ්‍රේණිය - සිංහල - 1 වාරය
+    resourceData[4]["sinhala"][1].pdfs.push(
+        { name: "1 පාඩම - අපේ ගම (සටහන)", url: "links/g4/sinhala/lesson1.pdf" },
+        { name: "2 පාඩම - පරිසරය අඳුනමු", url: "links/g4/sinhala/lesson2.pdf" },
+        { name: "3 පාඩම - අකුරු මාලාව", url: "links/g4/sinhala/lesson3.pdf" }
+    );
+    resourceData[4]["sinhala"][1].videos.push(
+        { name: "අපේ ගම - වීඩියෝ පාඩම", url: "https://www.youtube.com/watch?v=example1" },
+        { name: "පරිසරය ගැන කතාවක්", url: "https://www.youtube.com/watch?v=example2" },
+        { name: "නිවැරදිව අකුරු ලියමු", url: "https://www.youtube.com/watch?v=example3" }
+    );
+    resourceData[4]["sinhala"][1].papers.push(
+        { name: "පෙබරවාරි මාසික පරීක්ෂණය", url: "links/g4/sinhala/paper1.pdf" },
+        { name: "මාර්තු මාසික පරීක්ෂණය", url: "links/g4/sinhala/paper2.pdf" }
+    );
+
+    // 4 ශ්‍රේණිය - ගණිතය - 1 වාරය
+    resourceData[4]["math"][1].pdfs.push(
+        { name: "ස්ථානීය අගය පාඩම", url: "links/g4/math/math1.pdf" }
+    );
 
     const subjectNames = { 
         'sinhala': 'සිංහල', 'math': 'ගණිතය', 'env': 'පරිසරය', 
@@ -123,28 +137,17 @@
 
     function changeGrade(g) { currentGrade = g; updateUI(); toggleActive('.grade-btn', g-1); }
     function changeTerm(t) { currentTerm = t; updateUI(); toggleActive('.term-btn', t-1); }
-    
     function changeSubject(s) { 
         currentSubject = s; 
         updateUI(); 
-        // Subject buttons වල active class එක මාරු කිරීම
-        const btns = document.querySelectorAll('.sub-btn');
-        btns.forEach(btn => {
-            if(btn.innerText.toLowerCase() === subjectNames[s].toLowerCase() || btn.innerText === s) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
+        document.querySelectorAll('.sub-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick').includes(s));
         });
     }
 
     function updateUI() {
         document.getElementById('display-title').innerText = currentGrade + " ශ්‍රේණිය - " + subjectNames[currentSubject] + " (" + currentTerm + " වාරය)";
-        
-        let data = (resourceData[currentGrade] && resourceData[currentGrade][currentSubject] && resourceData[currentGrade][currentSubject][currentTerm]) 
-                   ? resourceData[currentGrade][currentSubject][currentTerm] 
-                   : { pdfs: [], videos: [], papers: [] };
-
+        let data = resourceData[currentGrade][currentSubject][currentTerm];
         render('pdf-list', data.pdfs, 'fa-file-pdf');
         render('video-list', data.videos, 'fa-play-circle');
         render('paper-list', data.papers, 'fa-file-alt');
@@ -154,11 +157,11 @@
         const list = document.getElementById(id);
         list.innerHTML = '';
         if (links.length === 0) {
-            list.innerHTML = '<li style="text-align:center; color:#999; padding:10px;">දත්ත ඇතුළත් කර නැත.</li>';
+            list.innerHTML = '<li style="text-align:center; color:#999; padding:20px; background:#fefefe; border-radius:5px;">දත්ත ඇතුළත් කර නැත.</li>';
             return;
         }
         links.forEach(l => {
-            list.innerHTML += `<li><a href="${l.url}" target="_blank" class="link-item"><span><i class="fas ${icon}"></i> ${l.name}</span><i class="fas fa-chevron-right" style="color:#ccc; font-size:0.8rem;"></i></a></li>`;
+            list.innerHTML += `<li><a href="${l.url}" target="_blank" class="link-item"><span><i class="fas ${icon}"></i> ${l.name}</span><i class="fas fa-chevron-right" style="color:#ccc;"></i></a></li>`;
         });
     }
 
@@ -173,14 +176,12 @@
 
     window.onload = function() {
         let name = sessionStorage.getItem("studentName");
-        if (!name) { 
-            window.location.href = "lms.html"; 
-        } else { 
+        if (!name) { window.location.href = "lms.html"; }
+        else { 
             document.getElementById('welcome-name').innerText = name;
-            updateUI();
+            updateUI(); 
         }
     };
 </script>
-
 </body>
 </html>
