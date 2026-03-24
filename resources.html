@@ -11,17 +11,25 @@
         .header { background: var(--royal-blue); color: white; padding: 25px; text-align: center; border-bottom: 5px solid var(--gold); }
         .welcome-bar { background: #fff; padding: 10px 20px; text-align: right; color: var(--royal-blue); font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
         .container { max-width: 1200px; margin: 20px auto; padding: 15px; }
+        
         .grade-nav, .term-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .grade-btn, .term-btn { padding: 10px 20px; border: none; border-radius: 5px; background: white; cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .grade-btn, .term-btn { padding: 10px 20px; border: none; border-radius: 5px; background: white; cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
         .grade-btn.active, .term-btn.active { background: var(--gold); color: var(--royal-blue); }
+
         .subject-nav { background: #e2e8f0; padding: 10px; border-radius: 10px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;}
-        .sub-btn { padding: 8px 15px; border: none; border-radius: 5px; background: transparent; cursor: pointer; font-weight: 600; }
+        .sub-btn { padding: 8px 15px; border: none; border-radius: 5px; background: transparent; cursor: pointer; font-weight: 600; color: #444; }
         .sub-btn.active { background: var(--royal-blue); color: white; }
+
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
         .card { background: white; padding: 20px; border-radius: 12px; border-top: 4px solid var(--royal-blue); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .link-list { list-style: none; padding: 0; margin-top: 15px; }
-        .link-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #f9f9f9; margin-bottom: 8px; border-radius: 5px; text-decoration: none; color: #333; border: 1px solid #eee; }
-        .logout-btn { background: #d63031; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 30px; }
+        .card h3 { color: var(--royal-blue); text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+
+        .link-list { list-style: none; padding: 0; margin-top: 15px; max-height: 400px; overflow-y: auto; }
+        .link-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #f9f9f9; margin-bottom: 8px; border-radius: 5px; text-decoration: none; color: #333; border: 1px solid #eee; transition: 0.2s; }
+        .link-item:hover { background: #f0f2f5; border-color: var(--gold); }
+        
+        .logout-btn { background: #333; color: white; padding: 10px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 30px; font-weight: bold; }
+        .logout-btn:hover { background: #d63031; }
     </style>
 </head>
 <body>
@@ -44,12 +52,13 @@
         <button class="grade-btn" onclick="changeGrade(5)">5 ශ්‍රේණිය</button>
     </div>
 
-    <div class="subject-nav">
+    <div class="subject-nav" id="sub-nav">
         <button class="sub-btn active" onclick="changeSubject('sinhala')">සිංහල</button>
         <button class="sub-btn" onclick="changeSubject('math')">ගණිතය</button>
         <button class="sub-btn" onclick="changeSubject('env')">පරිසරය</button>
         <button class="sub-btn" onclick="changeSubject('religion')">ආගම</button>
         <button class="sub-btn" onclick="changeSubject('english')">English</button>
+        <button class="sub-btn" onclick="changeSubject('tamil')">දෙමළ</button>
     </div>
 
     <div class="term-nav">
@@ -75,7 +84,7 @@
         </div>
     </div>
 
-    <center><a href="#" onclick="logout()" class="logout-btn">පද්ධතියෙන් ඉවත් වන්න</a></center>
+    <center><a href="#" onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> පද්ධතියෙන් ඉවත් වන්න</a></center>
 </div>
 
 <script>
@@ -83,27 +92,59 @@
     let currentSubject = 'sinhala';
     let currentTerm = 1;
 
+    // --- මෙතන තමයි ඔයාගේ ලින්ක් ඔක්කොම දාන්නේ ---
     const resourceData = {
         "4": {
             "sinhala": {
                 1: {
-                    pdfs: [{ name: "සිංහල 1 පාඩම", url: "#" }],
-                    videos: [{ name: "සිංහල වීඩියෝ 1", url: "#" }],
-                    papers: [{ name: "සිංහල ප්‍රශ්න පත්‍රය", url: "#" }]
+                    pdfs: [
+                        { name: "1 වන පාඩම PDF", url: "links/g4/s1/p1.pdf" },
+                        { name: "2 වන පාඩම PDF", url: "#" }
+                    ],
+                    videos: [
+                        { name: "1 වන පාඩම වීඩියෝව", url: "https://youtube.com/..." }
+                    ],
+                    papers: [
+                        { name: "පළමු වාර පරීක්ෂණය", url: "#" }
+                    ]
                 }
+            },
+            "tamil": {
+                1: { pdfs: [{ name: "දෙමළ හෝඩිය", url: "#" }], videos: [], papers: [] }
             }
         }
+        // අනෙක් ශ්‍රේණි මේ විදිහටම එකතු කරන්න...
     };
 
-    const subjectNames = { 'sinhala': 'සිංහල', 'math': 'ගණිතය', 'env': 'පරිසරය', 'religion': 'ආගම', 'english': 'English' };
+    const subjectNames = { 
+        'sinhala': 'සිංහල', 'math': 'ගණිතය', 'env': 'පරිසරය', 
+        'religion': 'ආගම', 'english': 'English', 'tamil': 'දෙමළ' 
+    };
 
     function changeGrade(g) { currentGrade = g; updateUI(); toggleActive('.grade-btn', g-1); }
     function changeTerm(t) { currentTerm = t; updateUI(); toggleActive('.term-btn', t-1); }
-    function changeSubject(s) { currentSubject = s; updateUI(); } // Simplified for brevity
+    
+    function changeSubject(s) { 
+        currentSubject = s; 
+        updateUI(); 
+        // Subject buttons වල active class එක මාරු කිරීම
+        const btns = document.querySelectorAll('.sub-btn');
+        btns.forEach(btn => {
+            if(btn.innerText.toLowerCase() === subjectNames[s].toLowerCase() || btn.innerText === s) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
 
     function updateUI() {
         document.getElementById('display-title').innerText = currentGrade + " ශ්‍රේණිය - " + subjectNames[currentSubject] + " (" + currentTerm + " වාරය)";
-        let data = (resourceData[currentGrade] && resourceData[currentGrade][currentSubject] && resourceData[currentGrade][currentSubject][currentTerm]) ? resourceData[currentGrade][currentSubject][currentTerm] : { pdfs: [], videos: [], papers: [] };
+        
+        let data = (resourceData[currentGrade] && resourceData[currentGrade][currentSubject] && resourceData[currentGrade][currentSubject][currentTerm]) 
+                   ? resourceData[currentGrade][currentSubject][currentTerm] 
+                   : { pdfs: [], videos: [], papers: [] };
+
         render('pdf-list', data.pdfs, 'fa-file-pdf');
         render('video-list', data.videos, 'fa-play-circle');
         render('paper-list', data.papers, 'fa-file-alt');
@@ -111,9 +152,13 @@
 
     function render(id, links, icon) {
         const list = document.getElementById(id);
-        list.innerHTML = links.length ? '' : '<li>දත්ත නොමැත</li>';
+        list.innerHTML = '';
+        if (links.length === 0) {
+            list.innerHTML = '<li style="text-align:center; color:#999; padding:10px;">දත්ත ඇතුළත් කර නැත.</li>';
+            return;
+        }
         links.forEach(l => {
-            list.innerHTML += `<li><a href="${l.url}" class="link-item"><span><i class="fas ${icon}"></i> ${l.name}</span><i class="fas fa-chevron-right"></i></a></li>`;
+            list.innerHTML += `<li><a href="${l.url}" target="_blank" class="link-item"><span><i class="fas ${icon}"></i> ${l.name}</span><i class="fas fa-chevron-right" style="color:#ccc; font-size:0.8rem;"></i></a></li>`;
         });
     }
 
@@ -128,12 +173,14 @@
 
     window.onload = function() {
         let name = sessionStorage.getItem("studentName");
-        if (!name) { window.location.href = "lms.html"; }
-        else { 
+        if (!name) { 
+            window.location.href = "lms.html"; 
+        } else { 
             document.getElementById('welcome-name').innerText = name;
             updateUI();
         }
     };
 </script>
+
 </body>
 </html>
