@@ -15,14 +15,19 @@
         .container { max-width: 1200px; margin: 20px auto; padding: 15px; }
 
         /* Grade Selection */
-        .grade-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
+        .grade-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
         .grade-btn { padding: 10px 20px; border: none; border-radius: 5px; background: white; color: var(--royal-blue); cursor: pointer; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
         .grade-btn.active { background: var(--gold); color: var(--royal-blue); }
 
         /* Subject Selection */
-        .subject-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; background: #e2e8f0; padding: 10px; border-radius: 10px; }
+        .subject-nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; background: #e2e8f0; padding: 10px; border-radius: 10px; }
         .sub-btn { padding: 8px 15px; border: none; border-radius: 5px; background: transparent; color: #444; cursor: pointer; font-weight: 600; transition: 0.2s; }
         .sub-btn.active { background: var(--royal-blue); color: white; }
+
+        /* Term Selection (NEW) */
+        .term-nav { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; }
+        .term-btn { padding: 8px 20px; border: 2px solid var(--royal-blue); border-radius: 20px; background: white; color: var(--royal-blue); cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .term-btn.active { background: var(--gold); border-color: var(--gold); }
 
         /* Resource Section */
         .resource-display { display: none; animation: fadeIn 0.4s ease; }
@@ -72,14 +77,20 @@
         <button class="sub-btn" onclick="changeSubject('tamil')">දෙමළ</button>
     </div>
 
-    <h2 id="display-title" style="text-align:center; color:var(--royal-blue);">1 ශ්‍රේණිය - සිංහල</h2>
+    <div class="term-nav">
+        <button class="term-btn active" onclick="changeTerm(1)">1 වාරය</button>
+        <button class="term-btn" onclick="changeTerm(2)">2 වාරය</button>
+        <button class="term-btn" onclick="changeTerm(3)">3 වාරය</button>
+    </div>
+
+    <h2 id="display-title" style="text-align:center; color:var(--royal-blue);">1 ශ්‍රේණිය - සිංහල (1 වාරය)</h2>
 
     <div id="content-area" class="resource-display active">
         <div class="grid">
             <div class="card">
                 <i class="fas fa-book-open"></i>
                 <h3>පාඩම් මාලාව</h3>
-                <p>සියලුම පාඩම් වලට අදාළ සටහන් සහ PDF මෙතැනින් ලබාගන්න.</p>
+                <p>තෝරාගත් වාරයට අදාළ සටහන් සහ PDF මෙතැනින් ලබාගන්න.</p>
                 <div class="action-btns">
                     <a href="#" class="btn btn-pdf"><i class="fas fa-file-pdf"></i> PDF බාගත කරන්න</a>
                 </div>
@@ -113,23 +124,31 @@
 <script>
     let currentGrade = 1;
     let currentSubject = 'sinhala';
+    let currentTerm = 1;
 
-    // --- මෙතන තමයි ඔයා ලින්ක් ටික ඇතුළත් කරන්නේ ---
+    // --- මෙතන වාර 3 ටම ලින්ක් දාන්න පුළුවන් ---
     const resourceData = {
-        "1": { // 1 ශ්‍රේණිය
-            "sinhala": { pdf: "links/g1_sinhala.pdf", video: "https://youtube.com/link1", paper: "links/g1_sinhala_paper.pdf" },
-            "math": { pdf: "links/g1_math.pdf", video: "https://youtube.com/link2", paper: "links/g1_math_paper.pdf" },
-            "env": { pdf: "#", video: "#", paper: "#" },
-            "religion": { pdf: "#", video: "#", paper: "#" },
-            "english": { pdf: "#", video: "#", paper: "#" },
-            "tamil": { pdf: "#", video: "#", paper: "#" }
+        "1": {
+            "sinhala": {
+                1: { pdf: "links/g1_s_t1.pdf", video: "https://youtube.com/v1", paper: "links/p1.pdf" },
+                2: { pdf: "links/g1_s_t2.pdf", video: "#", paper: "#" },
+                3: { pdf: "#", video: "#", paper: "#" }
+            },
+            "math": {
+                1: { pdf: "#", video: "#", paper: "#" },
+                2: { pdf: "#", video: "#", paper: "#" },
+                3: { pdf: "#", video: "#", paper: "#" }
+            }
+            // අනෙක් විෂයන් මේ විදිහටම වාර 3ට බෙදන්න
         },
-        "2": { // 2 ශ්‍රේණිය
-            "sinhala": { pdf: "links/g2_sinhala.pdf", video: "https://youtube.com/link3", paper: "#" },
-            "math": { pdf: "#", video: "#", paper: "#" },
-            // අනෙක් විෂයන් මෙලෙසම දාන්න...
-        },
-        // 3, 4, 5 පන්ති සඳහාද මෙලෙසම කොටස් එකතු කරන්න
+        "2": {
+            "sinhala": {
+                1: { pdf: "links/g2_s_t1.pdf", video: "#", paper: "#" },
+                2: { pdf: "#", video: "#", paper: "#" },
+                3: { pdf: "#", video: "#", paper: "#" }
+            }
+        }
+        // 3, 4, 5 පන්ති සඳහාද මෙලෙසම...
     };
 
     const subjectNames = {
@@ -153,15 +172,21 @@
         });
     }
 
+    function changeTerm(term) {
+        currentTerm = term;
+        updateUI();
+        updateButtons('.term-btn', term - 1);
+    }
+
     function updateUI() {
-        document.getElementById('display-title').innerText = currentGrade + " ශ්‍රේණිය - " + subjectNames[currentSubject];
+        document.getElementById('display-title').innerText = 
+            currentGrade + " ශ්‍රේණිය - " + subjectNames[currentSubject] + " (" + currentTerm + " වාරය)";
         
-        // අදාළ ලින්ක් ටික ගන්නවා
-        let data = resourceData[currentGrade] && resourceData[currentGrade][currentSubject] 
-                   ? resourceData[currentGrade][currentSubject] 
+        // ලින්ක් ලබා ගැනීම (වාරය අනුව)
+        let data = (resourceData[currentGrade] && resourceData[currentGrade][currentSubject] && resourceData[currentGrade][currentSubject][currentTerm])
+                   ? resourceData[currentGrade][currentSubject][currentTerm]
                    : { pdf: "#", video: "#", paper: "#" };
 
-        // HTML එකේ තියෙන බටන් වලට ලින්ක් ටික දානවා
         document.querySelector('.btn-pdf').href = data.pdf;
         document.querySelector('.btn-video').href = data.video;
         document.querySelector('.btn-paper').href = data.paper;
@@ -177,7 +202,7 @@
         btns[index].classList.add('active');
     }
 
-    window.onload = updateUI; // මුලින්ම පේජ් එක ලෝඩ් වෙද්දී 1 ශ්‍රේණිය පෙන්වීමට
+    window.onload = updateUI;
 </script>
 
 </body>
