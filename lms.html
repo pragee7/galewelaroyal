@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMS | Galewela Royal College</title>
-    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>LMS Login | Galewela Royal College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --royal-blue: #002147;
@@ -13,115 +13,152 @@
         }
 
         body {
-            margin: 0; padding: 0; min-height: 100vh;
-            font-family: 'Poppins', sans-serif;
-            background: var(--light-bg);
-        }
-
-        /* Login Section Styles */
-        #login-section {
+            font-family: 'Poppins', 'Abhaya Libre', sans-serif;
+            background: linear-gradient(135deg, var(--royal-blue) 0%, #00152e 100%);
             height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(rgba(0,33,71,0.8), rgba(0,33,71,0.8)), url('school_front.jpg') center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
 
-        .login-card {
-            background: white; padding: 40px; border-radius: 20px;
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            width: 90%; max-width: 400px; text-align: center;
-            border-top: 8px solid var(--gold);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
         }
 
-        /* Dashboard Section Styles (Initial Hidden) */
-        #dashboard-section {
+        .login-container img {
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .login-container h2 {
+            color: var(--royal-blue);
+            margin-bottom: 5px;
+            font-size: 1.5rem;
+        }
+
+        .login-container p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--royal-blue);
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--royal-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #003366;
+            transform: translateY(-2px);
+        }
+
+        .error-msg {
+            color: #e74c3c;
+            background: #fdeaea;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
             display: none;
+            font-size: 0.9rem;
         }
 
-        .header { background: var(--royal-blue); color: white; padding: 20px; text-align: center; border-bottom: 5px solid var(--gold); }
-        .container { max-width: 1000px; margin: 30px auto; padding: 20px; }
-        .welcome-msg { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 25px; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; border-top: 5px solid var(--royal-blue); }
-        .card:hover { transform: translateY(-5px); }
-        .card button { background: var(--gold); border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--royal-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
 
-        /* Form Elements */
-        .input-group { margin-bottom: 20px; text-align: left; }
-        .input-group label { display: block; margin-bottom: 5px; color: var(--royal-blue); font-weight: 600; }
-        .input-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        .login-btn { width: 100%; padding: 12px; background: var(--royal-blue); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
-        .logout-btn { color: red; text-decoration: none; font-weight: bold; cursor: pointer; display: inline-block; margin-top: 20px; }
-        #errorMessage { color: red; font-size: 0.85rem; margin-top: 10px; display: none; }
+        .back-home:hover {
+            color: var(--gold);
+        }
     </style>
 </head>
 <body>
 
-    <section id="login-section">
-        <div class="login-card">
-            <h2 style="font-family: 'Abhaya Libre'; color: var(--royal-blue);">LMS ලොගින්</h2>
-            <p style="color: #666; font-size: 0.9rem; margin-bottom: 30px;">ඉගෙනුම් කළමනාකරණ පද්ධතියට ඇතුළු වන්න</p>
-            
-            <form id="lmsLoginForm">
-                <div class="input-group">
-                    <label>පරිශීලක නාමය</label>
-                    <input type="text" id="username" placeholder="පරිශීලක නාමය ඇතුළත් කරන්න" required>
-                </div>
-                <div class="input-group">
-                    <label>මුරපදය</label>
-                    <input type="password" id="password" placeholder="********" required>
-                </div>
-                <button type="submit" class="login-btn">ඇතුළු වන්න</button>
-                <p id="errorMessage">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</p>
-            </form>
-            <a href="index.html" style="margin-top:20px; display:block; text-decoration:none; color:var(--royal-blue); font-size:0.8rem;">← නැවත මුල් පිටුවට</a>
+<div class="login-container">
+    <img src="logo.png" alt="School Logo">
+    <h2>LMS ලොගින්</h2>
+    <p>ඉගෙනුම් කළමනාකරණ පද්ධතියට ඇතුළු වන්න</p>
+
+    <div id="error" class="error-msg">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</div>
+
+    <form id="loginForm">
+        <div class="input-group">
+            <label>පරිශීලක නාමය</label>
+            <input type="text" id="username" placeholder="Username ඇතුළත් කරන්න" required>
         </div>
-    </section>
-
-    <section id="dashboard-section">
-        <div class="header">
-            <h1>LMS ශිෂ්‍ය පුවරුව</h1>
+        <div class="input-group">
+            <label>මුරපදය</label>
+            <input type="password" id="password" placeholder="Password ඇතුළත් කරන්න" required>
         </div>
-        <div class="container">
-            <div class="welcome-msg">
-                <h2>ආයුබෝවන්, </h2>
-                <p>ඔබේ පාඩම් මාලාවන් මෙතැනින් ලබාගත හැක.</p>
-            </div>
-            <div class="grid">
-                <div class="card"><h3>ගණිතය</h3><p>1 වාරය</p><button>බලන්න</button></div>
-                <div class="card"><h3>විද්‍යාව</h3><p>1 වාරය</p><button>බලන්න</button></div>
-                <div class="card"><h3>ඉතිහාසය</h3><p>1 වාරය</p><button>බලන්න</button></div>
-            </div>
-            <center><span class="logout-btn" onclick="logout()">පද්ධතියෙන් ඉවත් වන්න (Logout)</span></center>
-        </div>
-    </section>
+        <button type="submit" class="login-btn">ඇතුළු වන්න</button>
+    </form>
 
-    <script>
-        const loginForm = document.getElementById('lmsLoginForm');
-        const loginSection = document.getElementById('login-section');
-        const dashboardSection = document.getElementById('dashboard-section');
-        const errorMsg = document.getElementById('errorMessage');
+    <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> නැවත මුල් පිටුවට</a>
+</div>
 
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const user = document.getElementById('username').value;
+        const pass = document.getElementById('password').value;
+        const error = document.getElementById('error');
 
-            if(user === "admin" && pass === "1234") {
-                loginSection.style.display = "none";
-                dashboardSection.style.display = "block";
-                document.getElementById('display-user').innerText = user;
-            } else {
-                errorMsg.style.display = "block";
-            }
-        });
-
-        function logout() {
-            loginSection.style.display = "flex";
-            dashboardSection.style.display = "none";
-            loginForm.reset();
-            errorMsg.style.display = "none";
+        // මෙතැන ඔයාට අවශ්‍ය Username සහ Password එක සකසන්න
+        if (user === "admin" && pass === "royal123") {
+            alert("සාර්ථකව ලොග් විය!");
+            window.location.href = "student.html"; // ලොග් වූ පසු යන පිටුව
+        } else {
+            error.style.display = "block";
         }
-    </script>
+    });
+</script>
+
 </body>
 </html>
