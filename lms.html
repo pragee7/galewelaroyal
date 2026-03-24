@@ -1,19 +1,150 @@
-<script>
-    document.getElementById('lmsLoginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        var correctUser = "admin"; 
-        var correctPass = "19770212";
-
-        var enteredUser = document.getElementById('uname').value;
-        var enteredPass = document.getElementById('upass').value;
-        var errorMsg = document.getElementById('error-msg');
-
-        if (enteredUser === correctUser && enteredPass === correctPass) {
-            // ලොග් වුණාම "resources.html" කියන පිටුවට යනවා
-            window.location.href = "resources.html"; 
-        } else {
-            errorMsg.style.display = "block";
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS Login | Galewela Royal College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-blue: #002147;
+            --gold: #D4AF37;
+            --white: #ffffff;
         }
-    });
+
+        body {
+            font-family: 'Poppins', 'Abhaya Libre', sans-serif;
+            background: linear-gradient(rgba(0,33,71,0.85), rgba(0,33,71,0.85)), url('school_front.webp') center/cover no-repeat fixed;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border-top: 5px solid var(--gold);
+        }
+
+        .login-box img { width: 80px; margin-bottom: 15px; }
+        .login-box h2 { color: var(--royal-blue); margin-bottom: 5px; font-size: 1.8rem; font-family: 'Abhaya Libre', serif; }
+        .login-box p { color: #555; margin-bottom: 25px; font-size: 0.95rem; }
+
+        .input-group { text-align: left; margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; color: var(--royal-blue); font-weight: 600; }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .input-group input:focus { border-color: var(--gold); }
+
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+            background: var(--royal-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover { background: var(--gold); color: var(--royal-blue); transform: translateY(-2px); }
+
+        #error-msg {
+            color: #d63031;
+            background: #ffeded;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: none;
+            font-weight: 600;
+        }
+
+        .back-link { 
+            margin-top: 25px; 
+            display: inline-block; 
+            color: var(--royal-blue); 
+            text-decoration: none; 
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-link:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <img src="logo.png" alt="School Logo">
+    <h2>LMS ලොගින්</h2>
+    <p>ඉගෙනුම් කළමනාකරණ පද්ධතියට ඇතුළු වන්න</p>
+
+    <div id="error-msg">පරිශීලක නාමය හෝ මුරපදය වැරදියි!</div>
+
+    <form id="lmsLoginForm">
+        <div class="input-group">
+            <label><i class="fas fa-user"></i> පරිශීලක නාමය</label>
+            <input type="text" id="uname" placeholder="Username ඇතුළත් කරන්න" required>
+        </div>
+        <div class="input-group">
+            <label><i class="fas fa-lock"></i> මුරපදය</label>
+            <input type="password" id="upass" placeholder="Password ඇතුළත් කරන්න" required>
+        </div>
+        <button type="submit" class="login-btn">ඇතුළු වන්න</button>
+    </form>
+
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> නැවත මුල් පිටුවට</a>
+</div>
+
+<script>
+    window.onload = function() {
+        var loginForm = document.getElementById('lmsLoginForm');
+        
+        if(loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // මෙතන තමයි ඔයා ඉල්ලපු දත්ත තියෙන්නේ
+                var correctUser = "admin"; 
+                var correctPass = "19770212";
+
+                var enteredUser = document.getElementById('uname').value;
+                var enteredPass = document.getElementById('upass').value;
+                var errorMsg = document.getElementById('error-msg');
+
+                if (enteredUser === correctUser && enteredPass === correctPass) {
+                    // සාර්ථක නම් resources.html වෙත යන්න
+                    window.location.href = "resources.html"; 
+                } else {
+                    // වැරදි නම් පණිවිඩය පෙන්වන්න
+                    if(errorMsg) {
+                        errorMsg.style.display = "block";
+                        // වැරදි පාස්වර්ඩ් එක ගැහුවම ෆීල්ඩ් එක ක්ලියර් කරන්න
+                        document.getElementById('upass').value = "";
+                    }
+                }
+            });
+        }
+    };
 </script>
+
+</body>
+</html>
